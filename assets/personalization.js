@@ -110,7 +110,7 @@ function getImageURLs() {
 }
 
   function updateLabels() {
-    console.log("🔄 Updating labels...");
+    // console.log("🔄 Updating labels...");
     const [url1, url2, url3] = getImageURLs();
     if (!url1 || !url2 || !url3) {
       return;
@@ -121,13 +121,13 @@ function getImageURLs() {
       { for: "template--18144808665270__main-1-1", url: url2 },
       { for: "template--18144808665270__main-1-2", url: url3 }
     ];
-    console.log("🔄 Designs to update:", designs);
+    // console.log("🔄 Designs to update:", designs);
   
     designs.forEach(({ for: id, url }) => {
       const label = document.querySelector(`label[for="${id}"]`);
-      console.log("🔄 Label found:", label);
+      // console.log("🔄 Label found:", label);
       if (label && !label.querySelector(`img[data-design="${id}"]`)) {
-        console.log("🔄 Updating label with image:", url);
+        // console.log("🔄 Updating label with image:", url);
         label.childNodes[0].textContent = '';
         const img = document.createElement("img");
         
@@ -138,7 +138,7 @@ function getImageURLs() {
         img.dataset.design = id;
         img.classList.add("label-image");
         label.appendChild(img);
-        console.log("🔄 Updated label with image:", img);
+        // console.log("🔄 Updated label with image:", img);
       }
     });
   }  
