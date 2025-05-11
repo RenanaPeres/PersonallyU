@@ -111,6 +111,7 @@ function getImageURLs() {
 
   if (!Array.isArray(designKeys)) return [null, null, null];
   const designURLs = designKeys.map(key => designedProductsImageURLs[key] || null);
+  console.log("🌐 Design Image URLs:", designURLs);
   return designURLs;
 }
 
