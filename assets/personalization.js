@@ -178,6 +178,7 @@ function observeVariants() {
     const fieldset = document.querySelector(".product-form__input--pill");
     if (fieldset && !fieldset.dataset.randomized) {
       randomizeFieldset();
+      updateLabels();
     }
   });
 
