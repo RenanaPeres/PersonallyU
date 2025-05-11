@@ -117,9 +117,9 @@ function getImageURLs() {
     }
   
     const designs = [
-      { for: "template--17814043295926__main-1-0", url: url1 },
-      { for: "template--17814043295926__main-1-1", url: url2 },
-      { for: "template--17814043295926__main-1-2", url: url3 }
+      { for: "template--18144808665270__main-1-0", url: url1 },
+      { for: "template--18144808665270__main-1-1", url: url2 },
+      { for: "template--18144808665270__main-1-2", url: url3 }
     ];
     console.log("🔄 Designs to update:", designs);
   
