@@ -121,6 +121,7 @@ function getImageURLs() {
       { for: "template--17814043295926__main-1-1", url: url2 },
       { for: "template--17814043295926__main-1-2", url: url3 }
     ];
+    console.log("🔄 Designs to update:", designs);
   
     designs.forEach(({ for: id, url }) => {
       const label = document.querySelector(`label[for="${id}"]`);
