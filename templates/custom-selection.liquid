@@ -1,0 +1,23 @@
+<form id="selection-form">
+  <label>Pick an Item:</label>
+  <select name="item" id="item">
+    <option value="shirt">Shirt</option>
+    <option value="mug">Mug</option>
+  </select>
+
+  <label>Pick an Animal:</label>
+  <select name="animal" id="animal">
+    <option value="dog">Dog</option>
+    <option value="cat">Cat</option>
+  </select>
+
+  <button type="button" onclick="redirectToQuiz()">Take Quiz</button>
+</form>
+
+<script>
+function redirectToQuiz() {
+  const item = document.getElementById('item').value;
+  const animal = document.getElementById('animal').value;
+  window.location.href = `https://yourquizwebsite.com?item=${item}&animal=${animal}`;
+}
+</script>
