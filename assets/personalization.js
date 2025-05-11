@@ -117,7 +117,10 @@ function getImageURLs() {
   function updateLabels() {
     console.log("🔄 Updating labels...");
     const [url1, url2, url3] = getImageURLs();
-    if (!url1 || !url2 || !url3) return;
+    if (!url1 || !url2 || !url3) {
+      console.warn("⚠️ Missing image URLs, skipping label update.");
+      return;
+    }
   
     const designs = [
       { for: "template--17814043295926__main-1-0", url: url1 },
