@@ -95,19 +95,19 @@ const designedProductsURLsToPersonality = {
 
 function getImageURLs() {
   let storedData = JSON.parse(localStorage.getItem("userQuizData")) || {};
-  // console.log("📦 Stored Data from localStorage:", storedData);
+  console.log("📦 Stored Data from localStorage:", storedData);
   
   const personality = storedData.personality || "NO";
-  // console.log("🧠 Detected Personality:", personality);
+  console.log("🧠 Detected Personality:", personality);
   
   const detectedType = localStorage.getItem("productType");
-  // console.log("🧥 Detected Product Type:", detectedType);
+  console.log("🧥 Detected Product Type:", detectedType);
   
   // const baseURL = genericProductsImageURLs[detectedType];
-  // console.log("🌐 Base Image URL for Product Type:", baseURL);
+  console.log("🌐 Base Image URL for Product Type:", baseURL);
   
   const designKeys = personalityToDesignImages[personality];
-  // console.log("🎨 Design Keys for Personality:", designKeys);
+  console.log("🎨 Design Keys for Personality:", designKeys);
 
   if (!Array.isArray(designKeys)) return [null, null, null];
   const designURLs = designKeys.map(key => designedProductsImageURLs[key] || null);
@@ -118,7 +118,6 @@ function getImageURLs() {
     console.log("🔄 Updating labels...");
     const [url1, url2, url3] = getImageURLs();
     if (!url1 || !url2 || !url3) {
-      console.warn("⚠️ Missing image URLs, skipping label update.");
       return;
     }
   
