@@ -108,10 +108,9 @@ function getImageURLs() {
   
   const designKeys = personalityToDesignImages[personality];
   console.log("🎨 Design Keys for Personality:", designKeys);
-
+  console.log("Array.isArray(designKeys) is " + Array.isArray(designKeys));
   if (!Array.isArray(designKeys)) return [null, null, null];
   const designURLs = designKeys.map(key => designedProductsImageURLs[key] || null);
-  console.log("🌐 Design Image URLs:", designURLs);
   return designURLs;
 }
 
