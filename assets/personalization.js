@@ -125,7 +125,9 @@ function getImageURLs() {
   
     designs.forEach(({ for: id, url }) => {
       const label = document.querySelector(`label[for="${id}"]`);
+      console.log("🔄 Label found:", label);
       if (label && !label.querySelector(`img[data-design="${id}"]`)) {
+        conxole.log("🔄 Updating label with image:", url);
         label.childNodes[0].textContent = '';
         const img = document.createElement("img");
         
