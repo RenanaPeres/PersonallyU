@@ -104,7 +104,7 @@ function getImageURLs() {
   console.log("🧥 Detected Product Type:", detectedType);
   
   // const baseURL = genericProductsImageURLs[detectedType];
-  console.log("🌐 Base Image URL for Product Type:", baseURL);
+  // console.log("🌐 Base Image URL for Product Type:", baseURL);
   
   const designKeys = personalityToDesignImages[personality];
   console.log("🎨 Design Keys for Personality:", designKeys);
