@@ -112,7 +112,6 @@ function getImageURLs() {
   function updateLabels() {
     console.log("🔄 Updating labels...");
     const [url1, url2, url3] = getImageURLs();
-    console.log("🌐 Image URLs:", url1, url2, url3);
     if (!url1 || !url2 || !url3) {
       return;
     }
@@ -136,6 +135,7 @@ function getImageURLs() {
         img.dataset.design = id;
         img.classList.add("label-image");
         label.appendChild(img);
+        console.log("🔄 Updated label with image:", img);
       }
     });
   }  
