@@ -95,29 +95,24 @@ const designedProductsURLsToPersonality = {
 
 function getImageURLs() {
   let storedData = JSON.parse(localStorage.getItem("userQuizData")) || {};
-  console.log("📦 Stored Data from localStorage:", storedData);
   
   const personality = storedData.personality || "NO";
-  console.log("🧠 Detected Personality:", personality);
   
   const detectedType = localStorage.getItem("productType");
-  console.log("🧥 Detected Product Type:", detectedType);
   
   // const baseURL = genericProductsImageURLs[detectedType];
   // console.log("🌐 Base Image URL for Product Type:", baseURL);
   
   const designKeys = personalityToDesignImages[personality];
-  console.log("🎨 Design Keys for Personality:", designKeys);
-  console.log("Array.isArray(designKeys) is " + Array.isArray(designKeys));
   if (!Array.isArray(designKeys)) return [null, null, null];
   const designURLs = designKeys.map(key => designedProductsImageURLs[key] || null);
-  console.log("🌐 Design Image URLs:", designURLs);
   return designURLs;
 }
 
   function updateLabels() {
     console.log("🔄 Updating labels...");
     const [url1, url2, url3] = getImageURLs();
+    console.log("🌐 Image URLs:", url1, url2, url3);
     if (!url1 || !url2 || !url3) {
       return;
     }
