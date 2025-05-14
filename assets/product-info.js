@@ -22,7 +22,7 @@ if (!customElements.get('product-info')) {
 
         this.onVariantChangeUnsubscriber = subscribe(
           PUB_SUB_EVENTS.optionValueSelectionChange,
-          this.handleOptionValueChange.bind(this)
+          // this.handleOptionValueChange.bind(this)
         );
 
         this.initQuantityHandlers();
@@ -63,7 +63,7 @@ if (!customElements.get('product-info')) {
       handleOptionValueChange({ data: { event, target, selectedOptionValues } }) {
         if (!this.contains(event.target)) return;
 
-        // this.resetProductFormState();
+        this.resetProductFormState();
 
         const productUrl = target.dataset.productUrl || this.pendingRequestUrl || this.dataset.url;
         this.pendingRequestUrl = productUrl;
