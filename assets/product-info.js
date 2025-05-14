@@ -80,6 +80,7 @@ if (!customElements.get('product-info')) {
       }
 
       resetProductFormState() {
+        console.log('resetProductFormState');
         const productForm = this.productForm;
         productForm?.toggleSubmitButton(true);
         productForm?.handleErrorMessage();
