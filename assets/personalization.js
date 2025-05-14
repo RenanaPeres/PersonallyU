@@ -145,6 +145,7 @@ function getImageURLs() {
 
 
 function randomizeFieldset() {
+  console.log("randomizeFieldset...");
   const fieldset = document.querySelector(".product-form__input--pill");
   if (!fieldset || fieldset.dataset.randomized === "true") return;
 
