@@ -537,5 +537,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     {%- endif -%}
     <script src="{{ 'cartPersonality.js' | asset_url }}" defer></script>
 
+    <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('input[type="radio"][name^="Design"]').forEach(input => {
+      input.addEventListener('change', event => {
+        event.preventDefault();
+        event.stopImmediatePropagation();
+
+        const selectedValue = event.target.value;
+        const variantId = document.querySelector('input[name="id"]')?.value;
+
+        console.log("🛑 Intercepted! Variant:", selectedValue, "ID:", variantId);
+
+        // Your custom logic here (e.g., save to localStorage, trigger custom UI, etc.)
+      });
+    });
+  });
+</script>
+
+
   </body>
 </html>
