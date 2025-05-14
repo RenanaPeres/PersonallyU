@@ -259,6 +259,21 @@ $(document).on("click", "a", function (event) {
 
 
   // ------------------ Main Execution ------------------
+
+  document.querySelectorAll('input[type="radio"][name^="Design"]').forEach(input => {
+  input.addEventListener('change', event => {
+    event.preventDefault();              // Stops default browser behavior
+    event.stopImmediatePropagation();    // Prevents Shopify's script from running
+
+    const selectedValue = event.target.value;
+    const variantId = document.querySelector('input[name="id"]')?.value;
+
+    console.log("🛑 Intercepted! Variant:", selectedValue, "ID:", variantId);
+
+    // Optionally: run your custom behavior here
+  });
+});
+
   $(function () {
   const $fieldset = $(".product-form__input--pill");
 
