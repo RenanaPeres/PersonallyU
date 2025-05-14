@@ -22,7 +22,7 @@ if (!customElements.get('product-info')) {
 
         this.onVariantChangeUnsubscriber = subscribe(
           PUB_SUB_EVENTS.optionValueSelectionChange,
-          // this.handleOptionValueChange.bind(this)
+          this.handleOptionValueChange.bind(this)
         );
 
         this.initQuantityHandlers();
@@ -70,17 +70,17 @@ if (!customElements.get('product-info')) {
         const shouldSwapProduct = this.dataset.url !== productUrl;
         const shouldFetchFullPage = this.dataset.updateUrl === 'true' && shouldSwapProduct;
 
-        this.renderProductInfo({
-          requestUrl: this.buildRequestUrlWithParams(productUrl, selectedOptionValues, shouldFetchFullPage),
-          targetId: target.id,
-          callback: shouldSwapProduct
-            ? this.handleSwapProduct(productUrl, shouldFetchFullPage)
-            : this.handleUpdateProductInfo(productUrl),
-        });
+        // this.renderProductInfo({
+        //   requestUrl: this.buildRequestUrlWithParams(productUrl, selectedOptionValues, shouldFetchFullPage),
+        //   targetId: target.id,
+        //   callback: shouldSwapProduct
+        //     ? this.handleSwapProduct(productUrl, shouldFetchFullPage)
+        //     : this.handleUpdateProductInfo(productUrl),
+        // });
       }
 
       resetProductFormState() {
-        console.log('resetProductFormState');
+        console
         const productForm = this.productForm;
         productForm?.toggleSubmitButton(true);
         productForm?.handleErrorMessage();
