@@ -43,10 +43,16 @@ function buildAndStoreProductVariantMap(parsedCartState) {
       (productVariantMap[personalityType][personalityType] || 0) + item.quantity;
   });
 
-  // Store results
-  localStorage.setItem('parsedCartState', JSON.stringify(parsedCartState));
-  localStorage.setItem('productVariantMap', JSON.stringify(productVariantMap));
-  console.log('Saved productVariantMap:', productVariantMap);
+// Store results
+localStorage.setItem('parsedCartState', JSON.stringify(parsedCartState));
+localStorage.setItem('productVariantMap', JSON.stringify(productVariantMap));
+console.log('Saved productVariantMap:', productVariantMap);
+
+// ✅ Notify Google Tag Manager that the data is ready- mai added this
+window.dataLayer = window.dataLayer || [];
+window.dataLayer.push({
+  event: 'productVariantMap_ready'
+});
 }
 
 
