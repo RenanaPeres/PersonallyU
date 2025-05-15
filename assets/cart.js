@@ -48,17 +48,21 @@ localStorage.setItem('parsedCartState', JSON.stringify(parsedCartState));
 localStorage.setItem('productVariantMap', JSON.stringify(productVariantMap));
 console.log('Saved productVariantMap:', productVariantMap);
 
-// ✅ Notify Google Tag Manager that the data is ready- mai added this
 setTimeout(function () {
-  window.dataLayer = window.dataLayer || [];
-  window.dataLayer.push({
-    event: 'productVariantMap_ready'
-  });
-  console.log("✅ dataLayer event pushed: productVariantMap_ready");
-}, 500);
+  const data = localStorage.getItem('productVariantMap');
+  if (data) {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: 'productVariantMap_ready',
+      productVariantMap: JSON.parse(data)
+    });
+    console.log("✅ productVariantMap_ready pushed with:", JSON.parse(data));
+  } else {
+    console.warn("⏳ Still no productVariantMap in localStorage");
+  }
+}, 1000);  // delay slightly longer
+
 }
-
-
 
 
 
