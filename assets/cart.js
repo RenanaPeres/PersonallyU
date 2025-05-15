@@ -48,6 +48,8 @@ localStorage.setItem('parsedCartState', JSON.stringify(parsedCartState));
 localStorage.setItem('productVariantMap', JSON.stringify(productVariantMap));
 console.log('Saved productVariantMap:', productVariantMap);
 
+  // mai added this to fire on time in GA
+
 setTimeout(function () {
   const data = localStorage.getItem('productVariantMap');
   if (data) {
