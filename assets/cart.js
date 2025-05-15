@@ -49,10 +49,13 @@ localStorage.setItem('productVariantMap', JSON.stringify(productVariantMap));
 console.log('Saved productVariantMap:', productVariantMap);
 
 // ✅ Notify Google Tag Manager that the data is ready- mai added this
-window.dataLayer = window.dataLayer || [];
-window.dataLayer.push({
-  event: 'productVariantMap_ready'
-});
+setTimeout(function () {
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    event: 'productVariantMap_ready'
+  });
+  console.log("✅ dataLayer event pushed: productVariantMap_ready");
+}, 500);
 }
 
 
