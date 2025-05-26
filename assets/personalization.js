@@ -8,6 +8,18 @@
   // URLs TO PERSONALITY PAGE 
   const personalityUrls = {
     mug: {
+      EX: "https://personallyu.com/products/ex-heavyweight-unisex-crewneck-t-shirt-gildan®-5000",
+      IN: "https://personallyu.com/products/in-heavyweight-unisex-crewneck-t-shirt-gildan®-5000",
+      MS: "https://personallyu.com/products/ms-heavyweight-unisex-crewneck-t-shirt-gildan®-5000",
+      SY : "https://personallyu.com/products/sy-heavyweight-unisex-crewneck-t-shirt-gildan®-5000",
+      CR : "https://personallyu.com/products/cr-heavyweight-unisex-crewneck-t-shirt-gildan®-5000",
+      AN : "https://personallyu.com/products/an-heavyweight-unisex-crewneck-t-shirt-gildan®-5000",
+      SD : "https://personallyu.com/products/sd-heavyweight-unisex-crewneck-t-shirt-gildan®-5000",
+      CL : "https://personallyu.com/products/cl-heavyweight-unisex-crewneck-t-shirt-gildan®-5000",
+      CM : "https://personallyu.com/products/cm-heavyweight-unisex-crewneck-t-shirt-gildan®-5000",
+      OM : "https://personallyu.com/products/om-heavyweight-unisex-crewneck-t-shirt-gildan®-5000",
+      AMB : "https://personallyu.com/products/amb-heavyweight-unisex-crewneck-t-shirt-gildan®-5000",
+      NO : "https://personallyu.com/products/no-heavyweight-unisex-crewneck-t-shirt-gildan-5000"
     },
     
     shirt: {
@@ -23,6 +35,21 @@
       OM : "https://personallyu.com/products/om-heavyweight-unisex-crewneck-t-shirt-gildan®-5000",
       AMB : "https://personallyu.com/products/amb-heavyweight-unisex-crewneck-t-shirt-gildan®-5000",
       NO : "https://personallyu.com/products/no-heavyweight-unisex-crewneck-t-shirt-gildan-5000"
+    },
+
+      bottle: {
+      EX: "https://personallyu.com/products/ex-your-personalized-water-bottle",
+      IN: "https://personallyu.com/products/in-your-personalized-water-bottle",
+      MS: "https://personallyu.com/products/ms-your-personalized-water-bottle",
+      SY : "https://personallyu.com/products/sy-your-personalized-water-bottle",
+      CR : "https://personallyu.com/products/cr-your-personalized-water-bottle",
+      AN : "https://personallyu.com/products/an-your-personalized-water-bottle",
+      SD : "https://personallyu.com/products/sd-your-personalized-water-bottle",
+      CL : "https://personallyu.com/products/cl-your-personalized-water-bottle",
+      CM : "https://personallyu.com/products/cm-your-personalized-water-bottle",
+      OM : "https://personallyu.com/products/om-your-personalized-water-bottle",
+      AMB : "https://personallyu.com/products/amb-your-personalized-water-bottle",
+      NO : "https://personallyu.com/products/no-your-personalized-water-bottle"
     }
   };
  // PHOTOS OF ARMADILOS 
