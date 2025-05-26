@@ -207,7 +207,7 @@ function observeVariants() {
   const observer = new MutationObserver(() => {
     const fieldset = document.querySelector(".product-form__input--pill");
     if (fieldset && !fieldset.dataset.randomized) {
-      randomizeFieldset();
+      // randomizeFieldset();
       updateLabels();
     }
   });
@@ -219,7 +219,7 @@ function observeVariants() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  randomizeFieldset();       // First render
+  // randomizeFieldset();       // First render
   updateLabels(); 
   observeVariants();         // Catch Shopify’s variant replacement
 });
@@ -305,7 +305,7 @@ $(document).on("click", "a", function (event) {
   const $fieldset = $(".product-form__input--pill");
 
   if ($fieldset.length && !fieldsetWasRandomized) {
-    randomizeFieldset();
+    // randomizeFieldset();
     fieldsetWasRandomized = true;
   }
 
