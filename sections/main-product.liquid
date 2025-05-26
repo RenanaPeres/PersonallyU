@@ -722,7 +722,7 @@
       {{ product | structured_data }}
     </script>
   </div>
-  {% comment %} <script>
+  <script>
   document.addEventListener("DOMContentLoaded", function () {
     const designFieldset = Array.from(document.querySelectorAll('fieldset')).find(fs => {
       const legend = fs.querySelector('legend');
@@ -747,7 +747,7 @@
       designFieldset.appendChild(label);
     });
   });
-</script> {% endcomment %}
+</script>
 
 </product-info>
 
