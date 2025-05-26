@@ -18,6 +18,10 @@ addToCartForms.forEach((form) => {
 
       if (!addRes.ok) {
         console.error("Add to cart failed:", addRes.status);
+        console.log("Add to cart response status:", addRes.status);
+        const text = await addRes.text();
+        console.log("Raw response body:", text.slice(0, 200));
+
         return;
       }
 
