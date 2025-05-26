@@ -30,8 +30,8 @@ document.querySelectorAll('form[action="/cart/add"]').forEach((form) => {
         console.log("Response preview:", raw.slice(0, 200));
 
         if (res.status === 429 && raw.includes("Too many attempts")) {
-          // isBlocked = true;
-          // alert("❌ Shopify blocked your session due to too many attempts. Try again later.");
+          isBlocked = true;
+          alert("❌ Shopify blocked your session due to too many attempts. Try again later.");
         }
 
         return;
