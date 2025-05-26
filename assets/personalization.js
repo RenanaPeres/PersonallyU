@@ -460,9 +460,9 @@ $(document).on("click", "a", function (event) {
   }
 });
 
-//   $("#checkoutNow").on("click", function () {
-//   $(this).slideDown("fast");
-// });
+  $("#checkoutNow").on("click", function () {
+  $(this).slideDown("fast");
+});
 
 
 document.addEventListener("DOMContentLoaded", function () {
