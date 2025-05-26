@@ -2,7 +2,6 @@
   // ------------------ Constants ------------------
   const CATALOG_BASE = "https://personallyu.com/collections/products/";
   const QUIZ_URL = "https://huji.questionpro.eu/a/TakeSurvey?tt=P/VDme5CUhAD5ltxMh/wHg%3D%3D";
-  let fieldsetWasRandomized = false;
 
 
   // URLs TO PERSONALITY PAGE 
@@ -196,7 +195,6 @@ function randomizeFieldset() {
   fieldset.innerHTML = "";
   cloneElements.forEach(el => fieldset.appendChild(el));
   fieldset.dataset.randomized = "true";
-  fieldsetWasRandomized = true;
 }
 
 // ✅ Watch only the variant wrapper for Shopify re-render
@@ -304,9 +302,8 @@ $(document).on("click", "a", function (event) {
   $(function () {
   const $fieldset = $(".product-form__input--pill");
 
-  if ($fieldset.length && !fieldsetWasRandomized) {
+  if ($fieldset.length) {
     // randomizeFieldset();
-    fieldsetWasRandomized = true;
   }
 
   updateLabels();
