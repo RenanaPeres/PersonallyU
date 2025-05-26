@@ -7,7 +7,7 @@
 
   // URLs TO PERSONALITY PAGE 
   const personalityUrls = {
-    mug: {
+    hat: {
       EX: "https://personallyu.com/products/ex-heavyweight-unisex-crewneck-t-shirt-gildan®-5000",
       IN: "https://personallyu.com/products/in-heavyweight-unisex-crewneck-t-shirt-gildan®-5000",
       MS: "https://personallyu.com/products/ms-heavyweight-unisex-crewneck-t-shirt-gildan®-5000",
