@@ -1,50 +1,48 @@
-// Prevent spamming
-let isSubmitting = false;
+let isBlocked = false;
+let lastSubmitTime = 0;
 
-const addToCartForms = document.querySelectorAll('form[action="/cart/add"]');
-
-addToCartForms.forEach((form) => {
+document.querySelectorAll('form[action="/cart/add"]').forEach((form) => {
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
 
-    if (isSubmitting) return;
-    isSubmitting = true;
+    if (isBlocked) {
+      alert("🚫 You are temporarily blocked by Shopify. Wait 10 minutes before trying again.");
+      return;
+    }
+
+    const now = Date.now();
+    if (now - lastSubmitTime < 3000) {
+      console.warn("Throttled: Add-to-cart is rate-limited.");
+      return;
+    }
+    lastSubmitTime = now;
 
     try {
-      const addRes = await fetch("/cart/add", {
+      const formData = new FormData(form);
+      const res = await fetch("/cart/add", {
         method: "POST",
-        body: new FormData(form),
+        body: formData
       });
 
-      if (!addRes.ok) {
-        console.error("Add to cart failed:", addRes.status);
-        console.log("Add to cart response status:", addRes.status);
-        const text = await addRes.text();
-        console.log("Raw response body:", text.slice(0, 200));
-
-        return;
-      }
-
-      // Optional delay to let Shopify process the update
-      await new Promise(resolve => setTimeout(resolve, 300));
-
-      const res = await fetch("/cart.js");
-
       if (!res.ok) {
-        console.error("Fetching cart failed:", res.status);
+        const raw = await res.text();
+        console.error("Add to cart failed:", res.status);
+        console.log("Response preview:", raw.slice(0, 200));
+
+        if (res.status === 429 && raw.includes("Too many attempts")) {
+          isBlocked = true;
+          alert("❌ Shopify blocked your session due to too many attempts. Try again later.");
+        }
+
         return;
       }
 
-      const cart = await res.json();
+      const cartRes = await fetch("/cart.js");
+      const cart = await cartRes.json();
       buildAndStoreProductVariantMap(cart);
 
     } catch (err) {
-      console.error("Cart handling error:", err);
-    } finally {
-      // Delay before next attempt to avoid 429
-      setTimeout(() => {
-        isSubmitting = false;
-      }, 1500); // Wait 1.5 seconds before allowing next submit
+      console.error("Unexpected error:", err);
     }
   });
 });
