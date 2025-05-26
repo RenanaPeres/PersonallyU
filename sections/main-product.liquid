@@ -722,32 +722,6 @@
       {{ product | structured_data }}
     </script>
   </div>
-  {% comment %} <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const designFieldset = Array.from(document.querySelectorAll('fieldset')).find(fs => {
-      const legend = fs.querySelector('legend');
-      return legend && legend.textContent.trim().toLowerCase() === 'design';
-    });
-
-    if (!designFieldset) return;
-
-    const inputs = Array.from(designFieldset.querySelectorAll('input[type="radio"]'));
-    const pairs = inputs.map(input => {
-      const label = designFieldset.querySelector(`label[for="${input.id}"]`);
-      return { input, label };
-    });
-
-    for (let i = pairs.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [pairs[i], pairs[j]] = [pairs[j], pairs[i]];
-    }
-
-    pairs.forEach(({ input, label }) => {
-      designFieldset.appendChild(input);
-      designFieldset.appendChild(label);
-    });
-  });
-</script> {% endcomment %}
 
 </product-info>
 
