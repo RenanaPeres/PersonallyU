@@ -221,7 +221,7 @@ function observeVariants() {
 document.addEventListener("DOMContentLoaded", () => {
   // randomizeFieldset();       // First render
   updateLabels(); 
-  observeVariants();         // Catch Shopify’s variant replacement
+  // observeVariants();         // Catch Shopify’s variant replacement
 });
 
 
