@@ -490,17 +490,17 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
-// const observer = new MutationObserver(() => {
-//   $(".product-option dt").each(function () {
-//     if ($(this).text().trim() === "Design:" && $(this).parent().length) {
-//       $(this).parent().hide(); // hide entire row
-//     }
-//   });
-// });
+const observer = new MutationObserver(() => {
+  $(".product-option dt").each(function () {
+    if ($(this).text().trim() === "Design:" && $(this).parent().length) {
+      $(this).parent().hide(); // hide entire row
+    }
+  });
+});
 
-// observer.observe(document.body, {
-//   childList: true,
-//   subtree: true
-// });
+observer.observe(document.body, {
+  childList: true,
+  subtree: true
+});
 
 
