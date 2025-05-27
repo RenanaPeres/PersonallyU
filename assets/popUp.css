@@ -1,15 +1,19 @@
 @media (max-width: 600px) {
-  .banner__box {
-    width: 90% !important;
-    left: 5% !important;
-    right: 5% !important;
-    top: auto !important;
-    bottom: 5% !important;
-    transform: none !important;
-    padding: 16px !important;
-    box-sizing: border-box;
-    text-align: center;
-  }
+.popup-box {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  padding: 30px;
+  border-radius: 16px;
+  z-index: 9999;
+  text-align: center;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
 
   .banner__heading {
     font-size: 20px !important;
