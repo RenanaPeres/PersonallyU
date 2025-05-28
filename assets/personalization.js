@@ -164,23 +164,25 @@ function getImageURLs() {
     ];
     // console.log("🔄 Designs to update:", designs);
   
-  designs.forEach(({ for: id, url }) => {
-    const label = document.querySelector(`label[for="${id}"]`);
-    if (label && !label.querySelector(`img[data-design="${id}"]`)) {
-      label.classList.add("design-label");
-      label.textContent = '';
+    designs.forEach(({ for: id, url }) => {
+      const label = document.querySelector(`label[for="${id}"]`);
+      // console.log("🔄 Label found:", label);
+      if (label && !label.querySelector(`img[data-design="${id}"]`)) {
+        // console.log("🔄 Updating label with image:", url);
+        label.childNodes[0].textContent = '';
+        const img = document.createElement("img");
+        
+        img.src = url;
+        img.about = designedProductsURLsToPersonality[url] ?? "noPersonality";
+        img.width = 98;
+        img.alt = "Design Image";
+        img.dataset.design = id;
+        img.classList.add("label-image");
 
-      const img = document.createElement("img");
-      img.src = url;
-      img.alt = "Design Image";
-      img.dataset.design = id;
-
-      label.appendChild(img);
-    }
-  });
-
-
-
+        label.appendChild(img);
+        // console.log("🔄 Updated label with image:", img);
+      }
+    });
   }  
 
 
