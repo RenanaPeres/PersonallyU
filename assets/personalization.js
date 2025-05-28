@@ -174,7 +174,7 @@ function getImageURLs() {
       label.style.height = "100px";
       label.style.display = "inline-block";
       label.style.overflow = "hidden";
-      label.style.borderRadius = "16px";
+      label.style.borderRadius = "36px";
       label.style.position = "relative";
 
       const img = document.createElement("img");
