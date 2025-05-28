@@ -170,7 +170,8 @@ function getImageURLs() {
       if (label && !label.querySelector(`img[data-design="${id}"]`)) {
         // console.log("🔄 Updating label with image:", url);
         label.childNodes[0].textContent = '';
-        label.style.padding = "0px"
+        label.style.padding = "0px";
+        label.style.borderRadius = "40px";
 
         const img = document.createElement("img");
         
@@ -179,6 +180,7 @@ function getImageURLs() {
         img.width = 98;
         img.alt = "Design Image";
         img.dataset.design = id;
+        img.style.borderRadius = "40px";
         img.classList.add("label-image");
 
         label.appendChild(img);
