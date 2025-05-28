@@ -167,32 +167,18 @@ function getImageURLs() {
   designs.forEach(({ for: id, url }) => {
     const label = document.querySelector(`label[for="${id}"]`);
     if (label && !label.querySelector(`img[data-design="${id}"]`)) {
-      label.textContent = ''; // נקה את הטקסט
-
-      // ודא שה-label עצמו שומר על מידה
-      label.style.width = "100px";
-      label.style.height = "100px";
-      label.style.display = "inline-block";
-      label.style.overflow = "hidden";
-      label.style.borderRadius = "36px";
-      label.style.position = "relative";
+      label.classList.add("design-label");
+      label.textContent = '';
 
       const img = document.createElement("img");
       img.src = url;
       img.alt = "Design Image";
       img.dataset.design = id;
 
-      // תמונה שמכסה בדיוק את שטח הלייבל
-      Object.assign(img.style, {
-        width: "100%",
-        height: "100%",
-        objectFit: "cover",
-        display: "block"
-      });
-
       label.appendChild(img);
     }
   });
+
 
 
   }  
