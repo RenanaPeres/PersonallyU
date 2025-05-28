@@ -174,10 +174,15 @@ function getImageURLs() {
         
         img.src = url;
         img.about = designedProductsURLsToPersonality[url] ?? "noPersonality";
-        img.width = 98;
         img.alt = "Design Image";
         img.dataset.design = id;
         img.classList.add("label-image");
+            Object.assign(img.style, {
+          width: "100%",
+          height: "100%",
+          objectFit: "cover",
+          display: "block"
+        });
 
         label.appendChild(img);
         // console.log("🔄 Updated label with image:", img);
