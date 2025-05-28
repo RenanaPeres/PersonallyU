@@ -561,12 +561,8 @@ if (!popup) {
   return;
 }
   popupBox.style.width = "100%";
-
-
-
-
-
-
+  popupBox.style.top = "-100px";
+  popupBox.style.padding = "20px";
 
 });
 
