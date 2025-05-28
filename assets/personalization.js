@@ -178,7 +178,6 @@ function getImageURLs() {
         img.alt = "Design Image";
         img.dataset.design = id;
         img.classList.add("label-image");
-        img.style.borderRadius = "inherit"; /* אם רוצים עיגול/ריבוע מעוגל */
         img.style.display = "block"; /* אם רוצים שהתמונה תתאים לגודל */
 
 
