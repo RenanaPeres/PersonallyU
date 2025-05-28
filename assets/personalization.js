@@ -164,31 +164,33 @@ function getImageURLs() {
     ];
     // console.log("🔄 Designs to update:", designs);
   
-  designs.forEach(({ for: id, url }) => {
-    const label = document.querySelector(`label[for="${id}"]`);
-    if (label && !label.querySelector(`img[data-design="${id}"]`)) {
-      label.childNodes[0].textContent = '';
+designs.forEach(({ for: id, url }) => {
+  const label = document.querySelector(`label[for="${id}"]`);
+  if (label && !label.querySelector(`img[data-design="${id}"]`)) {
+    label.textContent = ''; // מוחק טקסט
 
-      const wrapper = document.createElement("div");
-      wrapper.className = "design-wrapper"; // CSS class עם גודל קבוע
+    const wrapper = document.createElement("div");
+    wrapper.style.width = "100px";
+    wrapper.style.height = "100px";
+    wrapper.style.overflow = "hidden";
+    wrapper.style.borderRadius = "16px";
+    wrapper.style.display = "flex";
+    wrapper.style.justifyContent = "center";
+    wrapper.style.alignItems = "center";
 
-      const img = document.createElement("img");
-      img.src = url;
-      img.about = designedProductsURLsToPersonality[url] ?? "noPersonality";
-      img.alt = "Design Image";
-      img.dataset.design = id;
+    const img = document.createElement("img");
+    img.src = url;
+    img.alt = "Design Image";
+    img.dataset.design = id;
+    img.style.width = "100%";
+    img.style.height = "100%";
+    img.style.objectFit = "cover";
 
-      Object.assign(img.style, {
-        width: "100%",
-        height: "100%",
-        objectFit: "cover",
-        display: "block"
-      });
+    wrapper.appendChild(img);
+    label.appendChild(wrapper);
+  }
+});
 
-      wrapper.appendChild(img);
-      label.appendChild(wrapper);
-    }
-  });
 
   }  
 
