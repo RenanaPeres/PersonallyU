@@ -164,32 +164,35 @@ function getImageURLs() {
     ];
     // console.log("🔄 Designs to update:", designs);
   
-designs.forEach(({ for: id, url }) => {
-  const label = document.querySelector(`label[for="${id}"]`);
-  if (label && !label.querySelector(`img[data-design="${id}"]`)) {
-    label.textContent = ''; // מוחק טקסט
+  designs.forEach(({ for: id, url }) => {
+    const label = document.querySelector(`label[for="${id}"]`);
+    if (label && !label.querySelector(`img[data-design="${id}"]`)) {
+      label.textContent = ''; // נקה את הטקסט
 
-    const wrapper = document.createElement("div");
-    wrapper.style.width = "100px";
-    wrapper.style.height = "100px";
-    wrapper.style.overflow = "hidden";
-    wrapper.style.borderRadius = "16px";
-    wrapper.style.display = "flex";
-    wrapper.style.justifyContent = "center";
-    wrapper.style.alignItems = "center";
+      // ודא שה-label עצמו שומר על מידה
+      label.style.width = "100px";
+      label.style.height = "100px";
+      label.style.display = "inline-block";
+      label.style.overflow = "hidden";
+      label.style.borderRadius = "16px";
+      label.style.position = "relative";
 
-    const img = document.createElement("img");
-    img.src = url;
-    img.alt = "Design Image";
-    img.dataset.design = id;
-    img.style.width = "100%";
-    img.style.height = "100%";
-    img.style.objectFit = "cover";
+      const img = document.createElement("img");
+      img.src = url;
+      img.alt = "Design Image";
+      img.dataset.design = id;
 
-    wrapper.appendChild(img);
-    label.appendChild(wrapper);
-  }
-});
+      // תמונה שמכסה בדיוק את שטח הלייבל
+      Object.assign(img.style, {
+        width: "100%",
+        height: "100%",
+        objectFit: "cover",
+        display: "block"
+      });
+
+      label.appendChild(img);
+    }
+  });
 
 
   }  
