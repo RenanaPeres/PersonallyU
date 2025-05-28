@@ -170,7 +170,8 @@ function getImageURLs() {
       if (label && !label.querySelector(`img[data-design="${id}"]`)) {
         // console.log("🔄 Updating label with image:", url);
         label.childNodes[0].textContent = '';
-        const img = label.createElement("img");
+        const img = document.createElement("img");
+        label.appendChild(img);
         
         img.src = url;
         img.about = designedProductsURLsToPersonality[url] ?? "noPersonality";
@@ -185,8 +186,6 @@ function getImageURLs() {
             width: "100%",
             height: "100%",
           });
-
-        label.appendChild(img);
         // console.log("🔄 Updated label with image:", img);
       }
     });
