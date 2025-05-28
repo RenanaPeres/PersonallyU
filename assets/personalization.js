@@ -181,7 +181,9 @@ function getImageURLs() {
         Object.assign(img.style, {
             objectFit: "cover",
             borderRadius: "100px",
-            display: "block"
+            display: "block",
+            width: "100%",
+            height: "100%",
           });
 
         label.appendChild(img);
