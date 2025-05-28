@@ -560,7 +560,8 @@ if (!popup) {
   console.error("Popup element not found.");
   return;
 }
-  popup.style.top = "-100px";
+  popupBox.style.width = "100%";
+
 
 
 
