@@ -178,8 +178,13 @@ function getImageURLs() {
         img.alt = "Design Image";
         img.dataset.design = id;
         img.classList.add("label-image");
-        img.style.display = "block"; /* אם רוצים שהתמונה תתאים לגודל */
-
+        Object.assign(img.style, {
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+            borderRadius: "inherit",
+            display: "block"
+          });
 
         label.appendChild(img);
         // console.log("🔄 Updated label with image:", img);
