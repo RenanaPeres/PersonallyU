@@ -164,30 +164,32 @@ function getImageURLs() {
     ];
     // console.log("🔄 Designs to update:", designs);
   
-    designs.forEach(({ for: id, url }) => {
-      const label = document.querySelector(`label[for="${id}"]`);
-      // console.log("🔄 Label found:", label);
-      if (label && !label.querySelector(`img[data-design="${id}"]`)) {
-        // console.log("🔄 Updating label with image:", url);
-        label.childNodes[0].textContent = '';
-        const img = document.createElement("img");
-        
-        img.src = url;
-        img.about = designedProductsURLsToPersonality[url] ?? "noPersonality";
-        img.alt = "Design Image";
-        img.dataset.design = id;
-        img.classList.add("label-image");
-            Object.assign(img.style, {
-          width: "100%",
-          height: "100%",
-          objectFit: "cover",
-          display: "block"
-        });
+  designs.forEach(({ for: id, url }) => {
+    const label = document.querySelector(`label[for="${id}"]`);
+    if (label && !label.querySelector(`img[data-design="${id}"]`)) {
+      label.childNodes[0].textContent = '';
 
-        label.appendChild(img);
-        // console.log("🔄 Updated label with image:", img);
-      }
-    });
+      const wrapper = document.createElement("div");
+      wrapper.className = "design-wrapper"; // CSS class עם גודל קבוע
+
+      const img = document.createElement("img");
+      img.src = url;
+      img.about = designedProductsURLsToPersonality[url] ?? "noPersonality";
+      img.alt = "Design Image";
+      img.dataset.design = id;
+
+      Object.assign(img.style, {
+        width: "100%",
+        height: "100%",
+        objectFit: "cover",
+        display: "block"
+      });
+
+      wrapper.appendChild(img);
+      label.appendChild(wrapper);
+    }
+  });
+
   }  
 
 
