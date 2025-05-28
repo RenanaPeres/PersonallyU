@@ -530,7 +530,7 @@ Object.assign(wrapper.style, {
   borderRadius: "20px",
   boxShadow: "0 8px 30px rgba(0, 0, 0, 0.15)",
   width: "85%",                          // מותאם למובייל
-  maxWidth: "500px",                     // מגבלה לדסקטופ
+  maxWidth: "400px",                     // מגבלה לדסקטופ
   textAlign: "center",
   display: "flex",
   flexDirection: "column",
