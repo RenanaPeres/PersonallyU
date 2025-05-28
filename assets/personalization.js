@@ -129,7 +129,7 @@ const designedProductsURLsToPersonality = {
     CM : ["CM", AntiPersonality["CM"], "AMB"],
     OM : ["OM", AntiPersonality["OM"], "AMB"],
     AMB : ["AMB", AntiPersonality["IN"], AntiPersonality["EX"]],
-    NO: ["EX", "IN", "AMB"]
+    NO: ["IN", "AMB", "CR"]
   };
 
   // ------------------ Helpers ------------------
