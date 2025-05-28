@@ -49,6 +49,21 @@
       OM : "https://personallyu.com/products/om-your-personalized-water-bottle",
       AMB : "https://personallyu.com/products/amb-your-personalized-water-bottle",
       NO : "https://personallyu.com/products/no-your-personalized-water-bottle"
+    },
+
+      mug: {
+      EX: "",
+      IN: "",
+      MS: "",
+      SY : "",
+      CR : "",
+      AN : "",
+      SD : "",
+      CL : "",
+      CM : "",
+      OM : "",
+      AMB : "",
+      NO : ""
     }
   };
  // PHOTOS OF ARMADILOS 
