@@ -177,7 +177,7 @@ function getImageURLs() {
         
         img.src = url;
         img.about = designedProductsURLsToPersonality[url] ?? "noPersonality";
-        img.width = 108;
+        img.width = 118;
         img.alt = "Design Image";
         img.dataset.design = id;
         img.style.borderRadius = "40px";
