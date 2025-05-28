@@ -179,8 +179,6 @@ function getImageURLs() {
         img.dataset.design = id;
         img.classList.add("label-image");
         Object.assign(img.style, {
-            width: "100%",
-            height: "100%",
             objectFit: "cover",
             borderRadius: "inherit",
             display: "block"
