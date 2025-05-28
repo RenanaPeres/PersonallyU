@@ -180,7 +180,7 @@ function getImageURLs() {
         img.classList.add("label-image");
         Object.assign(img.style, {
             objectFit: "cover",
-            borderRadius: "100%",
+            borderRadius: "100px",
             display: "block"
           });
 
