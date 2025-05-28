@@ -169,6 +169,17 @@
             "button_link": ""
           }
         },
+        "row_Dkpkge": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/3219fa7f-9591-42d9-bd3c-2766572affb0.png",
+            "caption": "",
+            "heading": "Hat",
+            "text": "<p>Crown Your Personality – with Our Custom-Designed Hats</p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
         "row_jHKfzU": {
           "type": "row",
           "settings": {
@@ -195,6 +206,7 @@
       "block_order": [
         "row_LzgkkP",
         "row_UqrACW",
+        "row_Dkpkge",
         "row_jHKfzU",
         "row_qrUP3x"
       ],
