@@ -554,6 +554,15 @@ if (window.innerWidth < 600) {
 
 }
 
+const popup = document.getElementById("popupBox");
+
+if (!popup) {
+  console.error("Popup element not found.");
+  return;
+}
+  popup.style.top = "-100px";
+
+
 
 
 
