@@ -510,7 +510,6 @@ const container = document.querySelector(".banner__box.content-container");
 
 if (!container) {
   console.error("Banner container not found.");
-  return;
 }
 
 container.style.maxWidth = "300px";
@@ -545,7 +544,6 @@ const buttons = container.querySelector(".banner__buttons");
 
 if (!heading || !paragraph || !buttons) {
   console.error("Required elements not found in the banner container.");
-  return;
 }
 
 
