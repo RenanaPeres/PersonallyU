@@ -170,6 +170,8 @@ function getImageURLs() {
       if (label && !label.querySelector(`img[data-design="${id}"]`)) {
         // console.log("🔄 Updating label with image:", url);
         label.childNodes[0].textContent = '';
+        label.style.padding = "0px"
+
         const img = document.createElement("img");
         
         img.src = url;
