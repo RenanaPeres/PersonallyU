@@ -178,6 +178,8 @@ function getImageURLs() {
         img.alt = "Design Image";
         img.dataset.design = id;
         img.classList.add("label-image");
+        img.style.borderRadius = "inherit"; /* אם רוצים עיגול/ריבוע מעוגל */
+
         label.appendChild(img);
         // console.log("🔄 Updated label with image:", img);
       }
