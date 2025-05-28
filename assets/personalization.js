@@ -170,8 +170,22 @@ function getImageURLs() {
       if (label && !label.querySelector(`img[data-design="${id}"]`)) {
         // console.log("🔄 Updating label with image:", url);
         label.childNodes[0].textContent = '';
+        const wrapper = document.createElement("div");
+        wrapper.className = "design-wrapper"; // או כל class קיים
+
+        Object.assign(wrapper.style, {
+          width: "100px",          // או כל רוחב מתאים
+          height: "100px",
+          borderRadius: "16px",
+          overflow: "hidden",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          margin: "10px auto"      // ריווח וסידור במרכז
+        });
+
         const img = document.createElement("img");
-        label.appendChild(img);
+        wrapper.appendChild(img);
         
         img.src = url;
         img.about = designedProductsURLsToPersonality[url] ?? "noPersonality";
@@ -187,6 +201,7 @@ function getImageURLs() {
             height: "100%",
           });
         // console.log("🔄 Updated label with image:", img);
+        label.appendChild(wrapper);
       }
     });
   }  
