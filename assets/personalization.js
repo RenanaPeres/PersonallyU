@@ -171,7 +171,7 @@ function getImageURLs() {
         // console.log("🔄 Updating label with image:", url);
         label.childNodes[0].textContent = '';
         label.style.padding = "3px";
-        label.style.borderRadius = "40px";
+        label.style.borderRadius = "25px";
 
         const img = document.createElement("img");
         
@@ -180,7 +180,7 @@ function getImageURLs() {
         img.width = 118;
         img.alt = "Design Image";
         img.dataset.design = id;
-        img.style.borderRadius = "40px";
+        img.style.borderRadius = "25px";
         img.classList.add("label-image");
 
         label.appendChild(img);
