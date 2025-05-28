@@ -559,7 +559,7 @@ if (window.innerWidth < 600) {
     return;
   }
     popupBox.style.width = "100%";
-    popupBox.style.top = "-100px";
+    popupBox.style.top = "-120px";
     popupBox.style.padding = "25px";
 
 }
