@@ -52,18 +52,18 @@
     },
 
       mug: {
-      EX: "",
-      IN: "",
-      MS: "",
-      SY : "",
-      CR : "",
-      AN : "",
-      SD : "",
-      CL : "",
-      CM : "",
-      OM : "",
-      AMB : "",
-      NO : ""
+      EX: "https://personallyu.com/products/ex-your-personalized-mug",
+      IN: "https://personallyu.com/products/in-your-personalized-mug",
+      MS: "https://personallyu.com/products/ms-your-personalised-mug",
+      SY : "https://personallyu.com/products/sy-your-personalised-mug",
+      CR : "https://personallyu.com/products/cr-your-personalised-mug",
+      AN : "https://personallyu.com/products/an-your-personalised-mug",
+      SD : "https://personallyu.com/products/sd-your-personalised-mug",
+      CL : "https://personallyu.com/products/cl-your-personalised-mug",
+      CM : "https://personallyu.com/products/cm-your-personalised-mug",
+      OM : "https://personallyu.com/products/om-your-personalised-mug",
+      AMB : "https://personallyu.com/products/amb-your-personalised-mug",
+      NO : "https://personallyu.com/products/no-your-personalised-mug"
     }
   };
  // PHOTOS OF ARMADILOS 
