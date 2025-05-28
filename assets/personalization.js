@@ -508,8 +508,12 @@ if (window.innerWidth < 600) {
 
 const container = document.querySelector(".banner__box.content-container");
 
+if (!container) {
+  console.error("Banner container not found.");
+  return;
+}
 
-container.style.maxWidth = "400px"
+container.style.maxWidth = "300px"
 // container.style.transform = "translate(-0%, -600%)"
 
 const wrapper = document.createElement("div");
@@ -539,7 +543,10 @@ const heading = container.querySelector("h2.banner__heading");
 const paragraph = container.querySelector("p");
 const buttons = container.querySelector(".banner__buttons");
 
-
+if (!heading || !paragraph || !buttons) {
+  console.error("Required elements not found in the banner container.");
+  return;
+}
 
 
 wrapper.appendChild(heading);
