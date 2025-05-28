@@ -504,3 +504,68 @@ observer.observe(document.body, {
 });
 
 
+if (window.innerWidth < 600) {
+
+const container = document.querySelector(".banner__box.content-container");
+
+if (!container) {
+  console.error("Banner container not found.");
+  return;
+}
+
+container.style.maxWidth = "400px"
+// container.style.transform = "translate(-0%, -600%)"
+
+const wrapper = document.createElement("div");
+
+
+
+Object.assign(wrapper.style, {
+  position: "fixed",                      // יישאר במקומו גם בגלילה
+  top: "-240px",                             // הנמכה מהחלק העליון
+  left: "50%",
+  transform: "translateX(-50%)",         // ממרכז את הקופסה אופקית
+  backgroundColor: "white",
+  padding: "24px 20px",
+  borderRadius: "20px",
+  boxShadow: "0 8px 30px rgba(0, 0, 0, 0.15)",
+  width: "85%",                          // מותאם למובייל
+  maxWidth: "500px",                     // מגבלה לדסקטופ
+  textAlign: "center",
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
+  boxSizing: "border-box",
+  zIndex: "1000"
+});
+
+const heading = container.querySelector("h2.banner__heading");
+const paragraph = container.querySelector("p");
+const buttons = container.querySelector(".banner__buttons");
+
+if (!heading || !paragraph || !buttons) {
+  console.error("Required elements not found in the banner container.");
+  return;
+}
+
+
+wrapper.appendChild(heading);
+wrapper.appendChild(paragraph);
+wrapper.appendChild(buttons);
+
+container.appendChild(wrapper);
+
+
+heading.style.fontSize = "28px";
+heading.style.lineHeight = "1.2";
+heading.style.marginBottom = "16px";
+
+paragraph.style.fontSize = "16px";
+paragraph.style.lineHeight = "1.4";
+paragraph.style.marginBottom = "20px";
+
+buttons.style.gap = "12px";
+buttons.style.flexWrap = "wrap";
+
+}
+
