@@ -507,7 +507,7 @@ if (window.innerWidth < 600) {
 
   Object.assign(wrapper.style, {
     position: "fixed",                      // יישאר במקומו גם בגלילה
-    top: "-200px",                             // הנמכה מהחלק העליון
+    top: "-250px",                             // הנמכה מהחלק העליון
     left: "50%",
     transform: "translateX(-50%)",         // ממרכז את הקופסה אופקית
     backgroundColor: "white",
