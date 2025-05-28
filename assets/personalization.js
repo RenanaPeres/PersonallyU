@@ -513,7 +513,7 @@ if (!container) {
   return;
 }
 
-container.style.maxWidth = "300px"
+container.style.maxWidth = "300px";
 // container.style.transform = "translate(-0%, -600%)"
 
 const wrapper = document.createElement("div");
