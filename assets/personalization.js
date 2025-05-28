@@ -170,7 +170,7 @@ function getImageURLs() {
       if (label && !label.querySelector(`img[data-design="${id}"]`)) {
         // console.log("🔄 Updating label with image:", url);
         label.childNodes[0].textContent = '';
-        const img = document.createElement("img");
+        const img = label.createElement("img");
         
         img.src = url;
         img.about = designedProductsURLsToPersonality[url] ?? "noPersonality";
