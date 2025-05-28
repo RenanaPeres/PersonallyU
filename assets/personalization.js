@@ -561,8 +561,8 @@ if (!popup) {
   return;
 }
   popupBox.style.width = "100%";
-  popupBox.style.top = "-100px";
-  popupBox.style.padding = "20px";
+  popupBox.style.top = "-140px";
+  popupBox.style.padding = "25px";
 
 });
 
