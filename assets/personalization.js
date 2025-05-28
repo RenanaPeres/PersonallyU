@@ -508,10 +508,6 @@ if (window.innerWidth < 600) {
 
 const container = document.querySelector(".banner__box.content-container");
 
-if (!container) {
-  console.error("Banner container not found.");
-  return;
-}
 
 container.style.maxWidth = "400px"
 // container.style.transform = "translate(-0%, -600%)"
@@ -530,7 +526,7 @@ Object.assign(wrapper.style, {
   borderRadius: "20px",
   boxShadow: "0 8px 30px rgba(0, 0, 0, 0.15)",
   width: "85%",                          // מותאם למובייל
-  maxWidth: "400px",                     // מגבלה לדסקטופ
+  maxWidth: "500px",                     // מגבלה לדסקטופ
   textAlign: "center",
   display: "flex",
   flexDirection: "column",
@@ -543,10 +539,7 @@ const heading = container.querySelector("h2.banner__heading");
 const paragraph = container.querySelector("p");
 const buttons = container.querySelector(".banner__buttons");
 
-if (!heading || !paragraph || !buttons) {
-  console.error("Required elements not found in the banner container.");
-  return;
-}
+
 
 
 wrapper.appendChild(heading);
