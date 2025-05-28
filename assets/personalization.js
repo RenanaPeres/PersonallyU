@@ -552,17 +552,19 @@ if (window.innerWidth < 600) {
   buttons.style.gap = "12px";
   buttons.style.flexWrap = "wrap";
 
+  const popup = document.getElementById("popupBox");
+
+  if (!popup) {
+    console.error("Popup element not found.");
+    return;
+  }
+    popupBox.style.width = "100%";
+    popupBox.style.top = "-100px";
+    popupBox.style.padding = "25px";
+
 }
 
-const popup = document.getElementById("popupBox");
 
-if (!popup) {
-  console.error("Popup element not found.");
-  return;
-}
-  popupBox.style.width = "100%";
-  popupBox.style.top = "-100px";
-  popupBox.style.padding = "25px";
 
 });
 
