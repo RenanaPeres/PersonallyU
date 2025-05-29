@@ -583,6 +583,8 @@ if (window.innerWidth < 600) {
     popupBox.style.padding = "25px";
 
 }
+  document.querySelector("legend.form__label").textContent = "";
+
 
 
 
