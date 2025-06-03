@@ -285,7 +285,7 @@ $(document).on("click", "a", function (event) {
     // console.log("✅ Parsed data:", data);
 
     if (data?.personality && data?.responseId) {
-      // console.log("🚀 Redirecting");
+      console.log("🚀 Redirecting");
       const targetUrl = `/collections/products/${data.personality}?response_id=${data.responseId}&set=${data.personality}`;
       // console.log("🚀 Redirecting to:", targetUrl);
       window.location.href = targetUrl;
