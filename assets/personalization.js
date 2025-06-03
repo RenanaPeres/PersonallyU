@@ -583,8 +583,14 @@ if (window.innerWidth < 600) {
     popupBox.style.padding = "25px";
 
 }
-  document.querySelector("legend.form__label").textContent = "";
-
+if (window.location.href.includes("https://personallyu.com/products")) {
+  const legend = document.querySelector("legend.form__label");
+  if (legend) {
+    legend.textContent = "";
+  } else {
+    console.log("Legend element not found!");
+  }
+}
 
 
 
