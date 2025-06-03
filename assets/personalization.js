@@ -590,9 +590,11 @@ if (window.location.href.includes("https://personallyu.com/products")) {
   } else {
     console.log("Legend element not found!");
   }
+  const e = document.getElementById("ProductCountDesktop");
+  if (e) {
+    e.textContent = '5 products\n';
+  }
 }
-
-
 
 });
 
