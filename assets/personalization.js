@@ -436,7 +436,7 @@ $(document).on("click", "a", function (event) {
   })();
 
 
-  document.addEventListener("DOMContentLoaded", function () {
+  document.addEventListener("load", function () {
 
     function handleRedirectClick(event) {
     // event.preventDefault();
