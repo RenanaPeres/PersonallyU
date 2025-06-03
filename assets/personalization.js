@@ -442,14 +442,14 @@ $(document).on("click", "a", function (event) {
     // event.preventDefault();
     // event.stopImmediatePropagation(); // 🛑 Prevent Shopify’s handler too!
   const dataStr = localStorage.getItem("userQuizData");
-  // console.log("userQuizData from localStorage:", dataStr);
+  console.log("userQuizData from localStorage:", dataStr);
 
   try {
     const data = JSON.parse(dataStr);
-    // console.log("Parsed userQuizData:", data);
+    console.log("Parsed userQuizData:", data);
 
     if (data?.personality && data?.responseId) {
-      // console.log("Redirecting to personalized URL...");
+      console.log("Redirecting to personalized URL...");
       // event.preventDefault(); // stop default link behavior
       const targetUrl = `https://personallyu.com/collections/products/${data.personality}?response_id=${data.responseId}&set=${data.personality}`;
       // console.log("Redirect URL:", targetUrl);
