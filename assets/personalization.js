@@ -321,25 +321,16 @@ $(document).on("click", "a", function (event) {
     if (window.location.href.includes("personallyu.com/collections/products")) {
   console.log("🛒 On products page, waiting for disclosure div...");
 
-  const observer = new MutationObserver((mutationsList) => {
-    mutationsList.forEach(mutation => {
-      // נבדוק כל node שהתווסף
-      mutation.addedNodes.forEach(node => {
-        if (node.nodeType === 1) { // לוודא שזה element ולא טקסט
-          // בדוק אם זה בעצמו ה-div או שיש בו את ה-div
-          if (node.matches(".disclosure") || node.querySelector(".disclosure")) {
-            console.log("🗑️ Found and removing disclosure div");
-            const divToRemove = node.matches(".disclosure") ? node : node.querySelector(".disclosure");
-            divToRemove.remove();
-            observer.disconnect();
-          }
-        }
-      });
-    });
-  });
-
-  observer.observe(document.body, { childList: true, subtree: true });
+  const interval = setInterval(() => {
+    const disClosureDiv = document.querySelector(".disclosure");
+    if (disClosureDiv) {
+      console.log("🗑️ Found and removing disclosure div");
+      disClosureDiv.remove();
+      clearInterval(interval); // עצור את החיפוש
+    }
+  }, 300);
 }
+
 
 
 
