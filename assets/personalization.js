@@ -265,7 +265,7 @@ document.addEventListener("DOMContentLoaded", () => {
   document.addEventListener("DOMContentLoaded", startCartObserver);
 
 
-$(document).on("click", "a", function (event) {
+$(document).on("click", "a, button.disclosure__button", function (event) {
   const $link = $(this);
   const href = $link.attr("href");
 
