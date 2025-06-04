@@ -443,17 +443,12 @@ buttons.forEach(button => {
     event.preventDefault();
     event.stopImmediatePropagation(); // 🛑 Prevent Shopify’s handler too!
   const dataStr = localStorage.getItem("userQuizData");
+  console.log("userQuizData from localStorage:", dataStr);  
   const data = JSON.parse(dataStr);
+  console.log("Parsed userQuizData:", data);
   const targetUrl = `https://personallyu.com/collections/products/${data.personality}?response_id=${data.responseId}&set=${data.personality}`;
+  console.log("Redirecting to personalized URL:", targetUrl);
   window.location.href = targetUrl;
-
-
-
-
-
-
-    console.log('Button clicked but page not redirected.');
-    // פה תמשיך עם הקוד שלך, כמו לפתוח dropdown וכד׳
   });
 });
 
