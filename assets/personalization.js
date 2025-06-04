@@ -321,15 +321,18 @@ $(document).on("click", "a", function (event) {
 if (window.location.href.includes("personallyu.com/collections/products")) {
   console.log("🛒 On products page, waiting for disclosure div...");
 
-  const interval = setInterval(() => {
+  const observer = new MutationObserver((mutationsList, observer) => {
     const disClosureDiv = document.querySelector(".disclosure");
     if (disClosureDiv) {
       console.log("🗑️ Found and removing disclosure div");
-      disClosureDiv.parentNode.removeChild(disClosureDiv);
-      clearInterval(interval); // מפסיק לבדוק ברגע שמצא
+      disClosureDiv.remove();
+      observer.disconnect(); // מפסיק לעקוב ברגע שמצא ומחק
     }
-  }, 300); // בודק כל 300 מילי-שניות
+  });
+
+  observer.observe(document.body, { childList: true, subtree: true });
 }
+
 
   const $fieldset = $(".product-form__input--pill");
 
