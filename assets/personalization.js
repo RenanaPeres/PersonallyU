@@ -268,26 +268,22 @@ document.addEventListener("DOMContentLoaded", () => {
 $(document).on("click", "a, button.disclosure__button", function (event) {
   const $link = $(this);
   const href = $link.attr("href");
-  // console.log("🔍 Clicked link href:", href);
 
-  if (!href.includes("personallyu.com") && !href.includes("/collections/customer")) return;
-
-  // console.log("✅ Match found, running redirect override");
+  // בדיקה: אם אין בכלל href (למשל בכפתור), תמשיך כי לא צריך לבדוק href
+  if (href && !href.includes("personallyu.com") && !href.includes("/collections/customer")) {
+    return;
+  }
 
   event.preventDefault();
   event.stopImmediatePropagation();
 
   const dataStr = localStorage.getItem("userQuizData");
-  // console.log("📦 userQuizData from localStorage:", dataStr);
 
   try {
     const data = JSON.parse(dataStr);
-    // console.log("✅ Parsed data:", data);
-
     if (data?.personality && data?.responseId) {
       console.log("🚀 Redirecting");
       const targetUrl = `/collections/products/${data.personality}?response_id=${data.responseId}&set=${data.personality}`;
-      // console.log("🚀 Redirecting to:", targetUrl);
       window.location.href = targetUrl;
     } else {
       console.warn("⚠️ Missing personality or responseId, redirecting to fallback");
@@ -298,6 +294,7 @@ $(document).on("click", "a, button.disclosure__button", function (event) {
     window.location.href = "https://personallyu.com/collections/customer";
   }
 });
+
 
 
 
