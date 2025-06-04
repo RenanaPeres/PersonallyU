@@ -510,12 +510,12 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
 if (window.innerWidth < 600) {
+    console.log("doing!!!");
 
   const countryCurrencyDivClass = document.getElementsByClassName("disclosure__button");
   const mobileMenuListClass = document.getElementsByClassName("menu-drawer__menu");
 
   if (countryCurrencyDivClass.length > 0 && mobileMenuListClass.length > 0) {
-    console.log("doing!!!");
     const countryCurrency = countryCurrencyDivClass[0];
     const mobileMenu = mobileMenuListClass[0];
 
