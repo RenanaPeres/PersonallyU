@@ -323,7 +323,6 @@ $(document).on("click", "a", function (event) {
     const disClosureDiv = document.querySelector(".disclosure");
     if (disClosureDiv) {
       console.log("🗑️ Removing disclosure div");
-      disClosu
       disClosureDiv.parentNode.removeChild(disClosureDiv);
     }
   }
