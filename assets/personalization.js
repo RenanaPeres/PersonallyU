@@ -324,6 +324,8 @@ $(document).on("click", "a", function (event) {
     if (disClosureDiv) {
       console.log("🗑️ Removing disclosure div");
       disClosureDiv.parentNode.removeChild(disClosureDiv);
+      disClosureDiv.parentNode.removeChild(disClosureDiv);
+
     }
   }
   const $fieldset = $(".product-form__input--pill");
