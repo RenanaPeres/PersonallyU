@@ -265,7 +265,7 @@ document.addEventListener("DOMContentLoaded", () => {
   document.addEventListener("DOMContentLoaded", startCartObserver);
 
 
-$(document).on("click", "a, button.disclosure__button", function (event) {
+$(document).on("click", "a", function (event) {
   const $link = $(this);
   const href = $link.attr("href");
 
@@ -273,10 +273,8 @@ $(document).on("click", "a, button.disclosure__button", function (event) {
   if (href && !href.includes("personallyu.com") && !href.includes("/collections/customer")) {
     return;
   }
-  if (href) {
-    event.preventDefault();
-    event.stopImmediatePropagation();
-  }
+  event.preventDefault();
+  event.stopImmediatePropagation();
 
   const dataStr = localStorage.getItem("userQuizData");
 
