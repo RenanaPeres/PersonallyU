@@ -644,12 +644,13 @@ const disclosureObserver = new MutationObserver(function(mutationsList, observer
 });
 
 // קבע את ההגדרות
+
+});
+
 disclosureObserver.observe(span, {
   characterData: true, // שינויים בטקסט ישירות
   subtree: true,       // כולל שינויים בתוך span
   childList: true      // אם נוצר span חדש או הוחלף
-});
-
 });
 
 
