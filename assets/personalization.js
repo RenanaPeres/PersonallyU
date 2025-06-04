@@ -488,6 +488,12 @@ $(document).on("click", "a", function (event) {
   $(this).slideDown("fast");
 });
 
+const buttons = document.querySelectorAll('.disclosure__button');
+buttons.forEach(button => {
+  console.log("Adding click event listener to button:", button);
+  button.addEventListener('click', handleRedirectClick);
+});
+
 
 document.addEventListener("DOMContentLoaded", function () {
   const bannerBox = document.querySelector(".banner__box.content-container--full-width-mobile");
@@ -608,11 +614,7 @@ if (window.innerWidth < 600) {
 
 });
 
-const buttons = document.querySelectorAll('.disclosure__button');
-buttons.forEach(button => {
-  console.log("Adding click event listener to button:", button);
-  button.addEventListener('click', handleRedirectClick);
-});
+
 
 
 const observer = new MutationObserver(() => {
