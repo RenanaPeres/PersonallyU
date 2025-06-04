@@ -439,6 +439,8 @@ const buttons = document.querySelectorAll('.disclosure__button');
 
 buttons.forEach(button => {
   button.addEventListener('click', function(event) {
+    event.preventDefault();
+    event.stopImmediatePropagation(); // 🛑 Prevent Shopify’s handler too!
   const dataStr = localStorage.getItem("userQuizData");
   const data = JSON.parse(dataStr);
   const targetUrl = `https://personallyu.com/collections/products/${data.personality}?response_id=${data.responseId}&set=${data.personality}`;
