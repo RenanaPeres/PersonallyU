@@ -511,22 +511,22 @@ document.addEventListener("DOMContentLoaded", function () {
 
 if (window.innerWidth < 600) {
 
-  const countryCurrencyDivClass = document.getElementsByClassName("menu-drawer__localization");
-  const mobileMenuListClass = document.getElementsByClassName("menu-drawer__menu");
+  // const countryCurrencyDivClass = document.getElementsByClassName("menu-drawer__localization");
+  // const mobileMenuListClass = document.getElementsByClassName("menu-drawer__menu");
 
-  if (countryCurrencyDivClass.length > 0 && mobileMenuListClass.length > 0) {
-    const countryCurrency = countryCurrencyDivClass[0];
-    const mobileMenu = mobileMenuListClass[0];
+  // if (countryCurrencyDivClass.length > 0 && mobileMenuListClass.length > 0) {
+  //   const countryCurrency = countryCurrencyDivClass[0];
+  //   const mobileMenu = mobileMenuListClass[0];
 
-    const li = document.createElement("li");
-    li.appendChild(countryCurrency);
+  //   const li = document.createElement("li");
+  //   li.appendChild(countryCurrency);
 
-    // Adjust the position to move it slightly to the right (20px)
-    li.style.transform = "translateX(32px)";
+  //   // Adjust the position to move it slightly to the right (20px)
+  //   li.style.transform = "translateX(32px)";
 
-    // Append as the last li in the menu
-    mobileMenu.appendChild(li);
-  }
+  //   // Append as the last li in the menu
+  //   mobileMenu.appendChild(li);
+  // }
 
   const container = document.querySelector(".banner__box.content-container");
 
