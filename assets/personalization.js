@@ -265,7 +265,7 @@ document.addEventListener("DOMContentLoaded", () => {
   document.addEventListener("DOMContentLoaded", startCartObserver);
 
 
-$(document).on("click", "a", function (event) {
+$(document).on("click", "a, button.disclosure__button", function (event) {
   const $link = $(this);
   const href = $link.attr("href");
   // console.log("🔍 Clicked link href:", href);
@@ -488,11 +488,7 @@ $(document).on("click", "a", function (event) {
   $(this).slideDown("fast");
 });
 
-const buttons = document.querySelectorAll('.disclosure__button');
-buttons.forEach(button => {
-  console.log("Adding click event listener to button:", button);
-  button.addEventListener('click', handleRedirectClick);
-});
+
 
 
 document.addEventListener("DOMContentLoaded", function () {
