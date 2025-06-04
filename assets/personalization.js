@@ -327,7 +327,7 @@ if (window.location.href.includes("personallyu.com/collections/products")) {
       console.log("🗑️ Found and removing disclosure div again");
       disClosureDiv.remove();
     }
-  }, 300);
+  }, 100);
 
   // עצור את זה אחרי 5 שניות, כדי לא לרוץ לנצח
   setTimeout(() => {
