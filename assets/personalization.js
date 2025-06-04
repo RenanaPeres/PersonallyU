@@ -612,7 +612,6 @@ if (window.innerWidth < 600) {
 
 }
 
-});
 
 // בחר את ה-span שאתה רוצה לעקוב אחריו
 const span = document.querySelector("button.disclosure__button span");
@@ -650,6 +649,10 @@ disclosureObserver.observe(span, {
   subtree: true,       // כולל שינויים בתוך span
   childList: true      // אם נוצר span חדש או הוחלף
 });
+
+});
+
+
 
 
 
