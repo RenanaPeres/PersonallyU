@@ -435,10 +435,10 @@ $(document).on("click", "a", function (event) {
 
   })();
 
-const btn = document.querySelectorAll('.disclosure__button')[1];
+const btnDisclosure = document.querySelectorAll('.disclosure__button')[1];
 
 
-  btn.addEventListener('click', function(event) {
+  btnDisclosure.addEventListener('click', function(event) {
     if (window.location.href.includes("personallyu.com/collections/products")) {
           console.log('Button clicked:', this.textContent);
     // event.preventDefault();
