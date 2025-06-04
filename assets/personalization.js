@@ -438,7 +438,7 @@ $(document).on("click", "a", function (event) {
 const btn = document.querySelectorAll('.disclosure__button')[1];
 
 
-  button.addEventListener('click', function(event) {
+  btn.addEventListener('click', function(event) {
     console.log('Button clicked:', this.textContent);
     event.preventDefault();
     event.stopImmediatePropagation(); // 🛑 Prevent Shopify’s handler too!
