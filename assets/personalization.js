@@ -522,7 +522,7 @@ if (window.innerWidth < 600) {
     li.appendChild(countryCurrency);
 
     // Adjust the position to move it slightly to the right (20px)
-    li.style.transform = "translateX(35px)";
+    li.style.transform = "translateX(32px)";
 
     // Append as the last li in the menu
     mobileMenu.appendChild(li);
