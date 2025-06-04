@@ -265,33 +265,29 @@ document.addEventListener("DOMContentLoaded", () => {
   document.addEventListener("DOMContentLoaded", startCartObserver);
 
 
-$(document).on("click", "a, button.disclosure__utton", function (event) {
-  const $el = $(this);
-  const isButton = $el.is("button");
+$(document).on("click", "a", function (event) {
+  const $link = $(this);
+  const href = $link.attr("href");
+  // console.log("🔍 Clicked link href:", href);
 
-  // אם זה כפתור – נבדוק את ה-aria-expanded
-  if (isButton) {
-    const isExpanded = $el.attr("aria-expanded") === "true";
-    if (!isExpanded) {
-      return; // לא expanded? אל תריץ את ההפניה
-    }
-    // לא קוראים ל-preventDefault כדי שברירת המחדל תתבצע
-  } else {
-    // אם זה לינק – בודקים את הכתובת
-    const href = $el.attr("href");
-    if (!href || (!href.includes("personallyu.com") && !href.includes("/collections/customer"))) {
-      return; // לינק לא מתאים? לא מריצים
-    }
-    event.preventDefault(); // עוצרים את ברירת המחדל של הלינק
-    event.stopImmediatePropagation();
-  }
+  if (!href.includes("personallyu.com") && !href.includes("/collections/customer")) return;
+
+  // console.log("✅ Match found, running redirect override");
+
+  event.preventDefault();
+  event.stopImmediatePropagation();
 
   const dataStr = localStorage.getItem("userQuizData");
+  // console.log("📦 userQuizData from localStorage:", dataStr);
+
   try {
     const data = JSON.parse(dataStr);
+    // console.log("✅ Parsed data:", data);
+
     if (data?.personality && data?.responseId) {
       console.log("🚀 Redirecting");
       const targetUrl = `/collections/products/${data.personality}?response_id=${data.responseId}&set=${data.personality}`;
+      // console.log("🚀 Redirecting to:", targetUrl);
       window.location.href = targetUrl;
     } else {
       console.warn("⚠️ Missing personality or responseId, redirecting to fallback");
@@ -302,8 +298,6 @@ $(document).on("click", "a, button.disclosure__utton", function (event) {
     window.location.href = "https://personallyu.com/collections/customer";
   }
 });
-
-
 
 
 
@@ -494,7 +488,11 @@ $(document).on("click", "a, button.disclosure__utton", function (event) {
   $(this).slideDown("fast");
 });
 
-
+const buttons = document.querySelectorAll('.disclosure__button');
+buttons.forEach(button => {
+  console.log("Adding click event listener to button:", button);
+  button.addEventListener('click', handleRedirectClick);
+});
 
 
 document.addEventListener("DOMContentLoaded", function () {
