@@ -511,11 +511,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
 if (window.innerWidth < 600) {
 
-  const countryCurrencyDivClass = document.getElementsByClassName("disclosure__button");
+  const countryCurrencyButtonClass = document.getElementsByClassName("disclosure__button");
   const mobileMenuListClass = document.getElementsByClassName("menu-drawer__menu");
 
-  if (countryCurrencyDivClass.length > 0 && mobileMenuListClass.length > 0) {
-    const countryCurrency = countryCurrencyDivClass[0];
+  if (countryCurrencyButtonClass.length > 0 && mobileMenuListClass.length > 0) {
+    const countryCurrency = countryCurrencyButtonClass[0];
     const mobileMenu = mobileMenuListClass[0];
 
     const li = document.createElement("li");
@@ -524,7 +524,7 @@ if (window.innerWidth < 600) {
     // Adjust the position to move it slightly to the right (20px)
     li.style.transform = "translateX(10px)";
 
-    // Append as the last li in the menu
+    // Append as the first li in the menu
     mobileMenu.prepend(li);
   }
 
