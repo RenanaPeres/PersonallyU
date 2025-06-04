@@ -389,6 +389,12 @@ $(document).on("click", "a", function (event) {
       localStorage.setItem("AddtoCartPersonality", currentPersonality);
     });
   }
+  if (window.location.href.includes("personallyu.com/collections/products")) {
+  const disClosureDiv = document.querySelector(".disclosure");
+  if (disClosureDiv) {
+    disClosureDiv.remove();
+  }
+}
 
 
   if (window.location.href.startsWith("https://personallyu.com/checkouts")) {
@@ -612,12 +618,6 @@ if (window.innerWidth < 600) {
 
 }
 
-if (window.location.href.includes("personallyu.com/collections/products")) {
-  const disClosureDiv = document.querySelector(".disclosure");
-  if (disClosureDiv) {
-    disClosureDiv.remove();
-  }
-}
 
 });
 
