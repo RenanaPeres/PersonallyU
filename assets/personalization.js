@@ -435,9 +435,9 @@ $(document).on("click", "a", function (event) {
 
   })();
 
-const buttons = document.querySelectorAll('.disclosure__button');
+const btn = document.querySelectorAll('.disclosure__button')[1];
 
-buttons.forEach(button => {
+
   button.addEventListener('click', function(event) {
     console.log('Button clicked:', this.textContent);
     event.preventDefault();
@@ -450,7 +450,7 @@ buttons.forEach(button => {
   console.log("Redirecting to personalized URL:", targetUrl);
   window.location.href = targetUrl;
   });
-});
+
 
 
 
