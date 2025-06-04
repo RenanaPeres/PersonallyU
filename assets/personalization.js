@@ -531,7 +531,7 @@ if (window.innerWidth < 600) {
   const container = document.querySelector(".banner__box.content-container");
 
   if (!container) {
-    console.error("Banner container not found.");
+    // console.error("Banner container not found.");
     return;
   }
 
