@@ -265,7 +265,7 @@ document.addEventListener("DOMContentLoaded", () => {
   document.addEventListener("DOMContentLoaded", startCartObserver);
 
 
-$(document).on("click", "a, button.disclosure__button", function (event) {
+$(document).on("click", "a, button.disclosure__buton", function (event) {
   const $el = $(this);
   const isButton = $el.is("button");
 
