@@ -319,11 +319,11 @@ $(document).on("click", "a", function (event) {
 
   $(function () {
 if (window.location.href.includes("personallyu.com/collections/products")) {
-  console.log("🛒 On products page, ensuring disclosure div stays removed...");
+  const disClosureDiv = document.querySelector(".disclosure");
+  if (disClosureDiv) {
+    disClosureDiv.style.display = "none";
+  }
 
-  const style = document.createElement("style");
-  style.textContent = `.disclosure { display: none !important; }`;
-  document.head.appendChild(style);
 
 }
 
