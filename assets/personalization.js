@@ -265,19 +265,21 @@ document.addEventListener("DOMContentLoaded", () => {
   document.addEventListener("DOMContentLoaded", startCartObserver);
 
 
-$(document).on("click", "a", function (event) {
-  const $link = $(this);
-  const href = $link.attr("href");
+$(document).on("click", "a, button.disclosure__button", function (event) {
+  const $el = $(this);
+  const isButton = $el.is("button");
 
-  // בדיקה: אם אין בכלל href (למשל בכפתור), תמשיך כי לא צריך לבדוק href
-  if (href && !href.includes("personallyu.com") && !href.includes("/collections/customer")) {
-    return;
+  // אם זה לינק – בודקים את הכתובת
+  if (!isButton) {
+    const href = $el.attr("href");
+    if (!href || (!href.includes("personallyu.com") && !href.includes("/collections/customer"))) {
+      return; // לינק שלא מתאים? אל תעשה כלום
+    }
+    event.preventDefault(); // עוצר את ברירת המחדל של ה-a
+    event.stopImmediatePropagation();
   }
-  event.preventDefault();
-  event.stopImmediatePropagation();
 
   const dataStr = localStorage.getItem("userQuizData");
-
   try {
     const data = JSON.parse(dataStr);
     if (data?.personality && data?.responseId) {
