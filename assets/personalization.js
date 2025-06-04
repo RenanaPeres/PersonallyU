@@ -318,16 +318,19 @@ $(document).on("click", "a", function (event) {
 // });
 
   $(function () {
-  if (window.location.href.includes("personallyu.com/collections/products")) {
-    console.log("🛒 On products page, removing disclosure div");
+if (window.location.href.includes("personallyu.com/collections/products")) {
+  console.log("🛒 On products page, waiting for disclosure div...");
+
+  const interval = setInterval(() => {
     const disClosureDiv = document.querySelector(".disclosure");
     if (disClosureDiv) {
-      console.log("🗑️ Removing disclosure div");
+      console.log("🗑️ Found and removing disclosure div");
       disClosureDiv.parentNode.removeChild(disClosureDiv);
-      disClosureDiv.parentNode.removeChild(disClosureDiv);
-
+      clearInterval(interval); // מפסיק לבדוק ברגע שמצא
     }
-  }
+  }, 300); // בודק כל 300 מילי-שניות
+}
+
   const $fieldset = $(".product-form__input--pill");
 
   if ($fieldset.length) {
