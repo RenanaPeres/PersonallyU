@@ -322,7 +322,7 @@ if (window.location.href.includes("personallyu.com/collections/products")) {
   const disClosureDiv = document.querySelector(".disclosure");
   if (disClosureDiv) {
     console.log("Hiding disclosure div");
-    disClosureDiv.style.display = "none";
+    disClosureDiv.style.setProperty("display", "none", "important");
   }
 }
 
