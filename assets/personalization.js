@@ -510,7 +510,6 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
 if (window.innerWidth < 600) {
-    console.log("doing!!!");
 
   const countryCurrencyDivClass = document.getElementsByClassName("disclosure__button");
   const mobileMenuListClass = document.getElementsByClassName("menu-drawer__menu");
@@ -526,7 +525,7 @@ if (window.innerWidth < 600) {
     li.style.transform = "translateX(10px)";
 
     // Append as the last li in the menu
-    mobileMenu.appendChild(li);
+    mobileMenu.prepend(li);
   }
 
   const container = document.querySelector(".banner__box.content-container");
