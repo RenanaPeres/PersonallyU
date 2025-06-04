@@ -273,9 +273,11 @@ $(document).on("click", "a, button.disclosure__button", function (event) {
   if (href && !href.includes("personallyu.com") && !href.includes("/collections/customer")) {
     return;
   }
-
+  if (href)
   event.preventDefault();
   event.stopImmediatePropagation();
+
+
 
   const dataStr = localStorage.getItem("userQuizData");
 
