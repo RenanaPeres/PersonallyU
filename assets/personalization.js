@@ -435,7 +435,7 @@ $(document).on("click", "a", function (event) {
 
   })();
 
-const buttons = document.querySelectorAll('.disclosure__button');
+const buttons = document.querySelectorAll('.disclosure__button')[1];
 
 buttons.forEach(button => {
   button.addEventListener('click', function(event) {
