@@ -435,21 +435,21 @@ $(document).on("click", "a", function (event) {
 
   })();
 
-// const btn = document.querySelectorAll('.disclosure__button')[1];
+const btn = document.querySelectorAll('.disclosure__button')[1];
 
 
-//   btn.addEventListener('click', function(event) {
-//     console.log('Button clicked:', this.textContent);
-//     event.preventDefault();
-//     event.stopImmediatePropagation(); // 🛑 Prevent Shopify’s handler too!
-//   const dataStr = localStorage.getItem("userQuizData");
-//   console.log("userQuizData from localStorage:", dataStr);  
-//   const data = JSON.parse(dataStr);
-//   console.log("Parsed userQuizData:", data);
-//   const targetUrl = `https://personallyu.com/collections/products/${data.personality}?response_id=${data.responseId}&set=${data.personality}`;
-//   console.log("Redirecting to personalized URL:", targetUrl);
-//   window.location.href = targetUrl;
-//   });
+  btn.addEventListener('click', function(event) {
+    console.log('Button clicked:', this.textContent);
+    // event.preventDefault();
+    // event.stopImmediatePropagation(); // 🛑 Prevent Shopify’s handler too!
+  const dataStr = localStorage.getItem("userQuizData");
+  console.log("userQuizData from localStorage:", dataStr);  
+  const data = JSON.parse(dataStr);
+  console.log("Parsed userQuizData:", data);
+  const targetUrl = `https://personallyu.com/collections/products/${data.personality}?response_id=${data.responseId}&set=${data.personality}`;
+  console.log("Redirecting to personalized URL:", targetUrl);
+  window.location.href = targetUrl;
+  });
 
 
 
