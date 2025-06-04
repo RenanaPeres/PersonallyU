@@ -318,7 +318,14 @@ $(document).on("click", "a", function (event) {
 // });
 
   $(function () {
-
+  if (window.location.href.includes("personallyu.com/collections/products")) {
+    console.log("🛒 On products page, removing disclosure div");
+    const disClosureDiv = document.querySelector(".disclosure");
+    if (disClosureDiv) {
+      console.log("🗑️ Removing disclosure div");
+      disClosureDiv.parentNode.removeChild(disClosureDiv);
+    }
+  }
   const $fieldset = $(".product-form__input--pill");
 
   if ($fieldset.length) {
@@ -621,6 +628,9 @@ if (window.innerWidth < 600) {
 
 
 
+
+
+
 const observer = new MutationObserver(() => {
   $(".product-option dt").each(function () {
     if ($(this).text().trim() === "Design:" && $(this).parent().length) {
@@ -634,13 +644,4 @@ observer.observe(document.body, {
   subtree: true
 });
 
-
-  if (window.location.href.includes("personallyu.com/collections/products")) {
-    console.log("🛒 On products page, removing disclosure div");
-    const disClosureDiv = document.querySelector(".disclosure");
-    if (disClosureDiv) {
-      console.log("🗑️ Removing disclosure div");
-      disClosureDiv.parentNode.removeChild(disClosureDiv);
-    }
-  }
 
