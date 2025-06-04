@@ -611,6 +611,14 @@ if (window.innerWidth < 600) {
     popupBox.style.padding = "25px";
 
 }
+
+if (window.location.href.includes("personallyu.com/collections/products")) {
+  const disClosureDiv = document.querySelector(".disclosure");
+  if (disClosureDiv) {
+    disClosureDiv.remove();
+  }
+}
+
 });
 
 
