@@ -321,19 +321,10 @@ $(document).on("click", "a", function (event) {
 if (window.location.href.includes("personallyu.com/collections/products")) {
   console.log("🛒 On products page, ensuring disclosure div stays removed...");
 
-  const interval = setInterval(() => {
-    const disClosureDiv = document.querySelector(".disclosure");
-    if (disClosureDiv) {
-      console.log("🗑️ Found and removing disclosure div again");
-      disClosureDiv.remove();
-    }
-  }, 1);
+  const style = document.createElement("style");
+  style.textContent = `.disclosure { display: none !important; }`;
+  document.head.appendChild(style);
 
-  // עצור את זה אחרי 5 שניות, כדי לא לרוץ לנצח
-  setTimeout(() => {
-    clearInterval(interval);
-    console.log("✅ Stopped trying to remove disclosure div");
-  }, 5000);
 }
 
 
