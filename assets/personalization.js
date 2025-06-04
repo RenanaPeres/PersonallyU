@@ -532,6 +532,7 @@ if (window.innerWidth < 600) {
 
   if (!container) {
     console.error("Banner container not found.");
+    return;
   }
 
 
