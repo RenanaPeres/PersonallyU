@@ -318,14 +318,15 @@ $(document).on("click", "a", function (event) {
 // });
 
   $(function () {
-      if (window.location.href.includes("personallyu.com/collections/products")) {
+  if (window.location.href.includes("personallyu.com/collections/products")) {
     console.log("🛒 On products page, removing disclosure div");
-  const disClosureDiv = document.querySelector(".disclosure");
-  if (disClosureDiv) {
-    console.log("🗑️ Removing disclosure div");
-    disClosureDiv.remove();
+    const disClosureDiv = document.querySelector(".disclosure");
+    if (disClosureDiv) {
+      console.log("🗑️ Removing disclosure div");
+      disClosu
+      disClosureDiv.parentNode.removeChild(disClosureDiv);
+    }
   }
-}
   const $fieldset = $(".product-form__input--pill");
 
   if ($fieldset.length) {
