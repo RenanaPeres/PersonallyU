@@ -265,17 +265,24 @@ document.addEventListener("DOMContentLoaded", () => {
   document.addEventListener("DOMContentLoaded", startCartObserver);
 
 
-$(document).on("click", "a, button.disclosure__buton", function (event) {
+$(document).on("click", "a, button.disclosure__button", function (event) {
   const $el = $(this);
   const isButton = $el.is("button");
 
-  // אם זה לינק – בודקים את הכתובת
-  if (!isButton) {
+  // אם זה כפתור – נבדוק את ה-aria-expanded
+  if (isButton) {
+    const isExpanded = $el.attr("aria-expanded") === "true";
+    if (!isExpanded) {
+      return; // לא expanded? אל תריץ את ההפניה
+    }
+    // לא קוראים ל-preventDefault כדי שברירת המחדל תתבצע
+  } else {
+    // אם זה לינק – בודקים את הכתובת
     const href = $el.attr("href");
     if (!href || (!href.includes("personallyu.com") && !href.includes("/collections/customer"))) {
-      return; // לינק שלא מתאים? אל תעשה כלום
+      return; // לינק לא מתאים? לא מריצים
     }
-    event.preventDefault(); // עוצר את ברירת המחדל של ה-a
+    event.preventDefault(); // עוצרים את ברירת המחדל של הלינק
     event.stopImmediatePropagation();
   }
 
@@ -295,6 +302,7 @@ $(document).on("click", "a, button.disclosure__buton", function (event) {
     window.location.href = "https://personallyu.com/collections/customer";
   }
 });
+
 
 
 
