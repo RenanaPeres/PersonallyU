@@ -321,6 +321,7 @@ $(document).on("click", "a", function (event) {
 if (window.location.href.includes("personallyu.com/collections/products")) {
   const disClosureDiv = document.querySelector(".disclosure");
   if (disClosureDiv) {
+    console.log("Hiding disclosure div");
     disClosureDiv.style.display = "none";
   }
 
