@@ -389,14 +389,7 @@ $(document).on("click", "a", function (event) {
       localStorage.setItem("AddtoCartPersonality", currentPersonality);
     });
   }
-  if (window.location.href.includes("personallyu.com/collections/products")) {
-    console.log("🛒 On products page, removing disclosure div");
-  const disClosureDiv = document.querySelector(".disclosure");
-  if (disClosureDiv) {
-    console.log("🗑️ Removing disclosure div");
-    disClosureDiv.remove();
-  }
-}
+
 
 
   if (window.location.href.startsWith("https://personallyu.com/checkouts")) {
@@ -501,6 +494,15 @@ buttons.forEach(button => {
   console.log("Adding click event listener to button:", button);
   button.addEventListener('click', handleRedirectClick);
 });
+
+  if (window.location.href.includes("personallyu.com/collections/products")) {
+    console.log("🛒 On products page, removing disclosure div");
+  const disClosureDiv = document.querySelector(".disclosure");
+  if (disClosureDiv) {
+    console.log("🗑️ Removing disclosure div");
+    disClosureDiv.remove();
+  }
+}
 
 
 document.addEventListener("DOMContentLoaded", function () {
