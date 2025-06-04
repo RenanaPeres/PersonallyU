@@ -611,45 +611,6 @@ if (window.innerWidth < 600) {
     popupBox.style.padding = "25px";
 
 }
-
-
-// בחר את ה-span שאתה רוצה לעקוב אחריו
-const span = document.querySelector("button.disclosure__button span");
-
-// צור את ה-Observer
-const disclosureObserver = new MutationObserver(function(mutationsList, observer) {
-  for (const mutation of mutationsList) {
-    if (mutation.type === "characterData" || mutation.type === "childList") {
-      console.log("Detected text change:", span.textContent);
-
-      // כאן תשים את ההפניה שאתה רוצה
-      const dataStr = localStorage.getItem("userQuizData");
-      try {
-        const data = JSON.parse(dataStr);
-        if (data?.personality && data?.responseId) {
-          const targetUrl = `/collections/products/${data.personality}?response_id=${data.responseId}&set=${data.personality}`;
-          window.location.href = targetUrl;
-        } else {
-          window.location.href = "https://personallyu.com/collections/customer";
-        }
-      } catch (e) {
-        console.error("Error parsing userQuizData:", e);
-        window.location.href = "https://personallyu.com/collections/customer";
-      }
-
-      // אם רוצים לעצור את המעקב:
-      // observer.disconnect();
-    }
-  }
-});
-
-// קבע את ההגדרות
-disclosureObserver.observe(span, {
-  characterData: true, // שינויים בטקסט ישירות
-  subtree: true,       // כולל שינויים בתוך span
-  childList: true      // אם נוצר span חדש או הוחלף
-});
-
 });
 
 
