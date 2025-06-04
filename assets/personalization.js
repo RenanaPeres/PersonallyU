@@ -438,9 +438,16 @@ $(document).on("click", "a", function (event) {
 const buttons = document.querySelectorAll('.disclosure__button');
 
 buttons.forEach(button => {
-  const currentURL = window.location.href;
   button.addEventListener('click', function(event) {
-    window.location.href = currentURL;
+  const dataStr = localStorage.getItem("userQuizData");
+  const data = JSON.parse(dataStr);
+  const targetUrl = `https://personallyu.com/collections/products/${data.personality}?response_id=${data.responseId}&set=${data.personality}`;
+  window.location.href = targetUrl;
+
+
+
+
+
 
     console.log('Button clicked but page not redirected.');
     // פה תמשיך עם הקוד שלך, כמו לפתוח dropdown וכד׳
