@@ -610,6 +610,7 @@ if (window.innerWidth < 600) {
 
 const buttons = document.querySelectorAll('.disclosure__button');
 buttons.forEach(button => {
+  console.log("Adding click event listener to button:", button);
   button.addEventListener('click', handleRedirectClick);
 });
 
