@@ -1,7 +1,3 @@
-.disclosure {
-  display: none !important;
-}
-
 .article-template > *:first-child:not(.article-template__hero-container) {
   margin-top: 5rem;
 }
