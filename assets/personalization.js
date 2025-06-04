@@ -436,7 +436,7 @@ $(document).on("click", "a", function (event) {
   })();
 
 
-  document.addEventListener("load", function () {
+  document.addEventListener("DOMContentLoaded", function () {
 
     function handleRedirectClick(event) {
     // event.preventDefault();
@@ -582,18 +582,6 @@ if (window.innerWidth < 600) {
     popupBox.style.top = "-120px";
     popupBox.style.padding = "25px";
 
-}
-if (window.location.href.includes("https://personallyu.com/products")) {
-  const legend = document.querySelector("legend.form__label");
-  if (legend) {
-    legend.textContent = "";
-  } else {
-    console.log("Legend element not found!");
-  }
-  const e = document.getElementById("ProductCountDesktop");
-  if (e) {
-    e.textContent = '5 products\n';
-  }
 }
 
 });
