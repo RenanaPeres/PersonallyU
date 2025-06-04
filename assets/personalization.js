@@ -439,6 +439,7 @@ const buttons = document.querySelectorAll('.disclosure__button');
 
 buttons.forEach(button => {
   button.addEventListener('click', function(event) {
+    console.log('Button clicked:', this.textContent);
     event.preventDefault();
     event.stopImmediatePropagation(); // 🛑 Prevent Shopify’s handler too!
   const dataStr = localStorage.getItem("userQuizData");
