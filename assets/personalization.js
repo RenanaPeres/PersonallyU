@@ -390,8 +390,10 @@ $(document).on("click", "a", function (event) {
     });
   }
   if (window.location.href.includes("personallyu.com/collections/products")) {
+    console.log("🛒 On products page, removing disclosure div");
   const disClosureDiv = document.querySelector(".disclosure");
   if (disClosureDiv) {
+    console.log("🗑️ Removing disclosure div");
     disClosureDiv.remove();
   }
 }
