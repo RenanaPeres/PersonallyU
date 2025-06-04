@@ -435,23 +435,7 @@ $(document).on("click", "a", function (event) {
 
   })();
 
-const btnDisclosure = document.querySelectorAll('.disclosure__button')[1];
 
-
-  btnDisclosure.addEventListener('click', function(event) {
-    if (window.location.href.includes("personallyu.com/collections/products")) {
-          console.log('Button clicked:', this.textContent);
-    // event.preventDefault();
-    // event.stopImmediatePropagation(); // 🛑 Prevent Shopify’s handler too!
-      const dataStr = localStorage.getItem("userQuizData");
-      console.log("userQuizData from localStorage:", dataStr);  
-      const data = JSON.parse(dataStr);
-      console.log("Parsed userQuizData:", data);
-      const targetUrl = `https://personallyu.com/collections/products/${data.personality}?response_id=${data.responseId}&set=${data.personality}`;
-      console.log("Redirecting to personalized URL:", targetUrl);
-      window.location.href = targetUrl;
-    }
-  });
 
 
 
@@ -459,29 +443,29 @@ const btnDisclosure = document.querySelectorAll('.disclosure__button')[1];
   document.addEventListener("DOMContentLoaded", function () {
 
     function handleRedirectClick(event) {
-    // event.preventDefault();
-    // event.stopImmediatePropagation(); // 🛑 Prevent Shopify’s handler too!
-  const dataStr = localStorage.getItem("userQuizData");
-  console.log("userQuizData from localStorage:", dataStr);
+        // event.preventDefault();
+        // event.stopImmediatePropagation(); // 🛑 Prevent Shopify’s handler too!
+      const dataStr = localStorage.getItem("userQuizData");
+      console.log("userQuizData from localStorage:", dataStr);
 
-  try {
-    const data = JSON.parse(dataStr);
-    console.log("Parsed userQuizData:", data);
+      try {
+        const data = JSON.parse(dataStr);
+        console.log("Parsed userQuizData:", data);
 
-    if (data?.personality && data?.responseId) {
-      console.log("Redirecting to personalized URL...");
-      // event.preventDefault(); // stop default link behavior
-      const targetUrl = `https://personallyu.com/collections/products/${data.personality}?response_id=${data.responseId}&set=${data.personality}`;
-      // console.log("Redirect URL:", targetUrl);
-      window.location.href = targetUrl;
-    } else {
-      // console.log("Missing personality or responseId in userQuizData.");
+        if (data?.personality && data?.responseId) {
+          console.log("Redirecting to personalized URL...");
+          // event.preventDefault(); // stop default link behavior
+          const targetUrl = `https://personallyu.com/collections/products/${data.personality}?response_id=${data.responseId}&set=${data.personality}`;
+          // console.log("Redirect URL:", targetUrl);
+          window.location.href = targetUrl;
+        } else {
+          // console.log("Missing personality or responseId in userQuizData.");
+        }
+      } catch (e) {
+        console.error("Failed to parse userQuizData:", e);
+        // Do nothing and allow default link behavior
+      }
     }
-  } catch (e) {
-    console.error("Failed to parse userQuizData:", e);
-    // Do nothing and allow default link behavior
-  }
-}
 
   $("#checkoutNow").text("Checkout Now 💳");
   // $("#ProductSubmitButton-template--17814043295926__main").text("Add to cart 🛒");
@@ -623,6 +607,12 @@ if (window.innerWidth < 600) {
 }
 
 });
+
+const buttons = document.querySelectorAll('.disclosure__button');
+buttons.forEach(button => {
+  button.addEventListener('click', handleRedirectClick);
+});
+
 
 const observer = new MutationObserver(() => {
   $(".product-option dt").each(function () {
