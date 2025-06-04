@@ -318,18 +318,24 @@ $(document).on("click", "a", function (event) {
 // });
 
   $(function () {
-    if (window.location.href.includes("personallyu.com/collections/products")) {
-  console.log("🛒 On products page, waiting for disclosure div...");
+if (window.location.href.includes("personallyu.com/collections/products")) {
+  console.log("🛒 On products page, ensuring disclosure div stays removed...");
 
   const interval = setInterval(() => {
     const disClosureDiv = document.querySelector(".disclosure");
     if (disClosureDiv) {
-      console.log("🗑️ Found and removing disclosure div");
+      console.log("🗑️ Found and removing disclosure div again");
       disClosureDiv.remove();
-      clearInterval(interval); // עצור את החיפוש
     }
   }, 300);
+
+  // עצור את זה אחרי 5 שניות, כדי לא לרוץ לנצח
+  setTimeout(() => {
+    clearInterval(interval);
+    console.log("✅ Stopped trying to remove disclosure div");
+  }, 5000);
 }
+
 
 
 
