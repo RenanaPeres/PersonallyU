@@ -68,30 +68,30 @@
         Canva: {
       EX: "https://personallyu.com/products/ex-your-personalized-Canva",
       IN: "https://personallyu.com/products/in-your-personalized-Canva",
-      MS: "https://personallyu.com/products/ms-your-personalised-Canva",
-      SY : "https://personallyu.com/products/sy-your-personalised-Canva",
-      CR : "https://personallyu.com/products/cr-your-personalised-Canva",
-      AN : "https://personallyu.com/products/an-your-personalised-Canva",
-      SD : "https://personallyu.com/products/sd-your-personalised-Canva",
-      CL : "https://personallyu.com/products/cl-your-personalised-Canva",
-      CM : "https://personallyu.com/products/cm-your-personalised-Canva",
-      OM : "https://personallyu.com/products/om-your-personalised-Canva",
-      AMB : "https://personallyu.com/products/amb-your-personalised-Canva",
-      NO : "https://personallyu.com/products/no-your-personalised-Canva"
+      MS: "https://personallyu.com/products/ms-your-personalized-Canva",
+      SY : "https://personallyu.com/products/sy-your-personalized-Canva",
+      CR : "https://personallyu.com/products/cr-your-personalized-Canva",
+      AN : "https://personallyu.com/products/an-your-personalized-Canva",
+      SD : "https://personallyu.com/products/sd-your-personalized-Canva",
+      CL : "https://personallyu.com/products/cl-your-personalized-Canva",
+      CM : "https://personallyu.com/products/cm-your-personalized-Canva",
+      OM : "https://personallyu.com/products/om-your-personalized-Canva",
+      AMB : "https://personallyu.com/products/amb-your-personalized-Canva",
+      NO : "https://personallyu.com/products/no-your-personalized-Canva"
     }
      Card: {
       EX: "https://personallyu.com/products/ex-your-personalized-greeting-card",
       IN: "https://personallyu.com/products/in-your-personalized-greeting-card",
-      MS: "https://personallyu.com/products/ms-your-personalised-greeting-card",
-      SY : "https://personallyu.com/products/sy-your-personalised-greeting-card",
-      CR : "https://personallyu.com/products/cr-your-personalised-greeting-card",
-      AN : "https://personallyu.com/products/an-your-personalised-greeting-card",
-      SD : "https://personallyu.com/products/sd-your-personalised-greeting-card",
-      CL : "https://personallyu.com/products/cl-your-personalised-greeting-card",
-      CM : "https://personallyu.com/products/cm-your-personalised-greeting-card",
-      OM : "https://personallyu.com/products/om-your-personalised-greeting-card",
-      AMB : "https://personallyu.com/products/amb-your-personalised-greeting-card",
-      NO : "https://personallyu.com/products/no-your-personalised-greeting-card"
+      MS: "https://personallyu.com/products/ms-your-personalized-greeting-card",
+      SY : "https://personallyu.com/products/sy-your-personalized-greeting-card",
+      CR : "https://personallyu.com/products/cr-your-personalized-greeting-card",
+      AN : "https://personallyu.com/products/an-your-personalized-greeting-card",
+      SD : "https://personallyu.com/products/sd-your-personalized-greeting-card",
+      CL : "https://personallyu.com/products/cl-your-personalized-greeting-card",
+      CM : "https://personallyu.com/products/cm-your-personalized-greeting-card",
+      OM : "https://personallyu.com/products/om-your-personalized-greeting-card",
+      AMB : "https://personallyu.com/products/amb-your-personalized-greeting-card",
+      NO : "https://personallyu.com/products/no-your-personalized-greeting-card"
     }
   };
  // PHOTOS OF ARMADILOS 
