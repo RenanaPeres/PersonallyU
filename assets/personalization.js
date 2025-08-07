@@ -64,7 +64,7 @@
       OM : "https://personallyu.com/products/om-your-personalised-mug",
       AMB : "https://personallyu.com/products/amb-your-personalised-mug",
       NO : "https://personallyu.com/products/no-your-personalised-mug"
-    }
+    },
         Canva: {
       EX: "https://personallyu.com/products/ex-your-personalized-Canva",
       IN: "https://personallyu.com/products/in-your-personalized-Canva",
@@ -78,7 +78,7 @@
       OM : "https://personallyu.com/products/om-your-personalized-Canva",
       AMB : "https://personallyu.com/products/amb-your-personalized-Canva",
       NO : "https://personallyu.com/products/no-your-personalized-Canva"
-    }
+    },
      Card: {
       EX: "https://personallyu.com/products/ex-your-personalized-greeting-card",
       IN: "https://personallyu.com/products/in-your-personalized-greeting-card",
