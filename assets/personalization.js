@@ -244,12 +244,11 @@ function getImageURLs() {
     for (let i = 0; i < urls.length; i++) {
         if (!urls[i]) return;
     }  
-    const designs = Object.fromEntries(
-      urls.map((url, i) => [
-        `template--18147309650102__main-1-${i}`,
-        url
-      ])
-    );
+    const designs = urls.map((url, i) => ({
+      for: `template--18147309650102__main-1-${i}`,
+      url
+    }));
+
     // console.log("🔄 Designs to update:", designs);
   
     designs.forEach(({ for: id, url }) => {
