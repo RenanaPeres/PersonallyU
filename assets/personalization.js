@@ -94,6 +94,21 @@
       OM : "https://personallyu.com/products/om-your-personalized-greeting-card",
       AMB : "https://personallyu.com/products/amb-your-personalized-greeting-card",
       NO : "https://personallyu.com/products/no-your-personalized-greeting-card"
+    },
+
+     Sticker: {
+      EX: "https://personallyu.com/products/ex-your-personalized-sticker",
+      IN: "https://personallyu.com/products/in-your-personalized-sticker",
+      MS: "https://personallyu.com/products/ms-your-personalized-sticker",
+      SY : "https://personallyu.com/products/sy-your-personalized-sticker",
+      CR : "https://personallyu.com/products/cr-your-personalized-sticker",
+      AN : "https://personallyu.com/products/an-your-personalized-sticker",
+      SD : "https://personallyu.com/products/sd-your-personalized-sticker",
+      CL : "https://personallyu.com/products/cl-your-personalized-sticker",
+      CM : "https://personallyu.com/products/cm-your-personalized-sticker",
+      OM : "https://personallyu.com/products/om-your-personalized-sticker",
+      AMB : "https://personallyu.com/products/amb-your-personalized-sticker",
+      NO : "https://personallyu.com/products/no-your-personalized-sticker"
     }
   };
  // PHOTOS OF ARMADILOS 
