@@ -2,6 +2,7 @@
   // ------------------ Constants ------------------
   const CATALOG_BASE = "https://personallyu.com/collections/products/";
   const QUIZ_URL = "https://huji.questionpro.eu/a/TakeSurvey?tt=P/VDme5CUhAD5ltxMh/wHg%3D%3D";
+  const NUMBER_OF_VARIANTS = 6;
 
 
   // URLs TO PERSONALITY PAGE 
@@ -98,6 +99,8 @@
   };
  // PHOTOS OF ARMADILOS 
 const designedProductsImageURLs = {
+
+  armadilo : {
   IN: "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/IN.png?v=1744208187",
   MS: "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/MS.png?v=1744208187",
   EX: "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/EX.png?v=1744208187",
@@ -109,6 +112,34 @@ const designedProductsImageURLs = {
   CM : "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/CM.png?v=1744208185",
   OM : "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/OM.png?v=1744208186",
   AMB: "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/AMB.png?v=1744216274"
+  },
+  bear : {
+    IN: "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/IN_bear.webp?v=1755803621",
+    MS: "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/ChatGPT_Image_May_3_2025_12_51_45_PM.png?v=1746265930",
+    EX: "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/EX_bear.webp?v=1755803538",
+    SY : "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/ChatGPT_Image_May_3_2025_12_51_45_PM.png?v=1746265930",
+    CR : "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/CR_bear.webp?v=1755803593",
+    AN : "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/AN_bear.png?v=1755803414",
+    SD : "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/SD_bear.webp?v=1755803493",
+    CL : "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/CL_bear.webp?v=1755803578",
+    CM : "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/CM_bear.webp?v=1755803512",
+    OM : "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/OM_bear.webp?v=1755803555",
+    AMB: "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/AMB_bear.webp?v=1755803376"
+  },
+
+  badger : {
+    IN: "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/IN_bear.webp?v=1755803621",
+    MS: "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/MS_badger.webp?v=1755803456",
+    EX: "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/ChatGPT_Image_May_3_2025_12_51_45_PM.png?v=1746265930",
+    SY : "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/ChatGPT_Image_May_3_2025_12_51_45_PM.png?v=1746265930",
+    CR : "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/ChatGPT_Image_May_3_2025_12_51_45_PM.png?v=1746265930",
+    AN : "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/ChatGPT_Image_May_3_2025_12_51_45_PM.png?v=1746265930",
+    SD : "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/ChatGPT_Image_May_3_2025_12_51_45_PM.png?v=1746265930",
+    CL : "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/ChatGPT_Image_May_3_2025_12_51_45_PM.png?v=1746265930",
+    CM : "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/ChatGPT_Image_May_3_2025_12_51_45_PM.png?v=1746265930",
+    OM : "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/ChatGPT_Image_May_3_2025_12_51_45_PM.png?v=1746265930",
+    AMB: "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/ChatGPT_Image_May_3_2025_12_51_45_PM.png?v=1746265930"
+  },
 };
 
 // PERSONALITY FROM A PHOTO (OPPOSITE OF PREVIOUS MAP)
@@ -127,9 +158,9 @@ const designedProductsURLsToPersonality = {
 };
 
 // PHOTOS OF PRODUCTS WITHOUT DESIGN
-  const genericProductsImageURLs = {
-  shirt: "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/3b367884-fc1f-4618-a420-561a6b5ed358.webp?v=1745171738"
-  };
+  // const genericProductsImageURLs = {
+  // shirt: "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/3b367884-fc1f-4618-a420-561a6b5ed358.webp?v=1745171738"
+  // };
 
 
 
@@ -162,36 +193,48 @@ const designedProductsURLsToPersonality = {
     NO: ["IN", "AMB", "CR"]
   };
 
+  
   // ------------------ Helpers ------------------
 
 function getImageURLs() {
-  let storedData = JSON.parse(localStorage.getItem("userQuizData")) || {};
+  
+  const storedData = JSON.parse(localStorage.getItem("userQuizData") || "{}");
   
   const personality = storedData.personality || "NO";
-  
-  const detectedType = localStorage.getItem("productType");
-  
-  // const baseURL = genericProductsImageURLs[detectedType];
-  // console.log("🌐 Base Image URL for Product Type:", baseURL);
-  
   const designKeys = personalityToDesignImages[personality];
-  if (!Array.isArray(designKeys)) return [null, null, null];
-  const designURLs = designKeys.map(key => designedProductsImageURLs[key] || null);
+
+  // const animals = Object.keys(designedProductsImageURLs);
+
+
+  if (!Array.isArray(designKeys)) {
+    return Array(NUMBER_OF_VARIANTS).fill(null);
+  }
+
+  const designArmadiloURLs = designKeys.map(
+    key => designedProductsImageURLs["armadilo"][key] || null
+  );
+
+  const designBearURLs = designKeys.map(
+    key => designedProductsImageURLs["bear"][key] || null
+  );
+
+  const designURLs = [...designArmadiloURLs, ...designBearURLs];
+
   return designURLs;
 }
 
   function updateLabels() {
     // console.log("🔄 Updating labels...");
-    const [url1, url2, url3] = getImageURLs();
-    if (!url1 || !url2 || !url3) {
-      return;
-    }
-  
-    const designs = [
-      { for: "template--18147309650102__main-1-0", url: url1 },
-      { for: "template--18147309650102__main-1-1", url: url2 },
-      { for: "template--18147309650102__main-1-2", url: url3 }
-    ];
+    const urls = getImageURLs(); 
+    for (let i = 0; i < urls.length; i++) {
+        if (!urls[i]) return;
+    }  
+    const designs = Object.fromEntries(
+      urls.map((url, i) => [
+        `template--18147309650102__main-1-${i}`,
+        url
+      ])
+    );
     // console.log("🔄 Designs to update:", designs);
   
     designs.forEach(({ for: id, url }) => {
