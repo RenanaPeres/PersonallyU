@@ -130,9 +130,9 @@ const designedProductsImageURLs = {
   },
   bear : {
     IN: "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/IN_bear.webp?v=1755803621",
-    MS: "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/ChatGPT_Image_May_3_2025_12_51_45_PM.png?v=1746265930",
+    MS: "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/MS_Bear.webp?v=1755864752",
     EX: "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/EX_bear.webp?v=1755803538",
-    SY : "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/ChatGPT_Image_May_3_2025_12_51_45_PM.png?v=1746265930",
+    SY : "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/SY_Bear.webp?v=1755864738",
     CR : "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/CR_bear.webp?v=1755803593",
     AN : "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/AN_bear.png?v=1755803414",
     SD : "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/SD_bear.webp?v=1755803493",
@@ -145,15 +145,15 @@ const designedProductsImageURLs = {
   badger : {
     IN: "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/IN_bear.webp?v=1755803621",
     MS: "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/MS_badger.webp?v=1755803456",
-    EX: "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/ChatGPT_Image_May_3_2025_12_51_45_PM.png?v=1746265930",
-    SY : "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/ChatGPT_Image_May_3_2025_12_51_45_PM.png?v=1746265930",
-    CR : "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/ChatGPT_Image_May_3_2025_12_51_45_PM.png?v=1746265930",
-    AN : "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/ChatGPT_Image_May_3_2025_12_51_45_PM.png?v=1746265930",
-    SD : "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/ChatGPT_Image_May_3_2025_12_51_45_PM.png?v=1746265930",
-    CL : "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/ChatGPT_Image_May_3_2025_12_51_45_PM.png?v=1746265930",
-    CM : "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/ChatGPT_Image_May_3_2025_12_51_45_PM.png?v=1746265930",
-    OM : "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/ChatGPT_Image_May_3_2025_12_51_45_PM.png?v=1746265930",
-    AMB: "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/ChatGPT_Image_May_3_2025_12_51_45_PM.png?v=1746265930"
+    EX: "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/EX_Badger.webp?v=1755864524",
+    SY : "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/SY_Badger.webp?v=1755864431",
+    CR : "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/CR_Badger.webp?v=1755864479",
+    AN : "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/AN_Badger.webp?v=1755864565",
+    SD : "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/SD_Badger.webp?v=1755864443",
+    CL : "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/CL_Badger.webp?v=1755864550",
+    CM : "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/CM_Badger.webp?v=1755864465",
+    OM : "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/OM_Badger.webp?v=1755864506",
+    AMB: "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/AMB_Badger.png?v=1755864417"
   },
 };
 
@@ -232,8 +232,11 @@ function getImageURLs() {
   const designBearURLs = designKeys.map(
     key => designedProductsImageURLs["bear"][key] || null
   );
+    const designBadgerURLs = designKeys.map(
+    key => designedProductsImageURLs["badger"][key] || null
+  );
 
-  const designURLs = [...designArmadiloURLs, ...designBearURLs];
+  const designURLs = [...designArmadiloURLs, ...designBadgerURLs, ...designBearURLs];
 
   return designURLs;
 }
