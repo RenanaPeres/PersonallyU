@@ -2,7 +2,7 @@
   // ------------------ Constants ------------------
   const CATALOG_BASE = "https://personallyu.com/collections/products/";
   const QUIZ_URL = "https://huji.questionpro.eu/a/TakeSurvey?tt=P/VDme5CUhAD5ltxMh/wHg%3D%3D";
-  const NUMBER_OF_VARIANTS = 6;
+  const NUMBER_OF_VARIANTS = 9;
 
 
   // URLs TO PERSONALITY PAGE 
@@ -236,7 +236,7 @@ function getImageURLs() {
     key => designedProductsImageURLs["badger"][key] || null
   );
 
-  const designURLs = [...designArmadiloURLs, ...designBadgerURLs, ...designBearURLs];
+  const designURLs = [...designArmadiloURLs, ...designBearURLs, ...designBadgerURLs];
 
   return designURLs;
 }
