@@ -153,7 +153,7 @@ const designedProductsImageURLs = {
     CL : "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/CL_Badger.webp?v=1755864550",
     CM : "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/CM_Badger.webp?v=1755864465",
     OM : "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/OM_Badger.webp?v=1755864506",
-    AMB: "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/AMB_Badger.png?v=1755864417"
+    AMB: "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/amb_new_badger.png?v=1756968717"
   },
 };
 
