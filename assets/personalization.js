@@ -8,7 +8,7 @@
   // URLs TO PERSONALITY PAGE 
   const personalityUrls = {
     hat: {
-      EX: "https://personallyu.com/products/ex-your-personalised-snapback-hat,
+      EX: "https://personallyu.com/products/ex-your-personalised-snapback-hat",
       IN: "https://personallyu.com/products/in-your-personalised-snapback-hat",
       MS: "https://personallyu.com/products/ms-your-personalised-snapback-hat",
       SY : "https://personallyu.com/products/sy-your-personalised-snapback-hat",
