@@ -491,23 +491,34 @@
       .modal-subtext {
         font-size: 12px;
       }
+
+      #shopify-section-template--18147309355190__image_banner_KiVDJH .banner__box {
+        /* position: absolute; */
+        /* bottom: 5px; */
+        /* right: 5px; */
+        background: rgb(255 255 255 / 39%);
+        /* padding: 20px; */
+        border-radius: 16px;
+        /* max-width: 320px; */
+        text-align: center;
+      }
     }
   </style>
 
   <script>
-$(function () {
-  // Check if user has visited before
-  if (!localStorage.getItem("hasVisited")) {
-    $("#welcome-modal").addClass("show");
-    localStorage.setItem("hasVisited", "true");
-  }
+    $(function () {
+      // Check if user has visited before
+      if (!localStorage.getItem('hasVisited')) {
+        $('#welcome-modal').addClass('show');
+        localStorage.setItem('hasVisited', 'true');
+      }
 
-  // Close modal on close button or text
-  $(".close, .close-text").on("click", function () {
-    $("#welcome-modal").removeClass("show");
-  });
-});
-</script>
+      // Close modal on close button or text
+      $('.close, .close-text').on('click', function () {
+        $('#welcome-modal').removeClass('show');
+      });
+    });
+  </script>
 
   <!-- MODAL-X -->
 
