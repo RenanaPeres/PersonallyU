@@ -377,7 +377,9 @@ $(document).on("click", "a", function (event) {
 
     console.error("Failed to parse userQuizData:", e);
     const storedData = { responseId: null, personality: "NO" };
-    localStorage.setItem("userQuizData", JSON.stringify(storedData));
+    if (!localStorage.getItem("userQuizData")) {
+      localStorage.setItem("userQuizData", JSON.stringify(storedData));
+    }
     window.location.href = "https://personallyu.com/collections/customer";
   }
 });
