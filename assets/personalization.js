@@ -352,14 +352,14 @@ $(document).on("click", "a", function (event) {
   event.preventDefault();
   event.stopImmediatePropagation();
 
-  const dataStr = localStorage.getItem("userQuizData");
+  const dataStr = localStorage.getItem("userQuizData") ;
   // console.log("📦 userQuizData from localStorage:", dataStr);
 
   try {
     const data = JSON.parse(dataStr);
     // console.log("✅ Parsed data:", data);
 
-    const personality = data.personality || "NO";
+    const personality = data.personality;
 
     if (personality && data?.responseId) {
 
@@ -370,12 +370,14 @@ $(document).on("click", "a", function (event) {
     } else {
 
       console.warn("⚠️ Missing personality or responseId, redirecting to fallback");
-      
+
       window.location.href = "https://personallyu.com/collections/customer";
     }
   } catch (e) {
 
     console.error("Failed to parse userQuizData:", e);
+    const storedData = { responseId: null, personality: "NO" };
+    localStorage.setItem("userQuizData", JSON.stringify(storedData));
     window.location.href = "https://personallyu.com/collections/customer";
   }
 });
