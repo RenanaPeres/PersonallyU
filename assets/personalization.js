@@ -265,32 +265,32 @@ function getImageURLs() {
   }  
 
 
-function randomizeFieldset() {
-  console.log("randomizeFieldset...");
-  const fieldset = document.querySelector(".product-form__input--pill");
-  if (!fieldset || fieldset.dataset.randomized === "true") return;
+// function randomizeFieldset() {
+//   console.log("randomizeFieldset...");
+//   const fieldset = document.querySelector(".product-form__input--pill");
+//   if (!fieldset || fieldset.dataset.randomized === "true") return;
 
-  const allElements = Array.from(fieldset.querySelectorAll("input[type='radio'], label"));
-  if (allElements.length < 6) return;
+//   const allElements = Array.from(fieldset.querySelectorAll("input[type='radio'], label"));
+//   if (allElements.length < 6) return;
 
-  const fixedPair = allElements.slice(0, 2);
-  const pairs = [];
+//   const fixedPair = allElements.slice(0, 2);
+//   const pairs = [];
 
-  for (let i = 2; i < allElements.length; i += 2) {
-    pairs.push([allElements[i], allElements[i + 1]]);
-  }
+//   for (let i = 2; i < allElements.length; i += 2) {
+//     pairs.push([allElements[i], allElements[i + 1]]);
+//   }
 
-  // Shuffle
-  for (let i = pairs.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [pairs[i], pairs[j]] = [pairs[j], pairs[i]];
-  }
+//   // Shuffle
+//   for (let i = pairs.length - 1; i > 0; i--) {
+//     const j = Math.floor(Math.random() * (i + 1));
+//     [pairs[i], pairs[j]] = [pairs[j], pairs[i]];
+//   }
 
-  const cloneElements = [...fixedPair, ...pairs.flat()].map(el => el.cloneNode(true));
-  fieldset.innerHTML = "";
-  cloneElements.forEach(el => fieldset.appendChild(el));
-  fieldset.dataset.randomized = "true";
-}
+//   const cloneElements = [...fixedPair, ...pairs.flat()].map(el => el.cloneNode(true));
+//   fieldset.innerHTML = "";
+//   cloneElements.forEach(el => fieldset.appendChild(el));
+//   fieldset.dataset.randomized = "true";
+// }
 
 // ✅ Watch only the variant wrapper for Shopify re-render
 function observeVariants() {
@@ -318,7 +318,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function getPersonalityType(chosedPersonality) {
     const storedData = JSON.parse(localStorage.getItem("userQuizData")) || {};
-    const personality = storedData.personality;
+    const personality = storedData.personality || "NO";
   
     if (chosedPersonality === "noPersonality") return chosedPersonality;
     if (chosedPersonality === personality) return "ownPersonality";
