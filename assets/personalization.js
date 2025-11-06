@@ -523,36 +523,37 @@ if (window.location.href.includes("personallyu.com/collections/products")) {
   })();
 
 
+  function handleRedirectClick(event) {
+    // event.preventDefault();
+    // event.stopImmediatePropagation(); // 🛑 Prevent Shopify’s handler too!
+  const dataStr = localStorage.getItem("userQuizData");
+  console.log("userQuizData from localStorage:", dataStr);
+
+  try {
+    const data = JSON.parse(dataStr);
+    console.log("Parsed userQuizData:", data);
+
+    if (data?.personality && data?.responseId) {
+      console.log("Redirecting to personalized URL...");
+      // event.preventDefault(); // stop default link behavior
+      const targetUrl = `https://personallyu.com/collections/products/${data.personality}?response_id=${data.responseId}&set=${data.personality}`;
+      console.log("Redirect URL:", targetUrl);
+      window.location.href = targetUrl;
+    } else {
+      // console.log("Missing personality or responseId in userQuizData.");
+    }
+  } catch (e) {
+    console.error("Failed to parse userQuizData:", e);
+    // Do nothing and allow default link behavior
+  }
+  }
 
 
 
 
   document.addEventListener("DOMContentLoaded", function () {
 
-    function handleRedirectClick(event) {
-        // event.preventDefault();
-        // event.stopImmediatePropagation(); // 🛑 Prevent Shopify’s handler too!
-      const dataStr = localStorage.getItem("userQuizData");
-      console.log("userQuizData from localStorage:", dataStr);
 
-      try {
-        const data = JSON.parse(dataStr);
-        console.log("Parsed userQuizData:", data);
-
-        if (data?.personality && data?.responseId) {
-          console.log("Redirecting to personalized URL...");
-          // event.preventDefault(); // stop default link behavior
-          const targetUrl = `https://personallyu.com/collections/products/${data.personality}?response_id=${data.responseId}&set=${data.personality}`;
-          // console.log("Redirect URL:", targetUrl);
-          window.location.href = targetUrl;
-        } else {
-          // console.log("Missing personality or responseId in userQuizData.");
-        }
-      } catch (e) {
-        console.error("Failed to parse userQuizData:", e);
-        // Do nothing and allow default link behavior
-      }
-    }
 
   $("#checkoutNow").text("Checkout Now 💳");
   // $("#ProductSubmitButton-template--17814043295926__main").text("Add to cart 🛒");
