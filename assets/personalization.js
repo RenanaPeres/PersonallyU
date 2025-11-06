@@ -8,18 +8,18 @@
   // URLs TO PERSONALITY PAGE 
   const personalityUrls = {
     hat: {
-      EX: "https://personallyu.com/products/ex-your-personalised-hat",
-      IN: "https://personallyu.com/products/in-your-personalised-hat",
-      MS: "https://personallyu.com/products/ms-your-personalised-hat",
-      SY : "https://personallyu.com/products/sy-your-personalised-hat",
-      CR : "https://personallyu.com/products/cr-your-personalised-hat",
-      AN : "https://personallyu.com/products/an-your-personalised-hat",
-      SD : "https://personallyu.com/products/sd-your-personalised-hat",
-      CL : "https://personallyu.com/products/cl-your-personalised-hat",
-      CM : "https://personallyu.com/products/cm-your-personalised-hat",
-      OM : "https://personallyu.com/products/om-your-personalised-hat",
-      AMB : "https://personallyu.com/products/amb-your-personalised-hat",
-      NO : "https://personallyu.com/products/no-your-personalised-hat"
+      EX: "https://personallyu.com/products/ex-your-personalised-snapback-hat",
+      IN: "https://personallyu.com/products/in-your-personalised-snapback-hat",
+      MS: "https://personallyu.com/products/ms-your-personalised-snapback-hat",
+      SY : "https://personallyu.com/products/sy-your-personalised-snapback-hat",
+      CR : "https://personallyu.com/products/cr-your-personalised-snapback-hat",
+      AN : "https://personallyu.com/products/an-your-personalised-snapback-hat",
+      SD : "https://personallyu.com/products/sd-your-personalised-snapback-hat",
+      CL : "https://personallyu.com/products/cl-your-personalised-snapback-hat",
+      CM : "https://personallyu.com/products/cm-your-personalised-snapback-hat",
+      OM : "https://personallyu.com/products/om-your-personalised-snapback-hat",
+      AMB : "https://personallyu.com/products/amb-your-personalised-snapback-hat",
+      NO : "https://personallyu.com/products/no-your-personalised-snapback-hat"
     },
     
     shirt: {
@@ -65,21 +65,6 @@
       OM : "https://personallyu.com/products/om-your-personalised-mug",
       AMB : "https://personallyu.com/products/amb-your-personalised-mug",
       NO : "https://personallyu.com/products/no-your-personalised-mug"
-    },
-
-      Canva: {
-      EX: "https://personallyu.com/products/ex-your-personalized-Canva",
-      IN: "https://personallyu.com/products/in-your-personalized-Canva",
-      MS: "https://personallyu.com/products/ms-your-personalized-Canva",
-      SY : "https://personallyu.com/products/sy-your-personalized-Canva",
-      CR : "https://personallyu.com/products/cr-your-personalized-Canva",
-      AN : "https://personallyu.com/products/an-your-personalized-Canva",
-      SD : "https://personallyu.com/products/sd-your-personalized-Canva",
-      CL : "https://personallyu.com/products/cl-your-personalized-Canva",
-      CM : "https://personallyu.com/products/cm-your-personalized-Canva",
-      OM : "https://personallyu.com/products/om-your-personalized-Canva",
-      AMB : "https://personallyu.com/products/amb-your-personalized-Canva",
-      NO : "https://personallyu.com/products/no-your-personalized-Canva"
     },
     
      Card: {
@@ -144,7 +129,7 @@ const designedProductsImageURLs = {
 
   badger : {
     IN: "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/IN_Badger.webp?v=1755864493",
-    MS: "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/MS_Badger.png?v=1762436347",
+    MS: "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/MS_badger.webp?v=1755803456",
     EX: "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/EX_Badger.webp?v=1755864524",
     SY : "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/SY_Badger.webp?v=1755864431",
     CR : "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/CR_Badger.webp?v=1755864479",

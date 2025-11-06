@@ -8,7 +8,6 @@
     <link rel="canonical" href="{{ canonical_url }}">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-
     {%- if settings.favicon != blank -%}
       <link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 32, height: 32 }}">
     {%- endif -%}
@@ -299,14 +298,20 @@
       }
     </script>
     <!-- UPDATED GOOGLE TAG -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-TZSQDVL5');</script>    
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != 'dataLayer' ? '&l=' + l : '';
+        j.async = true;
+        j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, 'script', 'dataLayer', 'GTM-TZSQDVL5');
+    </script>
     <meta name="google-site-verification" content="YYVdIz3DSbrvUERVPTh-B4WRfgm3Z9FDHS80Y7Ys4OM">
     <!-- End Google Tag Manager -->
-
   </head>
 
   <!-- MODAL-X -->
@@ -326,31 +331,50 @@
   <style>
     /* Modal Overlay */
     .modal {
-      display: none;
       position: fixed;
       z-index: 1000;
-      left: 0;
-      top: 0;
+      inset: 0;
       width: 100%;
       height: 100%;
       background-color: rgba(0, 0, 0, 0.5);
       backdrop-filter: blur(5px);
-      opacity: 0;
-      animation: fadeIn 0.5s ease-in-out forwards;
-    }
 
+      /* Use flex for centering */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+
+      /* Hidden by default */
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+
+      /* Animation */
+      transition: opacity 0.5s ease-in-out, visibility 0.5s;
+    }
+    .modal.show {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
     /* Modal Content */
     .modal-content {
       background: #fff;
       padding: 30px;
-      margin: 15% auto;
-      width: 40%;
+      width: 90%;
       max-width: 500px;
       text-align: center;
       border-radius: 12px;
       box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
       transform: scale(0.8);
-      animation: slideUp 0.5s ease-in-out forwards;
+      opacity: 0;
+      transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+    }
+
+    .modal.show .modal-content {
+      transform: scale(1);
+      opacity: 1;
     }
 
     /* Title */
@@ -428,40 +452,97 @@
         transform: scale(1) translateY(0);
       }
     }
+
+    /* Responsive Tweaks */
+    @media (max-width: 768px) {
+      .modal-content {
+        padding: 20px;
+      }
+
+      .highlight {
+        font-size: 20px;
+      }
+
+      .modal-button {
+        font-size: 16px;
+        padding: 10px 16px;
+      }
+
+      .modal-subtext {
+        font-size: 13px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .modal-content {
+        padding: 16px;
+      }
+
+      .highlight {
+        font-size: 18px;
+      }
+
+      .modal-button {
+        width: 100%;
+        font-size: 15px;
+        padding: 12px;
+      }
+
+      .modal-subtext {
+        font-size: 12px;
+      }
+
+      #shopify-section-template--18147309355190__image_banner_KiVDJH .banner__box {
+        position: relative !important;
+        bottom: 0px !important;
+        right: 0px !important;
+        background: rgb(255 255 255 / 26%) !important;
+        padding: 46px !important;
+        max-width: 100% !important;
+        text-align: center !important;
+      }
+
+      #shopify-section-template--18147309355190__image_banner_KiVDJH .banner__box p {
+        text-align: center !important;
+      }
+    }
   </style>
 
   <script>
-$(function () {
-  if (!localStorage.getItem("hasVisited")) {
-    $("#welcome-modal").css("display", "block");
-    localStorage.setItem("hasVisited", "true");
-  }
+    $(function () {
+      // Check if user has visited before
+      if (!localStorage.getItem('hasVisited')) {
+        $('#welcome-modal').addClass('show');
+        localStorage.setItem('hasVisited', 'true');
+      }
 
-  $(".close, .close-text").on("click", function () {
-    $("#welcome-modal").css("display", "none");
-  });
-});
-
+      // Close modal on close button or text
+      $('.close, .close-text').on('click', function () {
+        $('#welcome-modal').removeClass('show');
+      });
+    });
   </script>
 
   <!-- MODAL-X -->
 
-
-
   <!-- PERSONALITY CHECKER -->
-  
-<script src="{{ 'personalization.js' | asset_url }}"></script>
 
-
+  <script async src="{{ 'personalization.js' | asset_url }}"></script>
 
   <!-- PERSONALITY CHECKER -->
 
   <body class="gradient{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}">
     <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TZSQDVL5"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
-    
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-TZSQDVL5"
+        height="0"
+        width="0"
+        style="display:none;visibility:hidden"
+      ></iframe
+    ></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
     <a class="skip-to-content-link button visually-hidden" href="#MainContent">
       {{ 'accessibility.skip_to_text' | t }}
     </a>
@@ -536,9 +617,5 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <script src="{{ 'cart-drawer.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
     <script src="{{ 'cartPersonality.js' | asset_url }}" defer></script>
-
-
-
-
   </body>
 </html>
