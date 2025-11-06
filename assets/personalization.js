@@ -359,17 +359,23 @@ $(document).on("click", "a", function (event) {
     const data = JSON.parse(dataStr);
     // console.log("✅ Parsed data:", data);
 
-    if (data?.personality && data?.responseId) {
-      console.log("🚀 Redirecting");
+    const personality = data.personality || "NO";
+
+    if (personality && data?.responseId) {
+
+      console.log("🚀 Redirecting to:", targetUrl);
+
       const targetUrl = `/collections/products/${data.personality}?response_id=${data.responseId}&set=${data.personality}`;
-      // console.log("🚀 Redirecting to:", targetUrl);
       window.location.href = targetUrl;
     } else {
+
       console.warn("⚠️ Missing personality or responseId, redirecting to fallback");
+      
       window.location.href = "https://personallyu.com/collections/customer";
     }
   } catch (e) {
-    console.error("❌ Error parsing localStorage data:", e);
+
+    console.error("Failed to parse userQuizData:", e);
     window.location.href = "https://personallyu.com/collections/customer";
   }
 });
