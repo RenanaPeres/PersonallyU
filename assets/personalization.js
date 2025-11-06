@@ -144,7 +144,7 @@ const designedProductsImageURLs = {
 
   badger : {
     IN: "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/IN_Badger.webp?v=1755864493",
-    MS: "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/MS_Badger.webp?v=1755864537",
+    MS: "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/MS_Badger.png?v=1762436347",
     EX: "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/EX_Badger.webp?v=1755864524",
     SY : "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/SY_Badger.webp?v=1755864431",
     CR : "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/CR_Badger.webp?v=1755864479",
