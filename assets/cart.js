@@ -32,7 +32,7 @@ function buildAndStoreProductVariantMap(parsedCartState) {
   };
 
   parsedCartState.items.forEach((item) => {
-    const productTitle = item.product_title.split("Your personalized ")[1];
+    const productTitle = item.product_title.split("/Your [Pp]ersonalized\s*(.*)/")[1];
     const size = item.variant_options[1];
     const [designPart] = item.variant_title.split(" / ");
 
