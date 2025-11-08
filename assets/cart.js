@@ -18,49 +18,53 @@ function buildAndStoreProductVariantMap(parsedCartState) {
 
   const productVariantMap = {};
 
+  // 🗺️ מיפוי של כל ה-designים
+  const designMap = {
+    "design 2": { animal: "armadilo", personality: "ownPersonality" },
+    "design 3": { animal: "armadilo", personality: "antiPersonality" },
+    "design 4": { animal: "armadilo", personality: "Neutral" },
+    "design 5": { animal: "bear", personality: "ownPersonality" },
+    "design 6": { animal: "bear", personality: "antiPersonality" },
+    "design 7": { animal: "bear", personality: "Neutral" },
+    "design 8": { animal: "badger", personality: "ownPersonality" },
+    "design 9": { animal: "badger", personality: "antiPersonality" },
+    "design 10": { animal: "badger", personality: "Neutral" },
+  };
+
   parsedCartState.items.forEach((item) => {
-    const productTitle = item.product_title;
+    const productTitle = item.product_title.split("Your Personalized ")[1];
+    const size = item.variant_options[1];
     const [designPart] = item.variant_title.split(" / ");
 
-    let personalityType;
-    if (designPart.includes("design 2")) {
-      personalityType = "ownPersonality";
-    } else if (designPart.includes("design 3")) {
-      personalityType = "antiPersonality";
-    } else if (designPart.includes("design 4")) {
-      personalityType = "Neutral";
-    } else if (designPart.includes("design 5")) {
-      personalityType = "ownPersonality";
-    } else if (designPart.includes("design 6")) {
-      personalityType = "antiPersonality";
-    } else if (designPart.includes("design 7")) {
-      personalityType = "Neutral";
-    } else if (designPart.includes("design 8")) {
-      personalityType = "ownPersonality";
-    } else if (designPart.includes("design 9")) {
-      personalityType = "antiPersonality";
-    } else if (designPart.includes("design 10")) {
-      personalityType = "Neutral";
-    } else {
-      personalityType = designPart;
-    }
+    // 🧩 שליפה מהמפה במקום תנאים
+    const match = Object.entries(designMap).find(([key]) =>
+      designPart.includes(key)
+    );
+    const { animal = "NA", personality = designPart } = match
+      ? match[1]
+      : {};
 
-    // Add personality type to item
-    item.personalityType = personalityType;
+    item.personalityType = personality;
 
-    // Build map
-    if (!productVariantMap[personalityType]) {
-      productVariantMap[personalityType] = {};
-    }
-    productVariantMap[personalityType][personalityType] =
-      (productVariantMap[personalityType][personalityType] || 0) +
+    // 🏗️ בניית המבנה המרובד
+    productVariantMap[productTitle] ??= {};
+    productVariantMap[productTitle][animal] ??= {};
+    productVariantMap[productTitle][animal][personality] ??= {};
+    productVariantMap[productTitle][animal][personality][size] =
+      (productVariantMap[productTitle][animal][personality][size] || 0) +
       item.quantity;
   });
 
+  console.log("✅ productVariantMap:", productVariantMap);
+
+
   // Store results
   localStorage.setItem("parsedCartState", JSON.stringify(parsedCartState));
-  localStorage.setItem("productVariantMap", JSON.stringify(productVariantMap));
-  console.log("Saved productVariantMap:", productVariantMap);
+  // localStorage.setItem("productVariantMap", JSON.stringify(productVariantMap));
+  console.log("Saved parsedCartState:", parsedCartState);
+
+
+  
 
   // mai added this to fire on time in GA
 
@@ -77,7 +81,11 @@ function buildAndStoreProductVariantMap(parsedCartState) {
       console.warn("⏳ Still no productVariantMap in localStorage");
     }
   }, 1000); // delay slightly longer
+
+    return productVariantMap;
+
 }
+
 
 class CartItems extends HTMLElement {
   constructor() {
