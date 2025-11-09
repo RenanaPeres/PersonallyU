@@ -16,9 +16,12 @@ customElements.define("cart-remove-button", CartRemoveButton);
 function buildAndStoreProductVariantMap(parsedCartState) {
   if (!parsedCartState || !parsedCartState.items) return;
 
+  const currentClickedPersonality =
+    localStorage.getItem("currentClickedPersonality") || "unknownPersonality";
+
   const productVariantMap = {};
 
-  // 🗺️ מיפוי של כל ה-designים
+  // 🗺️ design map linking variant titles to animal + personality
   const designMap = {
     "design 2": { animal: "armadilo", personality: "ownPersonality" },
     "design 3": { animal: "armadilo", personality: "antiPersonality" },
@@ -32,39 +35,58 @@ function buildAndStoreProductVariantMap(parsedCartState) {
   };
 
   parsedCartState.items.forEach((item) => {
-    const productTitle = item.product_title.split("/Your [Pp]ersonalized\s*(.*)/")[1];
-    const size = item.variant_options[1];
-    const [designPart] = item.variant_title.split(" / ");
+    const productName = item.product_title || "Unnamed Product";
+    const productId = item.product_id || item.id || "UnknownID";
+    const variantId = item.variant_id || "UnknownVariantID";
+    const variantTitle = item.variant_title || "Unknown Variant";
+    const size = item.variant_options ? item.variant_options[1] : "NA";
+    const quantity = item.quantity || 1;
+    const price = item.final_price / 100 || 0;
+    const linePrice = item.line_price / 100 || 0;
 
-    // 🧩 שליפה מהמפה במקום תנאים
+    // identify design and match to designMap
+    const [designPart] = variantTitle.split(" / ");
     const match = Object.entries(designMap).find(([key]) =>
       designPart.includes(key)
     );
-    const { animal = "NA", personality = designPart } = match
+    const { animal = "NA", personality = currentClickedPersonality } = match
       ? match[1]
       : {};
 
-    item.personalityType = personality;
+    // 🧠 compile all info for this item
+    const detailedItem = {
+      productName,
+      productId,
+      variantId,
+      variantTitle,
+      size,
+      quantity,
+      price,
+      linePrice,
+      animal,
+      personality,
+      currentClickedPersonality,
+    };
 
-    // 🏗️ בניית המבנה המרובד
-    productVariantMap[productTitle] ??= {};
-    productVariantMap[productTitle][animal] ??= {};
-    productVariantMap[productTitle][animal][personality] ??= {};
-    productVariantMap[productTitle][animal][personality][size] =
-      (productVariantMap[productTitle][animal][personality][size] || 0) +
-      item.quantity;
+    // 🏗️ build structured nested object
+    if (!productVariantMap[productName]) productVariantMap[productName] = {};
+    if (!productVariantMap[productName][animal])
+      productVariantMap[productName][animal] = {};
+    if (!productVariantMap[productName][animal][personality])
+      productVariantMap[productName][animal][personality] = [];
+
+    productVariantMap[productName][animal][personality].push(detailedItem);
   });
 
-  console.log("✅ productVariantMap:", productVariantMap);
+  console.log("✅ Enriched productVariantMap:", productVariantMap);
 
-
-  // Store results
+  // Save enriched data
   localStorage.setItem("parsedCartState", JSON.stringify(parsedCartState));
   localStorage.setItem("productVariantMap", JSON.stringify(productVariantMap));
-  console.log("💾 Saved productVariantMap:", productVariantMap);
+  console.log("💾 Saved enriched productVariantMap:", productVariantMap);
 
   // Fire GA event
-  setTimeout(function () {
+  setTimeout(() => {
     const data = localStorage.getItem("productVariantMap");
     if (data) {
       window.dataLayer = window.dataLayer || [];
@@ -72,11 +94,11 @@ function buildAndStoreProductVariantMap(parsedCartState) {
         event: "productVariantMap_ready",
         productVariantMap: JSON.parse(data),
       });
-      console.log("✅ productVariantMap_ready pushed with:", JSON.parse(data));
+      console.log("📊 productVariantMap_ready pushed with:", JSON.parse(data));
     } else {
       console.warn("⏳ Still no productVariantMap in localStorage");
     }
-  }, 1000);
+  }, 800);
 }
 
 // Fetch live cart + rebuild
@@ -285,12 +307,13 @@ class CartItems extends HTMLElement {
           items.length === parsedState.items.length &&
           updatedValue !== parseInt(quantityElement.value)
         ) {
-          message = typeof updatedValue === "undefined"
-            ? window.cartStrings.error
-            : window.cartStrings.quantityError.replace(
-                "[quantity]",
-                updatedValue
-              );
+          message =
+            typeof updatedValue === "undefined"
+              ? window.cartStrings.error
+              : window.cartStrings.quantityError.replace(
+                  "[quantity]",
+                  updatedValue
+                );
         }
         this.updateLiveRegions(line, message);
 
