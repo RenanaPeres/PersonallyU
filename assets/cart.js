@@ -16,12 +16,29 @@ customElements.define("cart-remove-button", CartRemoveButton);
 function buildAndStoreProductVariantMap(parsedCartState) {
   if (!parsedCartState || !parsedCartState.items) return;
 
-  const currentClickedPersonality =
-    localStorage.getItem("currentClickedPersonality") || "unknownPersonality";
+  // ♻️ Restore personality if missing
+  let currentClickedPersonality =
+    localStorage.getItem("currentClickedPersonality") || null;
+
+  if (!currentClickedPersonality) {
+    try {
+      // Try to fallback to quiz data
+      const quizData = JSON.parse(localStorage.getItem("userQuizData") || "{}");
+      if (quizData.personality) {
+        currentClickedPersonality = quizData.personality;
+      }
+    } catch (err) {
+      console.warn("⚠️ Could not restore personality from quiz data:", err);
+    }
+
+    // Default fallback if still missing
+    currentClickedPersonality = currentClickedPersonality || "unknownPersonality";
+    localStorage.setItem("currentClickedPersonality", currentClickedPersonality);
+  }
 
   const productVariantMap = {};
 
-  // 🗺️ design map linking variant titles to animal + personality
+  // 🗺️ Map each design to its animal and personality
   const designMap = {
     "design 2": { animal: "armadilo", personality: "ownPersonality" },
     "design 3": { animal: "armadilo", personality: "antiPersonality" },
@@ -44,8 +61,12 @@ function buildAndStoreProductVariantMap(parsedCartState) {
     const price = item.final_price / 100 || 0;
     const linePrice = item.line_price / 100 || 0;
 
-    // identify design and match to designMap
+    // 🧩 Extract design part + number
     const [designPart] = variantTitle.split(" / ");
+    const designNumberMatch = designPart.match(/design\s*(\d+)/i);
+    const designNumber = designNumberMatch ? designNumberMatch[1] : "NA";
+
+    // 🦊 Match animal/personality from designMap
     const match = Object.entries(designMap).find(([key]) =>
       designPart.includes(key)
     );
@@ -53,7 +74,7 @@ function buildAndStoreProductVariantMap(parsedCartState) {
       ? match[1]
       : {};
 
-    // 🧠 compile all info for this item
+    // 🧠 Create detailed item object
     const detailedItem = {
       productName,
       productId,
@@ -66,9 +87,10 @@ function buildAndStoreProductVariantMap(parsedCartState) {
       animal,
       personality,
       currentClickedPersonality,
+      designNumber,
     };
 
-    // 🏗️ build structured nested object
+    // 🏗️ Build nested object by product → animal → personality
     if (!productVariantMap[productName]) productVariantMap[productName] = {};
     if (!productVariantMap[productName][animal])
       productVariantMap[productName][animal] = {};
@@ -78,14 +100,16 @@ function buildAndStoreProductVariantMap(parsedCartState) {
     productVariantMap[productName][animal][personality].push(detailedItem);
   });
 
-  console.log("✅ Enriched productVariantMap:", productVariantMap);
+  console.log("✅ Enriched + Persistent productVariantMap:", productVariantMap);
 
-  // Save enriched data
+  // 💾 Store results (including personality)
   localStorage.setItem("parsedCartState", JSON.stringify(parsedCartState));
   localStorage.setItem("productVariantMap", JSON.stringify(productVariantMap));
+  localStorage.setItem("currentClickedPersonality", currentClickedPersonality);
+
   console.log("💾 Saved enriched productVariantMap:", productVariantMap);
 
-  // Fire GA event
+  // 📊 Push GA event
   setTimeout(() => {
     const data = localStorage.getItem("productVariantMap");
     if (data) {
@@ -94,12 +118,13 @@ function buildAndStoreProductVariantMap(parsedCartState) {
         event: "productVariantMap_ready",
         productVariantMap: JSON.parse(data),
       });
-      console.log("📊 productVariantMap_ready pushed with:", JSON.parse(data));
+      console.log("📈 productVariantMap_ready pushed with:", JSON.parse(data));
     } else {
       console.warn("⏳ Still no productVariantMap in localStorage");
     }
   }, 800);
 }
+
 
 // Fetch live cart + rebuild
 async function refreshProductVariantMap() {
