@@ -367,9 +367,11 @@ $(document).on("click", "a", function (event) {
 
     if (personality && data?.responseId) {
 
-      console.log("🚀 Redirecting to:", targetUrl);
 
       const targetUrl = `/collections/products/${data.personality}?response_id=${data.responseId}&set=${data.personality}`;
+
+      console.log("🚀 Redirecting to:", targetUrl);
+
       window.location.href = targetUrl;
     } else {
 
