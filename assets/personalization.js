@@ -356,7 +356,7 @@ $(document).on("click", "a", function (event) {
   // console.log("📦 userQuizData from localStorage:", dataStr);
 
   try {
-    const data = JSON.parse(dataStr);
+    const dataStr = JSON.parse(dataStr);
     // console.log("✅ Parsed data:", data);
 
     const personality = data.personality;
