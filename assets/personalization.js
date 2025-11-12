@@ -349,8 +349,8 @@ $(document).on("click", "a", function (event) {
 
   // console.log("✅ Match found, running redirect override");
 
-  event.preventDefault();
-  event.stopImmediatePropagation();
+    event.preventDefault();
+    event.stopImmediatePropagation();
 
 
 
@@ -362,6 +362,8 @@ $(document).on("click", "a", function (event) {
     console.log("✅ Parsed data:", data);
 
     const personality = data.personality;
+
+    console.log("if reached here, problem in if");
 
     if (personality && data?.responseId) {
 
