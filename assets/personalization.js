@@ -8,18 +8,18 @@
   // URLs TO PERSONALITY PAGE 
   const personalityUrls = {
     hat: {
-      EX: "https://personallyu.com/products/ex-your-personalized-snapback-hat",
-      IN: "https://personallyu.com/products/in-your-personalized-snapback-hat",
-      MS: "https://personallyu.com/products/ms-your-personalized-snapback-hat",
-      SY : "https://personallyu.com/products/sy-your-personalized-snapback-hat",
-      CR : "https://personallyu.com/products/cr-your-personalized-snapback-hat",
-      AN : "https://personallyu.com/products/an-your-personalized-snapback-hat",
-      SD : "https://personallyu.com/products/sd-your-personalized-snapback-hat",
-      CL : "https://personallyu.com/products/cl-your-personalized-snapback-hat",
-      CM : "https://personallyu.com/products/cm-your-personalized-snapback-hat",
-      OM : "https://personallyu.com/products/om-your-personalized-snapback-hat",
-      AMB : "https://personallyu.com/products/amb-your-personalized-snapback-hat",
-      NO : "https://personallyu.com/products/no-your-personalized-snapback-hat"
+      EX: "https://personallyu.com/products/ex-your-personalised-snapback-hat",
+      IN: "https://personallyu.com/products/in-your-personalised-snapback-hat",
+      MS: "https://personallyu.com/products/ms-your-personalised-snapback-hat",
+      SY : "https://personallyu.com/products/sy-your-personalised-snapback-hat",
+      CR : "https://personallyu.com/products/cr-your-personalised-snapback-hat",
+      AN : "https://personallyu.com/products/an-your-personalised-snapback-hat",
+      SD : "https://personallyu.com/products/sd-your-personalised-snapback-hat",
+      CL : "https://personallyu.com/products/cl-your-personalised-snapback-hat",
+      CM : "https://personallyu.com/products/cm-your-personalised-snapback-hat",
+      OM : "https://personallyu.com/products/om-your-personalised-snapback-hat",
+      AMB : "https://personallyu.com/products/amb-your-personalised-snapback-hat",
+      NO : "https://personallyu.com/products/no-your-personalised-snapback-hat"
     },
     
     shirt: {
@@ -55,16 +55,16 @@
       mug: {
       EX: "https://personallyu.com/products/ex-your-personalized-mug",
       IN: "https://personallyu.com/products/in-your-personalized-mug",
-      MS: "https://personallyu.com/products/ms-your-personalized-mug",
-      SY : "https://personallyu.com/products/sy-your-personalized-mug",
-      CR : "https://personallyu.com/products/cr-your-personalized-mug",
-      AN : "https://personallyu.com/products/an-your-personalized-mug",
-      SD : "https://personallyu.com/products/sd-your-personalized-mug",
-      CL : "https://personallyu.com/products/cl-your-personalized-mug",
-      CM : "https://personallyu.com/products/cm-your-personalized-mug",
-      OM : "https://personallyu.com/products/om-your-personalized-mug",
-      AMB : "https://personallyu.com/products/amb-your-personalized-mug",
-      NO : "https://personallyu.com/products/no-your-personalized-mug"
+      MS: "https://personallyu.com/products/ms-your-personalised-mug",
+      SY : "https://personallyu.com/products/sy-your-personalised-mug",
+      CR : "https://personallyu.com/products/cr-your-personalised-mug",
+      AN : "https://personallyu.com/products/an-your-personalised-mug",
+      SD : "https://personallyu.com/products/sd-your-personalised-mug",
+      CL : "https://personallyu.com/products/cl-your-personalised-mug",
+      CM : "https://personallyu.com/products/cm-your-personalised-mug",
+      OM : "https://personallyu.com/products/om-your-personalised-mug",
+      AMB : "https://personallyu.com/products/amb-your-personalised-mug",
+      NO : "https://personallyu.com/products/no-your-personalised-mug"
     },
     
      Card: {
@@ -352,12 +352,14 @@ $(document).on("click", "a", function (event) {
   event.preventDefault();
   event.stopImmediatePropagation();
 
-  const dataStr = localStorage.getItem("userQuizData") ;
-  // console.log("📦 userQuizData from localStorage:", dataStr);
+
 
   try {
-    const dataStr = JSON.parse(dataStr);
-    // console.log("✅ Parsed data:", data);
+
+    const dataStr = localStorage.getItem("userQuizData");
+    console.log("📦 userQuizData from localStorage:", dataStr);
+    const data = JSON.parse(dataStr);
+    console.log("✅ Parsed data:", data);
 
     const personality = data.personality;
 
