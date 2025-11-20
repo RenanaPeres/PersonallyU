@@ -72,7 +72,7 @@
         ".banner__box h2 {margin-bottom: 10px;}",
         ".banner__box p {text-align: right; font-size: 18px;}",
         ".banner__box .buttons {display: flex; justify-content: center; gap: 11px;}",
-        "/* ✅ MOBILE FIX — move the pop-out down so the image shows */@media screen and (max-width: 749px) {.banner__box {bottom: 0; /* adjust this number to move even lower */ right: 5px; top: auto; transform: none; }}"
+        "/* MOBILE: image top, popout bottom */@media screen and (max-width: 749px) {.banner__box {position: static; bottom: auto; right: auto; left: auto; transform: none; max-width: 100%; margin: 16px auto 0; }}"
       ],
       "settings": {
         "image": "shopify://shop_images/ChatGPT_Image_May_3_2025_12_51_45_PM.png",
