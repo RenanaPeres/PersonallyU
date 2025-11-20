@@ -123,10 +123,7 @@
         "column_kzMc3Q",
         "column_3FwHYC"
       ],
-      "custom_css": [
-        "li {box-shadow: rgba(0, 0, 0, 0.3) 0px 10px 40px 4px; transition: transform 0.3s ease-in-out !important; border-radius: 8px;}",
-        "li:hover {transform: scale(1.02) !important; transition: transform 0.3s ease-in-out !important;}"
-      ],
+      "custom_css": [],
       "settings": {
         "title": "<strong>Your personality is your everything.</strong>",
         "heading_size": "h1",
