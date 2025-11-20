@@ -67,7 +67,10 @@
         "text_py9MNb",
         "buttons_haRJtD"
       ],
-      "custom_css": [],
+      "custom_css": [
+        ".banner__box .buttons {display: flex; justify-content: center; align-items: center; gap: 14px; width: 100%;}",
+        "@media screen and (max-width: 990px) {.banner__box .buttons {justify-content: center !important; }}"
+      ],
       "settings": {
         "image": "shopify://shop_images/ChatGPT_Image_May_3_2025_12_51_45_PM.png",
         "image_overlay_opacity": 0,
