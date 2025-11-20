@@ -68,7 +68,6 @@
         "buttons_haRJtD"
       ],
       "custom_css": [
-        ".banner__box .buttons {display: flex; justify-content: center; align-items: center; gap: 14px; width: 100%;}",
         "@media screen and (max-width: 990px) {.banner__box .buttons {justify-content: center !important; }}"
       ],
       "settings": {
