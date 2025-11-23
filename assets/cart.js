@@ -113,8 +113,6 @@ function buildAndStoreProductVariantMap(parsedCartState) {
 
   console.log("💾 Saved enriched productVariantMap:", productVariantMap);
 
-  // 📊 Push GA event (with flattened array)
-
   // 📊 Push GA events using GA4-native eCommerce structure
   setTimeout(() => {
     const data = localStorage.getItem("productVariantMap");
@@ -126,7 +124,7 @@ function buildAndStoreProductVariantMap(parsedCartState) {
     const parsedMap = JSON.parse(data);
     const flattened = [];
 
-    // Flatten nested map → array of detailed items
+    // Flatten the nested productVariantMap → array of items
     Object.values(parsedMap).forEach((animalObj) => {
       Object.values(animalObj).forEach((personalityObj) => {
         Object.values(personalityObj).forEach((itemsArray) => {
@@ -138,18 +136,18 @@ function buildAndStoreProductVariantMap(parsedCartState) {
     const currentClickedPersonality =
       localStorage.getItem("currentClickedPersonality") || "unknownPersonality";
 
-    // ✅ Build GA4-native items array
+    // Build GA4 items[] array
     const gaItems = flattened.map((item, index) => ({
       item_name: item.productName,
       item_id: item.productId,
       item_variant: item.variantTitle,
-      item_brand: "PersonallyU", // customize your brand name
+      item_brand: "PersonallyU",
       price: item.price,
       quantity: item.quantity,
-      item_category: item.animal, // 🐾 animal
-      item_category2: item.personality, // 🧠 product personality
-      item_category3: item.designNumber, // 🎨 design number
-      item_category4: currentClickedPersonality, // 💫 user's personality
+      item_category: item.animal,
+      item_category2: item.personality,
+      item_category3: item.designNumber,
+      item_category4: currentClickedPersonality,
       index: index + 1,
     }));
 
@@ -157,18 +155,26 @@ function buildAndStoreProductVariantMap(parsedCartState) {
 
     window.dataLayer = window.dataLayer || [];
 
-    // 🧩 1. Always push the base event
+    // -------------------------------
+    // 🔥 MAIN FIX: productVariantMap added at top level
+    // -------------------------------
     window.dataLayer.push({
       event: "productVariantMap_ready",
       personality: currentClickedPersonality,
       cart_value: totalValue,
       cart_timestamp: new Date().toISOString(),
+      // ⭐ THIS is what GTM needs — now "productVariantMap" exists
+      productVariantMap: parsedMap,
+      // GA4 items
       items: gaItems,
     });
 
-    console.log("📈 GA push (GA4-native items):", gaItems);
+    console.log("📈 GA push (GA4-native items + map):", {
+      productVariantMap: parsedMap,
+      items: gaItems,
+    });
 
-    // 🧩 2. Fire 'view_cart' automatically on cart page
+    // ----- OPTIONAL: auto "view_cart" -----
     if (window.location.pathname.includes("/cart")) {
       window.dataLayer.push({
         event: "view_cart",
@@ -176,11 +182,11 @@ function buildAndStoreProductVariantMap(parsedCartState) {
         value: totalValue,
         items: gaItems,
         personality: currentClickedPersonality,
+        productVariantMap: parsedMap, // add map here as well
       });
-      console.log("🛒 Sent view_cart event to GA");
     }
 
-    // 🧩 3. Attach begin_checkout when checkout button is clicked
+    // ----- OPTIONAL: begin_checkout -----
     const checkoutBtn = document.querySelector(
       '[name="checkout"], .checkout, #checkout'
     );
@@ -193,8 +199,8 @@ function buildAndStoreProductVariantMap(parsedCartState) {
           value: totalValue,
           items: gaItems,
           personality: currentClickedPersonality,
+          productVariantMap: parsedMap, // add map here as well
         });
-        console.log("🚀 Sent begin_checkout event to GA");
       });
     }
   }, 800);
