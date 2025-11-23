@@ -182,7 +182,7 @@ function buildAndStoreProductVariantMap(parsedCartState) {
         value: totalValue,
         items: gaItems,
         personality: currentClickedPersonality,
-        productVariantMap: parsedMap, // add map here as well
+        productVariantMap: JSON.stringify(parsedMap), // add map here as well
       });
     }
 
