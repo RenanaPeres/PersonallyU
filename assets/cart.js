@@ -32,8 +32,12 @@ function buildAndStoreProductVariantMap(parsedCartState) {
     }
 
     // Default fallback if still missing
-    currentClickedPersonality = currentClickedPersonality || "unknownPersonality";
-    localStorage.setItem("currentClickedPersonality", currentClickedPersonality);
+    currentClickedPersonality =
+      currentClickedPersonality || "unknownPersonality";
+    localStorage.setItem(
+      "currentClickedPersonality",
+      currentClickedPersonality
+    );
   }
 
   const productVariantMap = {};
@@ -109,22 +113,92 @@ function buildAndStoreProductVariantMap(parsedCartState) {
 
   console.log("💾 Saved enriched productVariantMap:", productVariantMap);
 
-  // 📊 Push GA event
+  // 📊 Push GA event (with flattened array)
+
+  // 📊 Push GA events using GA4-native eCommerce structure
   setTimeout(() => {
     const data = localStorage.getItem("productVariantMap");
-    if (data) {
-      window.dataLayer = window.dataLayer || [];
-      window.dataLayer.push({
-        event: "productVariantMap_ready",
-        productVariantMap: JSON.parse(data),
+    if (!data) {
+      console.warn("⏳ No productVariantMap in localStorage yet");
+      return;
+    }
+
+    const parsedMap = JSON.parse(data);
+    const flattened = [];
+
+    // Flatten nested map → array of detailed items
+    Object.values(parsedMap).forEach((animalObj) => {
+      Object.values(animalObj).forEach((personalityObj) => {
+        Object.values(personalityObj).forEach((itemsArray) => {
+          flattened.push(...itemsArray);
+        });
       });
-      console.log("📈 productVariantMap_ready pushed with:", JSON.parse(data));
-    } else {
-      console.warn("⏳ Still no productVariantMap in localStorage");
+    });
+
+    const currentClickedPersonality =
+      localStorage.getItem("currentClickedPersonality") || "unknownPersonality";
+
+    // ✅ Build GA4-native items array
+    const gaItems = flattened.map((item, index) => ({
+      item_name: item.productName,
+      item_id: item.productId,
+      item_variant: item.variantTitle,
+      item_brand: "PersonallyU", // customize your brand name
+      price: item.price,
+      quantity: item.quantity,
+      item_category: item.animal, // 🐾 animal
+      item_category2: item.personality, // 🧠 product personality
+      item_category3: item.designNumber, // 🎨 design number
+      item_category4: currentClickedPersonality, // 💫 user's personality
+      index: index + 1,
+    }));
+
+    const totalValue = flattened.reduce((sum, i) => sum + i.linePrice, 0);
+
+    window.dataLayer = window.dataLayer || [];
+
+    // 🧩 1. Always push the base event
+    window.dataLayer.push({
+      event: "productVariantMap_ready",
+      personality: currentClickedPersonality,
+      cart_value: totalValue,
+      cart_timestamp: new Date().toISOString(),
+      items: gaItems,
+    });
+
+    console.log("📈 GA push (GA4-native items):", gaItems);
+
+    // 🧩 2. Fire 'view_cart' automatically on cart page
+    if (window.location.pathname.includes("/cart")) {
+      window.dataLayer.push({
+        event: "view_cart",
+        currency: "USD",
+        value: totalValue,
+        items: gaItems,
+        personality: currentClickedPersonality,
+      });
+      console.log("🛒 Sent view_cart event to GA");
+    }
+
+    // 🧩 3. Attach begin_checkout when checkout button is clicked
+    const checkoutBtn = document.querySelector(
+      '[name="checkout"], .checkout, #checkout'
+    );
+    if (checkoutBtn && !checkoutBtn.hasGAListener) {
+      checkoutBtn.hasGAListener = true;
+      checkoutBtn.addEventListener("click", () => {
+        window.dataLayer.push({
+          event: "begin_checkout",
+          currency: "USD",
+          value: totalValue,
+          items: gaItems,
+          personality: currentClickedPersonality,
+        });
+        console.log("🚀 Sent begin_checkout event to GA");
+      });
     }
   }, 800);
 }
-
 
 // Fetch live cart + rebuild
 async function refreshProductVariantMap() {
