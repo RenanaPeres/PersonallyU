@@ -164,13 +164,13 @@ function buildAndStoreProductVariantMap(parsedCartState) {
       cart_value: totalValue,
       cart_timestamp: new Date().toISOString(),
       // ⭐ THIS is what GTM needs — now "productVariantMap" exists
-      productVariantMap: parsedMap,
+      productVariantMap: JSON.stringify(parsedMap),
       // GA4 items
       items: gaItems,
     });
 
     console.log("📈 GA push (GA4-native items + map):", {
-      productVariantMap: parsedMap,
+      productVariantMap: JSON.stringify(parsedMap),
       items: gaItems,
     });
 
