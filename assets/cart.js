@@ -158,6 +158,12 @@ function buildAndStoreProductVariantMap(parsedCartState) {
     // -------------------------------
     // 🔥 MAIN FIX: productVariantMap added at top level
     // -------------------------------
+
+    // 1. Find the first item's details to use as a "Badge" for the user
+    const firstItem = flattened[0] || {};
+    const mainAnimal = firstItem.animal || "empty";
+    const mainPersonality = firstItem.personality || "empty";
+
     window.dataLayer.push({
       event: "productVariantMap_ready",
       personality: currentClickedPersonality,
@@ -167,6 +173,10 @@ function buildAndStoreProductVariantMap(parsedCartState) {
       productVariantMap: JSON.stringify(parsedMap),
       // GA4 items
       items: gaItems,
+      user_properties: {
+        current_cart_animal: mainAnimal, // e.g., "Bear"
+        current_cart_personality: mainPersonality, // e.g., "Anti"
+      },
     });
 
     console.log("📈 GA push (GA4-native items + map):", {
