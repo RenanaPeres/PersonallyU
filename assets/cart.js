@@ -109,7 +109,7 @@ function buildAndStoreProductVariantMap(parsedCartState) {
 
     const parsedMap = JSON.parse(data);
     const flattened = [];
-    const minifiedList = []; // New efficient list
+    const minifiedList = []; 
 
     Object.values(parsedMap).forEach((animalObj) => {
       Object.values(animalObj).forEach((personalityObj) => {
@@ -117,11 +117,10 @@ function buildAndStoreProductVariantMap(parsedCartState) {
           flattened.push(...itemsArray);
 
           // ✂️ CREATE EFFICIENT MAP DATA
-          // We filter the text here to slim down the output
           itemsArray.forEach((i) => {
             minifiedList.push({
               a: i.animal,
-              p: i.personality === "ownPersonality" ? "Own" : i.personality === "antiPersonality" ? "Anti" : "Neu", // Shorten text
+              p: i.personality === "ownPersonality" ? "Own" : i.personality === "antiPersonality" ? "Anti" : "Neu", 
               d: i.designNumber,
               s: i.size,
               q: i.quantity
@@ -148,9 +147,13 @@ function buildAndStoreProductVariantMap(parsedCartState) {
     const totalValue = flattened.reduce((sum, i) => sum + i.linePrice, 0);
     const firstItem = flattened[0] || {};
 
-    // 🧾 Receipt String (Still useful for quick reading)
+    // 🧾 Receipt String WITH PRODUCT NAMES
+    // Replaces "Your Personalized " with empty string to save space
     const cartSummaryString = flattened
-      .map(i => `${i.animal}(${i.personality.substring(0, 3)}/${i.size})x${i.quantity}`)
+      .map(i => {
+         const shortName = i.productName.replace(/Your Personalized /i, "").trim();
+         return `${shortName}:${i.animal}(${i.personality.substring(0, 3)}/${i.size})x${i.quantity}`;
+      })
       .join(" | ");
 
     window.dataLayer = window.dataLayer || [];
@@ -160,15 +163,15 @@ function buildAndStoreProductVariantMap(parsedCartState) {
       cart_value: totalValue,
       cart_timestamp: new Date().toISOString(),
       items: gaItems,
-      // 🚀 SLIM DATA: Sending the compressed list instead of the huge map
+      // 🚀 SLIM DATA
       productVariantMap: JSON.stringify(minifiedList), 
       user_properties: {
-        cart_status_receipt: cartSummaryString,
+        cart_status_receipt: cartSummaryString, // Now includes product name!
         current_cart_animal: firstItem.animal || "empty",
       },
     });
 
-    console.log("✂️ Slimmed Data:", JSON.stringify(minifiedList));
+    console.log("🧾 Generated Full Receipt:", cartSummaryString);
 
   }, 800);
 }
