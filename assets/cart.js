@@ -59,8 +59,8 @@ function buildAndStoreProductVariantMap(parsedCartState) {
     const variantTitle = item.variant_title || "Unknown Variant";
     const size = item.variant_options ? item.variant_options[1] : "NA";
     const quantity = item.quantity || 1;
-    const linePrice = item.line_price / 100 || 0;
     const price = item.final_price / 100 || 0;
+    const linePrice = item.line_price / 100 || 0;
 
     const [designPart] = variantTitle.split(" / ");
     const match = Object.entries(designMap).find(([key]) =>
@@ -70,7 +70,6 @@ function buildAndStoreProductVariantMap(parsedCartState) {
       ? match[1]
       : {};
 
-    // Extract Design Number for reference
     const designNumberMatch = designPart.match(/design\s*(\d+)/i);
     const designNumber = designNumberMatch ? designNumberMatch[1] : "NA";
 
@@ -110,16 +109,28 @@ function buildAndStoreProductVariantMap(parsedCartState) {
 
     const parsedMap = JSON.parse(data);
     const flattened = [];
+    const minifiedList = []; // New efficient list
 
     Object.values(parsedMap).forEach((animalObj) => {
       Object.values(animalObj).forEach((personalityObj) => {
         Object.values(personalityObj).forEach((itemsArray) => {
           flattened.push(...itemsArray);
+
+          // ✂️ CREATE EFFICIENT MAP DATA
+          // We filter the text here to slim down the output
+          itemsArray.forEach((i) => {
+            minifiedList.push({
+              a: i.animal,
+              p: i.personality === "ownPersonality" ? "Own" : i.personality === "antiPersonality" ? "Anti" : "Neu", // Shorten text
+              d: i.designNumber,
+              s: i.size,
+              q: i.quantity
+            });
+          });
         });
       });
     });
 
-    // Build GA4 items[] array
     const gaItems = flattened.map((item, index) => ({
       item_name: item.productName,
       item_id: item.productId,
@@ -129,27 +140,19 @@ function buildAndStoreProductVariantMap(parsedCartState) {
       quantity: item.quantity,
       item_category: item.animal,
       item_category2: item.personality,
-      item_category3: item.size, // Changed to Size for better visibility
+      item_category3: item.size,
       item_category4: item.designNumber,
       index: index + 1,
     }));
 
     const totalValue = flattened.reduce((sum, i) => sum + i.linePrice, 0);
-
-    // 🧾 CREATE CART SUMMARY STRING (The Receipt)
-    // Format: Animal(Personality/Size)xQty | ...
-    const cartSummaryString = flattened
-      .map(
-        (i) =>
-          `${i.animal}(${i.personality.substring(0, 3)}/${i.size})x${
-            i.quantity
-          }`
-      )
-      .join(" | ");
-      // Takes first 3 letters of personality to save space: Own/Ant/Neu
-
     const firstItem = flattened[0] || {};
-    
+
+    // 🧾 Receipt String (Still useful for quick reading)
+    const cartSummaryString = flattened
+      .map(i => `${i.animal}(${i.personality.substring(0, 3)}/${i.size})x${i.quantity}`)
+      .join(" | ");
+
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({
       event: "productVariantMap_ready",
@@ -157,14 +160,15 @@ function buildAndStoreProductVariantMap(parsedCartState) {
       cart_value: totalValue,
       cart_timestamp: new Date().toISOString(),
       items: gaItems,
-      // User Properties
+      // 🚀 SLIM DATA: Sending the compressed list instead of the huge map
+      productVariantMap: JSON.stringify(minifiedList), 
       user_properties: {
-        cart_status_receipt: cartSummaryString, // <--- THE MAGIC STRING
+        cart_status_receipt: cartSummaryString,
         current_cart_animal: firstItem.animal || "empty",
       },
     });
-    
-    console.log("🧾 Generated Cart Receipt:", cartSummaryString);
+
+    console.log("✂️ Slimmed Data:", JSON.stringify(minifiedList));
 
   }, 800);
 }
