@@ -16,7 +16,7 @@ customElements.define("cart-remove-button", CartRemoveButton);
 function buildAndStoreProductVariantMap(parsedCartState) {
   if (!parsedCartState || !parsedCartState.items) return;
 
-  // ♻️ Restore personality if missing
+  // 1. ♻️ Restore or Create Personality
   let currentClickedPersonality =
     localStorage.getItem("currentClickedPersonality") || null;
 
@@ -27,19 +27,22 @@ function buildAndStoreProductVariantMap(parsedCartState) {
         currentClickedPersonality = quizData.personality;
       }
     } catch (err) {
-      console.warn("⚠️ Could not restore personality from quiz data:", err);
+      console.warn("⚠️ Could not restore personality:", err);
     }
-    currentClickedPersonality =
-      currentClickedPersonality || "unknownPersonality";
-    localStorage.setItem(
-      "currentClickedPersonality",
-      currentClickedPersonality
-    );
+    currentClickedPersonality = currentClickedPersonality || "unknownPersonality";
+    localStorage.setItem("currentClickedPersonality", currentClickedPersonality);
   }
 
-  const productVariantMap = {};
+  // 2. 🆔 GENERATE ACADEMIC ID (The Fix)
+  // This creates a permanent, random ID for your research
+  let academicId = localStorage.getItem("academic_participant_id");
+  if (!academicId) {
+    academicId = "part_" + Math.random().toString(36).substr(2, 9);
+    localStorage.setItem("academic_participant_id", academicId);
+  }
 
-  // 🗺️ Map each design to its animal and personality
+  // 3. 🗺️ Map Logic
+  const productVariantMap = {};
   const designMap = {
     "design 2": { animal: "armadilo", personality: "ownPersonality" },
     "design 3": { animal: "armadilo", personality: "antiPersonality" },
@@ -74,53 +77,35 @@ function buildAndStoreProductVariantMap(parsedCartState) {
     const designNumber = designNumberMatch ? designNumberMatch[1] : "NA";
 
     const detailedItem = {
-      productName,
-      productId,
-      variantId,
-      variantTitle,
-      size,
-      quantity,
-      price,
-      linePrice,
-      animal,
-      personality,
-      currentClickedPersonality,
-      designNumber,
+      productName, productId, variantId, variantTitle, size, quantity, price, linePrice, animal, personality, currentClickedPersonality, designNumber,
     };
 
     if (!productVariantMap[productName]) productVariantMap[productName] = {};
-    if (!productVariantMap[productName][animal])
-      productVariantMap[productName][animal] = {};
-    if (!productVariantMap[productName][animal][personality])
-      productVariantMap[productName][animal][personality] = [];
-
+    if (!productVariantMap[productName][animal]) productVariantMap[productName][animal] = {};
+    if (!productVariantMap[productName][animal][personality]) productVariantMap[productName][animal][personality] = [];
     productVariantMap[productName][animal][personality].push(detailedItem);
   });
 
-  // 💾 Store results
+  // 4. 💾 Store & Send
   localStorage.setItem("parsedCartState", JSON.stringify(parsedCartState));
   localStorage.setItem("productVariantMap", JSON.stringify(productVariantMap));
-  localStorage.setItem("currentClickedPersonality", currentClickedPersonality);
 
-  // 📊 Push GA events
   setTimeout(() => {
     const data = localStorage.getItem("productVariantMap");
     if (!data) return;
 
     const parsedMap = JSON.parse(data);
     const flattened = [];
-    const minifiedList = []; 
+    const minifiedList = [];
 
     Object.values(parsedMap).forEach((animalObj) => {
       Object.values(animalObj).forEach((personalityObj) => {
         Object.values(personalityObj).forEach((itemsArray) => {
           flattened.push(...itemsArray);
-
-          // ✂️ CREATE EFFICIENT MAP DATA
           itemsArray.forEach((i) => {
             minifiedList.push({
               a: i.animal,
-              p: i.personality === "ownPersonality" ? "Own" : i.personality === "antiPersonality" ? "Anti" : "Neu", 
+              p: i.personality === "ownPersonality" ? "Own" : i.personality === "antiPersonality" ? "Anti" : "Neu",
               d: i.designNumber,
               s: i.size,
               q: i.quantity
@@ -145,10 +130,7 @@ function buildAndStoreProductVariantMap(parsedCartState) {
     }));
 
     const totalValue = flattened.reduce((sum, i) => sum + i.linePrice, 0);
-    const firstItem = flattened[0] || {};
 
-    // 🧾 Receipt String WITH PRODUCT NAMES
-    // Replaces "Your Personalized " with empty string to save space
     const cartSummaryString = flattened
       .map(i => {
          const shortName = i.productName.replace(/Your Personalized /i, "").trim();
@@ -164,14 +146,16 @@ function buildAndStoreProductVariantMap(parsedCartState) {
       cart_timestamp: new Date().toISOString(),
       items: gaItems,
       // 🚀 SLIM DATA
-      productVariantMap: JSON.stringify(minifiedList), 
+      productVariantMap: JSON.stringify(minifiedList),
       user_properties: {
-        cart_status_receipt: cartSummaryString, // Now includes product name!
-        current_cart_animal: firstItem.animal || "empty",
+        cart_status_receipt: cartSummaryString,
+        current_cart_animal: flattened[0]?.animal || "empty",
+        participant_id: academicId  // <--- YOUR NEW ACADEMIC ID
       },
     });
 
-    console.log("🧾 Generated Full Receipt:", cartSummaryString);
+    console.log("🎓 Academic ID:", academicId);
+    console.log("🧾 Receipt:", cartSummaryString);
 
   }, 800);
 }
