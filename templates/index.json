@@ -74,7 +74,7 @@
         ".banner__box .buttons {display: flex; justify-content: center; gap: 11px;}"
       ],
       "settings": {
-        "image": "shopify://shop_images/ChatGPT_Image_May_3_2025_12_51_45_PM.png",
+        "image": "shopify://shop_images/final.webp",
         "image_overlay_opacity": 0,
         "image_height": "adapt",
         "desktop_content_position": "top-left",
