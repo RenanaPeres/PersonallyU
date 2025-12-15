@@ -1,6 +1,388 @@
+{% doc %}
+  @prompt
+    something to make it pop
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-gradient-badge-{{ ai_gen_id }} {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: {{ block.settings.padding_vertical }}px {{ block.settings.padding_horizontal }}px;
+    border-radius: {{ block.settings.border_radius }}px;
+    position: relative;
+    overflow: hidden;
+    font-size: {{ block.settings.font_size }}px;
+    font-weight: {{ block.settings.font_weight }};
+    text-transform: {{ block.settings.text_transform }};
+    letter-spacing: {{ block.settings.letter_spacing }}px;
+    box-shadow: 0 {{ block.settings.shadow_vertical }}px {{ block.settings.shadow_blur }}px rgba(0, 0, 0, {{ block.settings.shadow_opacity | divided_by: 100.0 }});
+  }
+
+  .ai-gradient-badge-{{ ai_gen_id }}::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+      {{ block.settings.gradient_angle }}deg,
+      {{ block.settings.color_1 }},
+      {{ block.settings.color_2 }},
+      {{ block.settings.color_3 }},
+      {{ block.settings.color_1 }}
+    );
+    background-size: 200% 200%;
+    z-index: -1;
+  }
+
+  .ai-gradient-badge-{{ ai_gen_id }}__text {
+    position: relative;
+    z-index: 1;
+    color: {{ block.settings.text_color }};
+    margin: 0;
+  }
+
+  .ai-gradient-badge-{{ ai_gen_id }}__icon {
+    margin-right: 8px;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .ai-gradient-badge-{{ ai_gen_id }}__icon svg {
+    width: {{ block.settings.icon_size }}px;
+    height: {{ block.settings.icon_size }}px;
+    fill: {{ block.settings.text_color }};
+  }
+
+  @keyframes ai-gradient-shift-{{ ai_gen_id }} {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  .ai-gradient-badge-{{ ai_gen_id }}::before {
+    animation: ai-gradient-shift-{{ ai_gen_id }} {{ block.settings.animation_speed }}s ease infinite;
+  }
+
+  .ai-gradient-badge-wrapper-{{ ai_gen_id }} {
+    display: flex;
+    justify-content: {{ block.settings.alignment }};
+    width: 100%;
+  }
+{% endstyle %}
+
+<div class="ai-gradient-badge-wrapper-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="ai-gradient-badge-{{ ai_gen_id }}">
+    {% if block.settings.show_icon %}
+      <span class="ai-gradient-badge-{{ ai_gen_id }}__icon">
+        {% if block.settings.icon_type == 'star' %}
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+          </svg>
+        {% elsif block.settings.icon_type == 'fire' %}
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13.5 0.67s0.74 2.65 0.74 4.8c0 2.06-1.35 3.73-3.41 3.73-2.07 0-3.63-1.67-3.63-3.73l0.03-0.36C5.21 7.51 4 10.62 4 14c0 4.42 3.58 8 8 8s8-3.58 8-8C20 8.61 17.41 3.8 13.5 0.67zM11.71 19c-1.78 0-3.22-1.4-3.22-3.14 0-1.62 1.05-2.76 2.81-3.12 1.77-.36 3.6-1.21 4.62-2.58.39 1.29 0.59 2.65 0.59 4.04 0 2.65-2.15 4.8-4.8 4.8z"/>
+          </svg>
+        {% elsif block.settings.icon_type == 'sparkle' %}
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M12 0L14.59 8.41L23 11L14.59 13.59L12 22L9.41 13.59L1 11L9.41 8.41L12 0Z"/>
+            <path d="M19 3L20.18 6.82L24 8L20.18 9.18L19 13L17.82 9.18L14 8L17.82 6.82L19 3Z"/>
+          </svg>
+        {% elsif block.settings.icon_type == 'lightning' %}
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 2L3 14h8l-1 8 10-12h-8l1-8z"/>
+          </svg>
+        {% elsif block.settings.icon_type == 'heart' %}
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+          </svg>
+        {% endif %}
+      </span>
+    {% endif %}
+    <span class="ai-gradient-badge-{{ ai_gen_id }}__text">{{ block.settings.badge_text }}</span>
+  </div>
+</div>
+
 {% schema %}
- {
-   "name": "AI_Block",
-   "tag": "shopify-ai-generated-block"
- }
+{
+  "name": "Gradient badge",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "badge_text",
+      "label": "Badge text",
+      "default": "New Arrival"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_icon",
+      "label": "Show icon",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "icon_type",
+      "label": "Icon",
+      "options": [
+        {
+          "value": "star",
+          "label": "Star"
+        },
+        {
+          "value": "fire",
+          "label": "Fire"
+        },
+        {
+          "value": "sparkle",
+          "label": "Sparkle"
+        },
+        {
+          "value": "lightning",
+          "label": "Lightning"
+        },
+        {
+          "value": "heart",
+          "label": "Heart"
+        }
+      ],
+      "default": "sparkle"
+    },
+    {
+      "type": "range",
+      "id": "icon_size",
+      "min": 12,
+      "max": 32,
+      "step": 2,
+      "unit": "px",
+      "label": "Icon size",
+      "default": 18
+    },
+    {
+      "type": "header",
+      "content": "Gradient colors"
+    },
+    {
+      "type": "color",
+      "id": "color_1",
+      "label": "Color 1",
+      "default": "#ff6b6b"
+    },
+    {
+      "type": "color",
+      "id": "color_2",
+      "label": "Color 2",
+      "default": "#feca57"
+    },
+    {
+      "type": "color",
+      "id": "color_3",
+      "label": "Color 3",
+      "default": "#48dbfb"
+    },
+    {
+      "type": "range",
+      "id": "gradient_angle",
+      "min": 0,
+      "max": 360,
+      "step": 15,
+      "unit": "deg",
+      "label": "Gradient angle",
+      "default": 45
+    },
+    {
+      "type": "range",
+      "id": "animation_speed",
+      "min": 2,
+      "max": 10,
+      "step": 1,
+      "unit": "s",
+      "label": "Animation speed",
+      "default": 4
+    },
+    {
+      "type": "header",
+      "content": "Typography"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "font_size",
+      "min": 10,
+      "max": 32,
+      "step": 1,
+      "unit": "px",
+      "label": "Font size",
+      "default": 14
+    },
+    {
+      "type": "select",
+      "id": "font_weight",
+      "label": "Font weight",
+      "options": [
+        {
+          "value": "400",
+          "label": "Normal"
+        },
+        {
+          "value": "500",
+          "label": "Medium"
+        },
+        {
+          "value": "600",
+          "label": "Semi bold"
+        },
+        {
+          "value": "700",
+          "label": "Bold"
+        }
+      ],
+      "default": "600"
+    },
+    {
+      "type": "select",
+      "id": "text_transform",
+      "label": "Text transform",
+      "options": [
+        {
+          "value": "none",
+          "label": "None"
+        },
+        {
+          "value": "uppercase",
+          "label": "Uppercase"
+        },
+        {
+          "value": "lowercase",
+          "label": "Lowercase"
+        },
+        {
+          "value": "capitalize",
+          "label": "Capitalize"
+        }
+      ],
+      "default": "uppercase"
+    },
+    {
+      "type": "range",
+      "id": "letter_spacing",
+      "min": 0,
+      "max": 4,
+      "step": 0.5,
+      "unit": "px",
+      "label": "Letter spacing",
+      "default": 1
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "select",
+      "id": "alignment",
+      "label": "Alignment",
+      "options": [
+        {
+          "value": "flex-start",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "flex-end",
+          "label": "Right"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "range",
+      "id": "padding_vertical",
+      "min": 4,
+      "max": 24,
+      "step": 2,
+      "unit": "px",
+      "label": "Vertical padding",
+      "default": 10
+    },
+    {
+      "type": "range",
+      "id": "padding_horizontal",
+      "min": 8,
+      "max": 48,
+      "step": 4,
+      "unit": "px",
+      "label": "Horizontal padding",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "border_radius",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "label": "Border radius",
+      "default": 20
+    },
+    {
+      "type": "header",
+      "content": "Shadow"
+    },
+    {
+      "type": "range",
+      "id": "shadow_vertical",
+      "min": 0,
+      "max": 20,
+      "step": 2,
+      "unit": "px",
+      "label": "Vertical offset",
+      "default": 4
+    },
+    {
+      "type": "range",
+      "id": "shadow_blur",
+      "min": 0,
+      "max": 40,
+      "step": 4,
+      "unit": "px",
+      "label": "Blur",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "shadow_opacity",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "label": "Opacity",
+      "default": 20
+    }
+  ],
+  "presets": [
+    {
+      "name": "Gradient badge"
+    }
+  ]
+}
 {% endschema %}
