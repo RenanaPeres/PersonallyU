@@ -76,7 +76,7 @@
       "settings": {
         "image": "shopify://shop_images/task_01kc8vq4a3eg7spp297wmgz5fb_1765529172_img_1.webp",
         "image_overlay_opacity": 0,
-        "image_height": "adapt",
+        "image_height": "large",
         "desktop_content_position": "top-left",
         "show_text_box": true,
         "desktop_content_alignment": "center",
