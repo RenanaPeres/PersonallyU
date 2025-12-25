@@ -19,8 +19,8 @@
         "heading_fz7dij": {
           "type": "heading",
           "settings": {
-            "heading": "Welcome",
-            "heading_size": "h2"
+            "heading": "<strong>This store uses a short, science-based personality test to offer personalized products. By answering a personality questionnaire used in psychological research, we identify your key traits and match you with product designs that best fit you</strong>",
+            "heading_size": "h1"
           }
         }
       },
