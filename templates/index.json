@@ -39,7 +39,7 @@
         "desktop_content_position": "left",
         "content_alignment": "left",
         "color_scheme": "scheme-674c0d0b-ade6-417a-802c-5e16144d129d",
-        "full_width": true,
+        "full_width": false,
         "padding_top": 0,
         "padding_bottom": 0
       }
@@ -116,6 +116,7 @@
         },
         "column_kzMc3Q": {
           "type": "column",
+          "disabled": true,
           "settings": {
             "title": "",
             "text": "<p>Experience a quirky, fun-filled store designed just for you! Find items adapted to your unique personality and style.</p>",
