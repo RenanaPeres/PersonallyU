@@ -16,15 +16,30 @@
     "rich_text_KqLVAC": {
       "type": "rich-text",
       "blocks": {
-        "heading_fz7dij": {
+        "heading_67hDLF": {
           "type": "heading",
           "settings": {
             "heading": "<strong>This store uses a short, science-based personality test to offer personalized products. By answering a personality questionnaire used in psychological research, we identify your key traits and match you with product designs that best fit you</strong>",
             "heading_size": "h1"
           }
+        },
+        "text_MkCNAa": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.</p>"
+          }
+        },
+        "heading_fz7dij": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>Welcome</strong>",
+            "heading_size": "h2"
+          }
         }
       },
       "block_order": [
+        "heading_67hDLF",
+        "text_MkCNAa",
         "heading_fz7dij"
       ],
       "disabled": true,
