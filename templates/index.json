@@ -32,9 +32,7 @@
         "text_MkCNAa",
         "heading_fz7dij"
       ],
-      "custom_css": [
-        ".rte {max-width: 100%;}"
-      ],
+      "custom_css": [],
       "settings": {
         "desktop_content_position": "left",
         "content_alignment": "left",
