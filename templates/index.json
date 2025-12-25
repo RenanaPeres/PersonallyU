@@ -89,9 +89,9 @@
         ".banner__box .buttons {display: flex; justify-content: center; gap: 11px;}"
       ],
       "settings": {
-        "image": "shopify://shop_images/task_01kc8vq4a3eg7spp297wmgz5fb_1765529172_img_1.webp",
+        "image": "shopify://shop_images/task_01kdb1n8rves1vc1gy7pw9nq58_1766676222_img_0.webp",
         "image_overlay_opacity": 0,
-        "image_height": "large",
+        "image_height": "small",
         "desktop_content_position": "top-left",
         "show_text_box": true,
         "desktop_content_alignment": "center",
