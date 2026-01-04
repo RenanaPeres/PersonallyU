@@ -22,7 +22,7 @@
         "text_idcnkt": {
           "type": "text",
           "settings": {
-            "text": "<p>At PersonallyU, we believe that the best things in life are the ones that feel uniquely yours. We aren't just an online shop; we’re a destination for those who want to stand out rather than blend in. Whether you're looking for the perfect gift or a treat for yourself, our curated collection is designed to celebrate individuality and creativity. Welcome to a shopping experience that is, quite literally, personally you.</p>",
+            "text": "<p><strong>This store uses a short, science-based personality test to offer personalized products. By answering a personality questionnaire used in psychological research, we identify your key traits and match you with product designs that best fit you.</strong></p>",
             "text_style": "subtitle"
           }
         },

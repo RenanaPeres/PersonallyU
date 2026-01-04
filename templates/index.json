@@ -106,10 +106,9 @@
         },
         "column_kzMc3Q": {
           "type": "column",
-          "disabled": true,
           "settings": {
             "title": "",
-            "text": "<p>Experience a quirky, fun-filled store designed just for you! Find items adapted to your unique personality and style.</p>",
+            "text": "<p>Experience a fun-filled store designed just for you! Find items adapted to your unique personality and style.</p>",
             "link_label": "",
             "link": ""
           }
@@ -132,7 +131,7 @@
       "custom_css": [],
       "settings": {
         "title": "<strong>Your personality is your everything.</strong>",
-        "heading_size": "h1",
+        "heading_size": "h0",
         "image_width": "full",
         "image_ratio": "adapt",
         "columns_desktop": 3,
