@@ -92,6 +92,49 @@
         "show_text_below": true
       }
     },
+    "rich_text_e7fw9q": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_m7TGem": {
+          "type": "heading",
+          "settings": {
+            "heading": "A Unique Experience",
+            "heading_size": "h1"
+          }
+        },
+        "text_F7LN7B": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Personality U is a personalized shopping experience where science meets creativity. Using a scientifically validated personality test, we create unique designs tailored to each individual’s personality, turning psychological insights into meaningful, personalized products.</p><p>Learn more about the academic team and the research behind Personality U on our About Us page.</p>"
+          }
+        },
+        "button_X9gekR": {
+          "type": "button",
+          "settings": {
+            "button_label": "Learn More",
+            "button_link": "shopify://pages/contact",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_m7TGem",
+        "text_F7LN7B",
+        "button_X9gekR"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
     "multicolumn_HjxVgp": {
       "type": "multicolumn",
       "blocks": {
@@ -144,49 +187,6 @@
         "swipe_on_mobile": false,
         "padding_top": 60,
         "padding_bottom": 36
-      }
-    },
-    "rich_text_e7fw9q": {
-      "type": "rich-text",
-      "blocks": {
-        "heading_m7TGem": {
-          "type": "heading",
-          "settings": {
-            "heading": "A Unique Experience",
-            "heading_size": "h1"
-          }
-        },
-        "text_F7LN7B": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Personality U is a personalized shopping experience where science meets creativity. Using a scientifically validated personality test, we create unique designs tailored to each individual’s personality, turning psychological insights into meaningful, personalized products.</p><p>Learn more about the academic team and the research behind Personality U on our About Us page.</p>"
-          }
-        },
-        "button_X9gekR": {
-          "type": "button",
-          "settings": {
-            "button_label": "Learn More",
-            "button_link": "shopify://pages/contact",
-            "button_style_secondary": false,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
-          }
-        }
-      },
-      "block_order": [
-        "heading_m7TGem",
-        "text_F7LN7B",
-        "button_X9gekR"
-      ],
-      "name": "t:sections.rich-text.presets.name",
-      "settings": {
-        "desktop_content_position": "center",
-        "content_alignment": "center",
-        "color_scheme": "",
-        "full_width": true,
-        "padding_top": 40,
-        "padding_bottom": 52
       }
     },
     "multirow_Qm46bk": {
@@ -280,8 +280,8 @@
     "rich_text_KqLVAC",
     "17657877704cb74329",
     "image_banner_KiVDJH",
-    "multicolumn_HjxVgp",
     "rich_text_e7fw9q",
+    "multicolumn_HjxVgp",
     "multirow_Qm46bk"
   ]
 }
