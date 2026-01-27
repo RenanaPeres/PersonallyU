@@ -9,24 +9,134 @@
  */
 {
   "sections": {
-    "image_with_text_DGjXYj": {
-      "type": "image-with-text",
+    "rich_text_CqLBXc": {
+      "type": "rich-text",
       "blocks": {
-        "heading_NWyyaU": {
+        "heading_qyWFiT": {
           "type": "heading",
           "settings": {
-            "heading": "About Us",
-            "heading_size": "hxl"
+            "heading": "About us",
+            "heading_size": "h1"
           }
         },
-        "text_idcnkt": {
+        "text_rbm9mm": {
           "type": "text",
           "settings": {
-            "text": "<p><strong>This store uses a short, science-based personality test to offer personalized products. By answering a personality questionnaire used in psychological research, we identify your key traits and match you with product designs that best fit you.</strong></p>",
-            "text_style": "subtitle"
+            "text": "<h3><strong>Research Behind Personality U</strong></h3><p>Personality U is a personalized shopping platform developed as part of academic<br/>research in marketing and consumer behavior. The platform uses a scientifically<br/>validated personality test, the Ten-Item Personality Inventory (TIPI), to measure the<br/>Big Five personality traits and create personalized product designs based on each<br/>individual’s personality. <br/>It combines psychological research with creative design to<br/>offer meaningful personalization instead of basic customization.</p><p></p><p><br/>After completing the personality test, customers are shown AI-generated designs<br/>tailored to their personality results, which they can then select and purchase.</p><p><br/>This project is led by academic researchers Prof. Renana Peres (Hebrew University<br/>of Jerusalem) and Prof. David A. Schweidel (Emory University). Their work focuses<br/>on personalization, consumer behavior, and the use of data and technology to create<br/>meaningful consumer experiences. </p><p>They recently participated in an American<br/>Marketing Association talk titled “Up Close and Personal: Hyper-Personalization in<br/>Marketing,” discussing how advanced personalization is shaping the future of<br/>marketing.</p><h3><br/></h3>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_qyWFiT",
+        "text_rbm9mm"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "rich_text_tDNytV": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_Bjnk6E": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>About the Researchers</strong>",
+            "heading_size": "h1"
           }
         },
-        "button_jM4wW9": {
+        "text_jimmYp": {
+          "type": "text",
+          "settings": {
+            "text": ""
+          }
+        }
+      },
+      "block_order": [
+        "heading_Bjnk6E",
+        "text_jimmYp"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "image_with_text_3dxYVU": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_pxwXGU": {
+          "type": "heading",
+          "settings": {
+            "heading": "Prof. Renana Peres",
+            "heading_size": "h1"
+          }
+        },
+        "text_DA7aWH": {
+          "type": "text",
+          "settings": {
+            "text": "<p><em>KMART Professor of Marketing and Head of the Marketing Department at the<br/>Hebrew University Business School, and Head of the MBA International Program.<br/>Holds a PhD in Marketing from Tel Aviv University, MSc and BSc in Physics from the<br/>Hebrew University of Jerusalem, and an MBA from Tel Aviv University. </em></p><p><em>Author of<br/>Innovation Diffusion and New Product Growth.<br/>Research focuses on the interplay between brands, consumer social interactions,<br/>and firm decisions, including how brand perceptions are formed, how word of mouth<br/>spreads, and how social interactions translate into sales. Work also examines<br/>consumer data ownership and monetization using methodologies such as<br/>blockchain, agent-based models, machine learning, content analysis, and diffusion<br/>models.<br/>Senior Editor of the International Journal of Research in Marketing, with publications<br/>across exact sciences, social sciences, and humanities.</em></p>",
+            "text_style": "body"
+          }
+        },
+        "button_D7htYX": {
+          "type": "button",
+          "settings": {
+            "button_label": "Button label",
+            "button_link": "",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_pxwXGU",
+        "text_DA7aWH",
+        "button_D7htYX"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/renana_photo.jpg",
+        "height": "adapt",
+        "desktop_image_width": "small",
+        "layout": "text_first",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "image_behavior": "ambient",
+        "mobile_content_alignment": "left",
+        "padding_top": 8,
+        "padding_bottom": 8
+      }
+    },
+    "image_with_text_xibYHi": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_aBWt9H": {
+          "type": "heading",
+          "settings": {
+            "heading": "Prof. David A. Schweidel",
+            "heading_size": "h1"
+          }
+        },
+        "text_HFqXYG": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Professor of Marketing at Emory University’s Goizueta Business School.<br/>Holds a B.A. in mathematics, M.A. in statistics, and Ph.D. in marketing from the<br/>University of Pennsylvania. Author of Social Media Intelligence and Profiting from the<br/>Data Economy.<br/>Research focuses on customer relationship management, social media analytics, and<br/>the development of statistical models to understand customer behavior and support<br/>managerial decision-making. Work examines how technology and data shape<br/>interactions between consumers and firms.<br/>Publications appear in leading journals including Journal of Marketing, Journal of<br/>Marketing Research, Marketing Science, and Management Science, and have<br/>received multiple academic awards and recognitions</p>",
+            "text_style": "body"
+          }
+        },
+        "button_9Wr793": {
           "type": "button",
           "settings": {
             "button_label": "",
@@ -36,15 +146,15 @@
         }
       },
       "block_order": [
-        "heading_NWyyaU",
-        "text_idcnkt",
-        "button_jM4wW9"
+        "heading_aBWt9H",
+        "text_HFqXYG",
+        "button_9Wr793"
       ],
       "name": "t:sections.image-with-text.presets.name",
       "settings": {
-        "image": "shopify://shop_images/people-having-personalized-fun.png",
+        "image": "shopify://shop_images/DavidSchweidel.jpg",
         "height": "adapt",
-        "desktop_image_width": "medium",
+        "desktop_image_width": "small",
         "layout": "image_first",
         "desktop_content_position": "top",
         "desktop_content_alignment": "left",
@@ -53,8 +163,8 @@
         "color_scheme": "",
         "image_behavior": "none",
         "mobile_content_alignment": "left",
-        "padding_top": 48,
-        "padding_bottom": 48
+        "padding_top": 36,
+        "padding_bottom": 36
       }
     },
     "main": {
@@ -77,7 +187,10 @@
     }
   },
   "order": [
-    "image_with_text_DGjXYj",
+    "rich_text_CqLBXc",
+    "rich_text_tDNytV",
+    "image_with_text_3dxYVU",
+    "image_with_text_xibYHi",
     "main",
     "form"
   ]
