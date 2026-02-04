@@ -22,7 +22,7 @@
         "text_rbm9mm": {
           "type": "text",
           "settings": {
-            "text": "<h3><strong>Research Behind Personality U</strong></h3><p>Personality U is a personalized shopping platform developed as part of academic<br/>research in marketing and consumer behavior. The platform uses a scientifically<br/>validated personality test, the Ten-Item Personality Inventory (TIPI), to measure the<br/>Big Five personality traits and create personalized product designs based on each<br/>individual’s personality. <br/>It combines psychological research with creative design to<br/>offer meaningful personalization instead of basic customization.<br/><br/>After completing the personality test, customers are shown AI-generated designs<br/>tailored to their personality results, which they can then select and purchase.<br/>This project is led by academic researchers Prof. Renana Peres (Hebrew University<br/>of Jerusalem) and Prof. David A. Schweidel (Emory University). Their work focuses on personalization, consumer behavior, and the use of data and technology to create<br/>meaningful consumer experiences. </p><p>They recently participated in an American<br/>Marketing Association talk titled “Up Close and Personal: Hyper-Personalization in<br/>Marketing,” discussing how advanced personalization is shaping the future of<br/>marketing.</p><h3><br/></h3>"
+            "text": "<h3><strong>The Research Behind Personality U</strong></h3><p>Personality U is a personalized shopping platform developed as part of academic<br/>research in marketing and consumer behavior. The platform uses a scientifically<br/>validated personality test, the Ten-Item Personality Inventory (TIPI), to measure the<br/>Big Five personality traits and create personalized product designs based on each<br/>individual’s personality. <br/>It combines psychological research with creative design to<br/>offer meaningful personalization instead of basic customization.<br/><br/>After completing the personality test, customers are shown AI-generated designs<br/>tailored to their personality results, which they can then select and purchase.<br/>This project is led by academic researchers Prof. Renana Peres (Hebrew University<br/>of Jerusalem) and Prof. David A. Schweidel (Emory University). Their work focuses on personalization, consumer behavior, and the use of data and technology to create<br/>meaningful consumer experiences. </p><p>They recently participated in an American<br/>Marketing Association talk titled “Up Close and Personal: Hyper-Personalization in<br/>Marketing,” discussing how advanced personalization is shaping the future of<br/>marketing.</p><h3><br/></h3>"
           }
         }
       },
@@ -68,7 +68,7 @@
         "color_scheme": "",
         "full_width": true,
         "padding_top": 0,
-        "padding_bottom": 0
+        "padding_bottom": 16
       }
     },
     "image_with_text_3dxYVU": {
@@ -163,8 +163,8 @@
         "heading": "Contact Us",
         "heading_size": "h1",
         "color_scheme": "scheme-1",
-        "padding_top": 0,
-        "padding_bottom": 88
+        "padding_top": 28,
+        "padding_bottom": 20
       }
     }
   },
