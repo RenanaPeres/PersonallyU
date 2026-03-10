@@ -99,21 +99,21 @@
         "heading_iWMFAD": {
           "type": "heading",
           "settings": {
-            "heading": "<strong>Personally U                                                       </strong>",
-            "heading_size": "h1"
+            "heading": "Designs Created from Your Personality",
+            "heading_size": "h2"
           }
         },
         "text_py9MNb": {
           "type": "text",
           "settings": {
-            "text": "Take a quick test to unlock a curated collection tailored to your personality.              Your personalized shopping starts here.",
+            "text": "Take a short scientific personality test and we will create designs based on your personality,ready to print on T-shirts, hats, and more.",
             "text_style": "subtitle"
           }
         },
         "buttons_haRJtD": {
           "type": "buttons",
           "settings": {
-            "button_label_1": "Begin",
+            "button_label_1": "Start Personality Test",
             "button_link_1": "https://huji.questionpro.eu/a/TakeSurvey?tt=P/VDme5CUhAD5ltxMh/wHg%3D%3D",
             "button_style_secondary_1": false,
             "button_label_2": "To Catalog",
