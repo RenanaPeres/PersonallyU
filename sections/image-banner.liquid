@@ -245,7 +245,16 @@
     }
   </style>
 
+  <div id="popupOverlay" class="popup-overlay" onclick="closePopup()"></div>
 
+  <div id="popupBox" class="popup-box">
+    <span class="popup-close" onclick="closePopup()">✖</span>
+    <p><strong>You haven’t personalized your journey yet.</strong><br>Choose an option to continue:</p>
+    <a href="https://huji.questionpro.eu/a/TakeSurvey?tt=P/VDme5CUhAD5ltxMh/wHg%3D%3D"
+       onclick="return markClicked(this)"> Yes, Start Personalization</a>
+    <a href="https://personallyu.com/collections/customer"
+       onclick="return markClicked(this)"> No, Continue to Non-Personalized Shopping </a>
+  </div>
 
   <script>
     function showPopup() {
@@ -282,14 +291,14 @@
         const catalogUrl = "https://personallyu.com/collections/products/"; // ✅ Corrected base URL
   
         if (!data.personality || !data.responseId) {
-          showPopup(); // fallback if key data is missing
+          {% comment %} showPopup(); // fallback if key data is missing {% endcomment %}
           return;
         }
   
         // ✅ Redirect to personalized product collection
         window.location.href = `${catalogUrl}${data.personality}?response_id=${data.responseId}&set=${data.personality}`;
       } catch (e) {
-        showPopup(); // fallback if data is invalid or not present
+        {% comment %} showPopup(); // fallback if data is invalid or not present {% endcomment %}
       }
     }
   </script>
