@@ -522,25 +522,13 @@
             "button_label": "",
             "button_link": ""
           }
-        },
-        "row_qrUP3x": {
-          "type": "row",
-          "settings": {
-            "image": "shopify://shop_images/ChatGPTImageMay5_2025_09_53_40AM.png",
-            "caption": "",
-            "heading": "Phone cases",
-            "text": "<p>Find the Perfect Phone Case to Match Your Unique Personality.</p>",
-            "button_label": "",
-            "button_link": ""
-          }
         }
       },
       "block_order": [
         "row_LzgkkP",
         "row_UqrACW",
         "row_Dkpkge",
-        "row_jHKfzU",
-        "row_qrUP3x"
+        "row_jHKfzU"
       ],
       "custom_css": [
         ".image-with-text__media-item.image-with-text__media-item--medium.image-with-text__media-item--middle.grid__item {box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;}",
@@ -548,7 +536,7 @@
       ],
       "settings": {
         "image_height": "adapt",
-        "desktop_image_width": "medium",
+        "desktop_image_width": "small",
         "heading_size": "h1",
         "text_style": "body",
         "button_style": "secondary",
