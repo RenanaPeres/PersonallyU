@@ -22,7 +22,7 @@
         "text_rbm9mm": {
           "type": "text",
           "settings": {
-            "text": "<h3><strong>The Research Behind Personality U</strong></h3><p>Personality U is a personalized shopping platform developed as part of academic<br/>research in marketing and consumer behavior. The platform uses a scientifically<br/>validated personality test, the Ten-Item Personality Inventory (TIPI), to measure the<br/>Big Five personality traits and create personalized product designs based on each<br/>individual’s personality. <br/>It combines psychological research with creative design to<br/>offer meaningful personalization instead of basic customization.<br/><br/>After completing the personality test, customers are shown AI-generated designs<br/>tailored to their personality results, which they can then select and purchase.<br/>This project is led by academic researchers Prof. Renana Peres (Hebrew University<br/>of Jerusalem) and Prof. David A. Schweidel (Emory University). Their work focuses on personalization, consumer behavior, and the use of data and technology to create<br/>meaningful consumer experiences. </p><p>They recently participated in an American<br/>Marketing Association talk titled “Up Close and Personal: Hyper-Personalization in<br/>Marketing,” discussing how advanced personalization is shaping the future of<br/>marketing.</p><h3><br/></h3>"
+            "text": "<h2><strong>The Science Behind Personality-Based Design</strong></h2><p>PersonallyU is a research project developed by researchers studying the relationshipbetweenpersonality and visual design. It explores how personality shapes visual preferences and how these insights can be used to generate personalized designs.</p>"
           }
         }
       },
