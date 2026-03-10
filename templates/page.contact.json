@@ -30,12 +30,19 @@
           "settings": {
             "text": "<h2>Turning Personality Into Design<br/></h2><p>Personalization has transformed many areas of digital life. Online platforms recommend music, movies, and products based on individual preferences. Yet visual design, one of the most powerful elements in communication, is rarely personalized. </p><p>PersonallyU explores whether visual designs can be created specifically for an individual’s personality. You begin by completing a short personality questionnaire. Based on your personality profile, the system generates a set of designs tailored to you. </p><p>You can then select a design and print it on products such as T-shirts, hats, or water bottles. These products are produced and shipped to you, allowing you to enjoy a design created specifically for your personality. </p><p>At the same time, your interaction with the system contributes to research on how personality shapes visual preferences and product choices. </p>"
           }
+        },
+        "text_iY4rCT": {
+          "type": "text",
+          "settings": {
+            "text": "<h2>Mapping Personality to Visual Design</h2><p><br/>The designs in PersonallyU are not created randomly. They are based on a research process that connects personality traits to visual characteristics. </p><p>We scanned the psychological literature on personality, focusing on the well-established <a href=\"https://en.wikipedia.org/wiki/Big_Five_personality_traits\" title=\"https://en.wikipedia.org/wiki/Big_Five_personality_traits\"><strong>Big Five model</strong></a> [link to a wiki page]. This model describes personality using five broad dimensions: openness to experience, conscientiousness, extraversion, agreeableness, and emotional stability. Decades of research show that these traits influence how people behave, what activities they enjoy, what music they listen to, how they interact with others, and how they express themselves. </p><p>For example, different personality traits are associated with different levels of exploration, social activity, emotional expression, and aesthetic preferences. People who score high on openness may gravitate toward novelty and artistic expression, while more conscientious individuals often prefer structure, order, and clarity. </p><p>Using insights from this literature, we created detailed dictionaries which map personality traits into actions, behaviors, moods, environments, and activities.  </p>"
+          }
         }
       },
       "block_order": [
         "heading_qyWFiT",
         "text_rbm9mm",
-        "text_9eV7Gf"
+        "text_9eV7Gf",
+        "text_iY4rCT"
       ],
       "name": "t:sections.rich-text.presets.name",
       "settings": {
