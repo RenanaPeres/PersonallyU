@@ -292,7 +292,7 @@
   
         if (!data.personality || !data.responseId) {
           {% comment %} showPopup(); // fallback if key data is missing {% endcomment %}
-           window.location.href = catalogUrl;
+          window.location.href = catalogUrl;
           return;
         }
   
@@ -301,6 +301,7 @@
       } catch (e) {
         {% comment %} showPopup(); // fallback if data is invalid or not present {% endcomment %}
         window.location.href = catalogUrl;
+        return;
 
       }
     }
