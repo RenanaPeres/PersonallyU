@@ -281,21 +281,21 @@
         "heading_qeWhFM": {
           "type": "heading",
           "settings": {
-            "heading": "Image with text",
+            "heading": "The Curious Badger",
             "heading_size": "h1"
           }
         },
         "text_7RLdHx": {
           "type": "text",
           "settings": {
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "text": "",
             "text_style": "body"
           }
         },
         "button_LtG7GF": {
           "type": "button",
           "settings": {
-            "button_label": "Button label",
+            "button_label": "",
             "button_link": "",
             "button_style_secondary": false
           }
@@ -308,6 +308,7 @@
       ],
       "name": "t:sections.image-with-text.presets.name",
       "settings": {
+        "image": "shopify://shop_images/CR_Badger.png",
         "height": "adapt",
         "desktop_image_width": "medium",
         "layout": "image_first",
@@ -342,21 +343,21 @@
         "heading_CUdRM9": {
           "type": "heading",
           "settings": {
-            "heading": "Image with text",
+            "heading": "The Steady Bear",
             "heading_size": "h1"
           }
         },
         "text_JVRXpU": {
           "type": "text",
           "settings": {
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "text": "",
             "text_style": "body"
           }
         },
         "button_9eL3af": {
           "type": "button",
           "settings": {
-            "button_label": "Button label",
+            "button_label": "",
             "button_link": "",
             "button_style_secondary": false
           }
@@ -369,6 +370,7 @@
       ],
       "name": "t:sections.image-with-text.presets.name",
       "settings": {
+        "image": "shopify://shop_images/MS_Bear.png",
         "height": "adapt",
         "desktop_image_width": "medium",
         "layout": "image_first",
@@ -389,21 +391,21 @@
         "heading_CXwAdL": {
           "type": "heading",
           "settings": {
-            "heading": "Image with text",
+            "heading": "The Bold Armadillo",
             "heading_size": "h1"
           }
         },
         "text_hJFfrc": {
           "type": "text",
           "settings": {
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "text": "",
             "text_style": "body"
           }
         },
         "button_tbFPqa": {
           "type": "button",
           "settings": {
-            "button_label": "Button label",
+            "button_label": "",
             "button_link": "",
             "button_style_secondary": false
           }
@@ -416,53 +418,7 @@
       ],
       "name": "t:sections.image-with-text.presets.name",
       "settings": {
-        "height": "adapt",
-        "desktop_image_width": "medium",
-        "layout": "image_first",
-        "desktop_content_position": "top",
-        "desktop_content_alignment": "left",
-        "content_layout": "no-overlap",
-        "section_color_scheme": "",
-        "color_scheme": "",
-        "image_behavior": "none",
-        "mobile_content_alignment": "left",
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
-    "image_with_text_DiYVnm": {
-      "type": "image-with-text",
-      "blocks": {
-        "heading_kxECQU": {
-          "type": "heading",
-          "settings": {
-            "heading": "Image with text",
-            "heading_size": "h1"
-          }
-        },
-        "text_YeXXLH": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
-            "text_style": "body"
-          }
-        },
-        "button_MwXHHx": {
-          "type": "button",
-          "settings": {
-            "button_label": "Button label",
-            "button_link": "",
-            "button_style_secondary": false
-          }
-        }
-      },
-      "block_order": [
-        "heading_kxECQU",
-        "text_YeXXLH",
-        "button_MwXHHx"
-      ],
-      "name": "t:sections.image-with-text.presets.name",
-      "settings": {
+        "image": "shopify://shop_images/OM_002afb1d-db6a-4a45-a9cb-5ce4ff00fbe4.png",
         "height": "adapt",
         "desktop_image_width": "medium",
         "layout": "image_first",
@@ -576,7 +532,6 @@
     "slideshow_ALWy3n",
     "image_with_text_WpPTTh",
     "image_with_text_N4HTfU",
-    "image_with_text_DiYVnm",
     "multirow_Qm46bk"
   ]
 }
