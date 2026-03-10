@@ -470,7 +470,7 @@
         "text_RdPEdV": {
           "type": "text",
           "settings": {
-            "text": "<h3>Takes about 3 minutes<br/><br/></h3>"
+            "text": "<h2>Takes about 3 minutes<br/><br/></h2>"
           }
         }
       },
