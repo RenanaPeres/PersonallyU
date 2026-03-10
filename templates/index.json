@@ -112,7 +112,6 @@
         },
         "buttons_haRJtD": {
           "type": "buttons",
-          "disabled": true,
           "settings": {
             "button_label_1": "Start Personality Test",
             "button_link_1": "https://huji.questionpro.eu/a/TakeSurvey?tt=P/VDme5CUhAD5ltxMh/wHg%3D%3D",
