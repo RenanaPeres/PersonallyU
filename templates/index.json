@@ -197,8 +197,8 @@
         "column_CHGmcU": {
           "type": "column",
           "settings": {
-            "title": "",
-            "text": "<p>Discover a unique range of products that match your personality. Shop our curated selection for items as special as you are.</p>",
+            "title": "1. Take the Personality Test",
+            "text": "<p>Answer a short scientifically validatedquestionnaire to reveal your personality profile.</p>",
             "link_label": "",
             "link": ""
           }
@@ -206,8 +206,8 @@
         "column_kzMc3Q": {
           "type": "column",
           "settings": {
-            "title": "",
-            "text": "<p>Experience a fun-filled store designed just for you! Find items adapted to your unique personality and style.</p>",
+            "title": "2. We Create Designs for You",
+            "text": "<p>We translate your personality traits into visual designs using colors, shapes, and patterns.</p>",
             "link_label": "",
             "link": ""
           }
@@ -215,8 +215,8 @@
         "column_3FwHYC": {
           "type": "column",
           "settings": {
-            "title": "",
-            "text": "<p>Discover a personalized shopping experience tailored to you. Our store adapts to fit your unique personality and preferences.</p>",
+            "title": "3. Choose a Product and Design",
+            "text": "<p>Select a product such as a T-shirt,hat, or water bottle and choose from the designs suggested foryour personality.</p>",
             "link_label": "",
             "link": ""
           }
