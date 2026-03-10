@@ -115,8 +115,8 @@
           "settings": {
             "button_label_1": "Start Personality Test",
             "button_link_1": "https://huji.questionpro.eu/a/TakeSurvey?tt=P/VDme5CUhAD5ltxMh/wHg%3D%3D",
-            "button_style_secondary_1": true,
-            "button_label_2": "Browse products without the test",
+            "button_style_secondary_1": false,
+            "button_label_2": "",
             "button_link_2": "",
             "button_style_secondary_2": false
           }
