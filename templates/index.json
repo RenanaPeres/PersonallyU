@@ -259,7 +259,7 @@
         "ai_gen_block_53c9c33_zRbe7h": {
           "type": "ai_gen_block_53c9c33",
           "settings": {
-            "text": "<h2>Our system translates personality profiles into visual designs.</h2><h2>Below are examples created from different personality profiles:<br/><br/></h2>",
+            "text": "<h1>Our system translates personality profiles into visual designs.</h1><h1>Below are examples created from different personality profiles:<br/><br/></h1>",
             "font_size": 16,
             "text_alignment": "center",
             "text_color": "#000000",
