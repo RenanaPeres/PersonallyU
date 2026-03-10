@@ -55,7 +55,7 @@
               </div>
             {%- when 'button' -%}
               <div
-                class="rich-text__buttons{% if block.settings.button_label != blank and block.settings.button_label_2 != blank %} rich-text__buttons--multiple{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+                class="rich-text__buttons{% if block.settings.button_label != blank %} rich-text__buttons--multiple{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
                 {{ block.shopify_attributes }}
                 {% if settings.animations_reveal_on_scroll %}
                   data-cascade
@@ -74,8 +74,8 @@
                     {{- block.settings.button_label | escape -}}
                   </a>
                 {%- endif -%}
-                {%- if block.settings.button_label_2 != blank -%}
-                {%- endif -%}
+                {% comment %} {%- if block.settings.button_label_2 != blank -%}
+                {%- endif -%} {% endcomment %}
               </div>
           {%- endcase -%}
         {%- endfor -%}
@@ -297,12 +297,6 @@
           "id": "button_style_secondary",
           "default": false,
           "label": "t:sections.rich-text.blocks.buttons.settings.button_style_secondary_1.label"
-        },
-        {
-          "type": "text",
-          "id": "button_label_2",
-          "label": "t:sections.rich-text.blocks.buttons.settings.button_label_2.label",
-          "info": "t:sections.rich-text.blocks.buttons.settings.button_label_2.info"
         },
         {
           "type": "url",
