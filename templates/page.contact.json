@@ -54,6 +54,54 @@
         "padding_bottom": 52
       }
     },
+    "image_with_text_haAPGj": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_rdkFd4": {
+          "type": "heading",
+          "settings": {
+            "heading": "The Process",
+            "heading_size": "h1"
+          }
+        },
+        "text_fLUCfw": {
+          "type": "text",
+          "settings": {
+            "text": "",
+            "text_style": "body"
+          }
+        },
+        "button_bjdAkr": {
+          "type": "button",
+          "settings": {
+            "button_label": "",
+            "button_link": "",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_rdkFd4",
+        "text_fLUCfw",
+        "button_bjdAkr"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/b4d3f462-10f8-4ea5-945b-20fd3e3a99e2.png",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "image_behavior": "none",
+        "mobile_content_alignment": "left",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
     "rich_text_tDNytV": {
       "type": "rich-text",
       "blocks": {
@@ -184,6 +232,7 @@
   },
   "order": [
     "rich_text_CqLBXc",
+    "image_with_text_haAPGj",
     "rich_text_tDNytV",
     "image_with_text_3dxYVU",
     "image_with_text_xibYHi",
