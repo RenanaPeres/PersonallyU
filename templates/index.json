@@ -253,26 +253,39 @@
         "padding_bottom": 36
       }
     },
-    "17731629055b878474": {
-      "type": "_blocks",
+    "rich_text_bGTFhn": {
+      "type": "rich-text",
       "blocks": {
-        "ai_gen_block_53c9c33_zRbe7h": {
-          "type": "ai_gen_block_53c9c33",
+        "heading_Wbewxn": {
+          "type": "heading",
           "settings": {
-            "text": "<h1>Our system translates personality profiles into visual designs.</h1><h2>Below are examples created from different personality profiles:<br/><br/></h2>",
-            "font_size": 16,
-            "text_alignment": "center",
-            "text_color": "#000000",
-            "background_color": "#efecec",
-            "padding": 20,
-            "desktop_width_percent": 100
-          },
-          "blocks": {}
+            "heading": "Our system translates personality profiles into visual designs",
+            "heading_size": "h1"
+          }
+        },
+        "text_krjxJn": {
+          "type": "text",
+          "settings": {
+            "text": "<h2>Below are examples created from different personality profiles:<br/><br/></h2>"
+          }
         }
       },
       "block_order": [
-        "ai_gen_block_53c9c33_zRbe7h"
+        "heading_Wbewxn",
+        "text_krjxJn"
       ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "17731629055b878474": {
+      "type": "_blocks",
       "settings": {}
     },
     "image_with_text_FdkHjQ": {
@@ -440,7 +453,7 @@
           "type": "heading",
           "settings": {
             "heading": "What would a design based on your personality look like?",
-            "heading_size": "h2"
+            "heading_size": "h1"
           }
         },
         "button_JF694D": {
@@ -465,6 +478,49 @@
         "heading_LpEANm",
         "button_JF694D",
         "text_RdPEdV"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "rich_text_NpDT34": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_TXEDUi": {
+          "type": "heading",
+          "settings": {
+            "heading": "Your Personality Design on Real Products",
+            "heading_size": "h1"
+          }
+        },
+        "text_4RGPUh": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.</p>"
+          }
+        },
+        "button_4CRG3D": {
+          "type": "button",
+          "settings": {
+            "button_label": "Button label",
+            "button_link": "",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_TXEDUi",
+        "text_4RGPUh",
+        "button_4CRG3D"
       ],
       "name": "t:sections.rich-text.presets.name",
       "settings": {
@@ -558,12 +614,14 @@
     "image_banner_KiVDJH",
     "rich_text_e7fw9q",
     "multicolumn_HjxVgp",
+    "rich_text_bGTFhn",
     "17731629055b878474",
     "image_with_text_FdkHjQ",
     "slideshow_ALWy3n",
     "image_with_text_WpPTTh",
     "image_with_text_N4HTfU",
     "rich_text_fkw6iN",
+    "rich_text_NpDT34",
     "multirow_Qm46bk"
   ]
 }
