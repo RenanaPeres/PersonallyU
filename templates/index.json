@@ -310,7 +310,7 @@
       "settings": {
         "image": "shopify://shop_images/CR_Badger.png",
         "height": "adapt",
-        "desktop_image_width": "medium",
+        "desktop_image_width": "small",
         "layout": "image_first",
         "desktop_content_position": "top",
         "desktop_content_alignment": "left",
@@ -372,7 +372,7 @@
       "settings": {
         "image": "shopify://shop_images/MS_Bear.png",
         "height": "adapt",
-        "desktop_image_width": "medium",
+        "desktop_image_width": "small",
         "layout": "image_first",
         "desktop_content_position": "top",
         "desktop_content_alignment": "left",
@@ -420,7 +420,7 @@
       "settings": {
         "image": "shopify://shop_images/OM_002afb1d-db6a-4a45-a9cb-5ce4ff00fbe4.png",
         "height": "adapt",
-        "desktop_image_width": "medium",
+        "desktop_image_width": "small",
         "layout": "image_first",
         "desktop_content_position": "top",
         "desktop_content_alignment": "left",
@@ -431,6 +431,49 @@
         "mobile_content_alignment": "left",
         "padding_top": 36,
         "padding_bottom": 36
+      }
+    },
+    "rich_text_fkw6iN": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_LpEANm": {
+          "type": "heading",
+          "settings": {
+            "heading": "What would a design based on your personality look like?",
+            "heading_size": "h2"
+          }
+        },
+        "button_JF694D": {
+          "type": "button",
+          "settings": {
+            "button_label": "Start Personality Test",
+            "button_link": "https://huji.questionpro.eu/a/TakeSurvey?tt=P/VDme5CUhAD5ltxMh/wHg%3D%3D",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        },
+        "text_RdPEdV": {
+          "type": "text",
+          "settings": {
+            "text": "<h3>Takes about 3 minutes<br/><br/></h3>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_LpEANm",
+        "button_JF694D",
+        "text_RdPEdV"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
       }
     },
     "multirow_Qm46bk": {
@@ -532,6 +575,7 @@
     "slideshow_ALWy3n",
     "image_with_text_WpPTTh",
     "image_with_text_N4HTfU",
+    "rich_text_fkw6iN",
     "multirow_Qm46bk"
   ]
 }
