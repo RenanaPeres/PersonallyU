@@ -60,14 +60,14 @@
         "heading_rdkFd4": {
           "type": "heading",
           "settings": {
-            "heading": "The Process",
+            "heading": "",
             "heading_size": "h1"
           }
         },
         "text_fLUCfw": {
           "type": "text",
           "settings": {
-            "text": "",
+            "text": "<p>We feed these dictionaries into Generative AI engines, to translate the results of the personality test into visual designs. Each design is created by combining several elements, including artistic style, visual themes, activities associated with personality traits, and symbolic characters. </p><p>To make the designs engaging and expressive, many of them are represented through animals. Animals provide a playful and symbolic way to depict personality characteristics while leaving room for interpretation. Rather than representing people directly, the animal characters act as visual metaphors for behaviors, moods, and activities associated with different personality profiles. </p>",
             "text_style": "body"
           }
         },
