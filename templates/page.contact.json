@@ -22,13 +22,20 @@
         "text_rbm9mm": {
           "type": "text",
           "settings": {
-            "text": "<h2><strong>The Science Behind Personality-Based Design</strong></h2><p>PersonallyU is a research project developed by researchers studying the relationshipbetweenpersonality and visual design. It explores how personality shapes visual preferences and how these insights can be used to generate personalized designs.</p>"
+            "text": "<h2><strong>The Science Behind Personality-Based Design</strong></h2><p>PersonallyU is a research project developed by researchers studying the relationship between personality and visual design. It explores how personality shapes visual preferences and how these insights can be used to generate personalized designs. </p><p>Visitors to the site receive designs generated from their personality profile and can print them on products that are produced and shipped to them. At the same time, their interaction with the system contributes to research on personalization and visual preferences. </p>"
+          }
+        },
+        "text_9eV7Gf": {
+          "type": "text",
+          "settings": {
+            "text": "<h2>Turning Personality Into Design<br/></h2><p>Personalization has transformed many areas of digital life. Online platforms recommend music, movies, and products based on individual preferences. Yet visual design, one of the most powerful elements in communication, is rarely personalized. </p><p>PersonallyU explores whether visual designs can be created specifically for an individual’s personality. You begin by completing a short personality questionnaire. Based on your personality profile, the system generates a set of designs tailored to you. </p><p>You can then select a design and print it on products such as T-shirts, hats, or water bottles. These products are produced and shipped to you, allowing you to enjoy a design created specifically for your personality. </p><p>At the same time, your interaction with the system contributes to research on how personality shapes visual preferences and product choices. </p>"
           }
         }
       },
       "block_order": [
         "heading_qyWFiT",
-        "text_rbm9mm"
+        "text_rbm9mm",
+        "text_9eV7Gf"
       ],
       "name": "t:sections.rich-text.presets.name",
       "settings": {
