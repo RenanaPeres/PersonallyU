@@ -256,10 +256,10 @@
           "type": "ai_gen_block_e311116",
           "settings": {
             "column_1_image": "shopify://shop_images/renana_photo.webp",
-            "column_1_heading": "Column one",
+            "column_1_heading": "Prof. Renana Peres",
             "column_1_text": "<p>Share information about your brand with your customers.</p>",
             "column_2_image": "shopify://shop_images/DavidSchweidel.webp",
-            "column_2_heading": "Column two",
+            "column_2_heading": "Prof. David A. Schweidel",
             "column_2_text": "<p>Describe a product, share announcements, or welcome customers to your store.</p>",
             "desktop_width_percent": 100,
             "column_gap": 55,
