@@ -261,18 +261,18 @@
             "column_2_image": "shopify://shop_images/DavidSchweidel.webp",
             "column_2_heading": "Prof. David A. Schweidel",
             "column_2_text": "<p><em>Professor of Marketing at Emory University’s Goizueta Business School. Holds a B.A. in mathematics, M.A. in statistics, and Ph.D. in marketing from the University of Pennsylvania. Author of Social Media Intelligence and Profiting from the Data Economy.</em></p><p><em><br/>Research focuses on customer relationship management, social media analytics, and the development of statistical models to understand customer behavior and support managerial decision-making. Work examines how technology and data shape interactions between consumers and firms. Publications appear in leading journals including Journal of Marketing, Journal of Marketing Research, Marketing Science, and Management Science, and have received multiple academic awards and recognitions.</em></p>",
-            "desktop_width_percent": 70,
+            "desktop_width_percent": 100,
             "column_gap": 55,
             "mobile_column_gap": 30,
             "content_gap": 15,
-            "text_gap": 10,
-            "section_padding": 40,
+            "text_gap": 0,
+            "section_padding": 0,
             "text_alignment": "center",
             "heading_size": 28,
             "heading_color": "#1b1818",
             "text_size": 16,
             "text_color": "#1b1818",
-            "image_border_radius": 8
+            "image_border_radius": 18
           },
           "blocks": {}
         }
