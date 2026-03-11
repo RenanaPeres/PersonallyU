@@ -61,7 +61,7 @@
           "type": "ai_gen_block_d42cee7",
           "settings": {
             "image": "shopify://shop_images/b4d3f462-10f8-4ea5-945b-20fd3e3a99e2.png",
-            "aspect_ratio": "auto",
+            "aspect_ratio": "4/3",
             "image_fit": "contain",
             "border_radius": 6,
             "desktop_width_percent": 50
