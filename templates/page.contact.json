@@ -87,7 +87,7 @@
         "text_fWqx8x": {
           "type": "text",
           "settings": {
-            "text": "<h2><strong>What We Learn From the Project<br/></strong></h2><p>The project allows us to study how people respond to personalized visual designs. We study examine whether designs that reflect an individual's personality lead to stronger reactions such as:</p><h2><strong>Recognition</strong></h2><p>Do people feel a design reflects them?</p><h2><strong>Liking</strong></h2><p>Do people prefer designs matching their personality?</p><h2><strong>Ownership</strong></h2><p>Do people want to own the design?</p><p>Understanding these responses can help researchers and designers learn how personalization may shape visual communication and product design in the future.</p>"
+            "text": "<h2><strong>What We Learn From the Project<br/></strong></h2><p>The project allows us to study how people respond to personalized visual designs. We study examine whether designs that reflect an individual's personality lead to stronger reactions such as:</p><p>Understanding these responses can help researchers and designers learn how personalization may shape visual communication and product design in the future.</p>"
           }
         },
         "text_PCzXJC": {
@@ -117,6 +117,150 @@
         "full_width": true,
         "padding_top": 0,
         "padding_bottom": 52
+      }
+    },
+    "rich_text_qznfn8": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_UwF7wt": {
+          "type": "heading",
+          "settings": {
+            "heading": "",
+            "heading_size": "h1"
+          }
+        },
+        "text_rBfBiz": {
+          "type": "text",
+          "settings": {
+            "text": "<h2><strong>What We Learn From the Project<br/></strong></h2><p>The project allows us to study how people respond to personalized visual designs. We study examine whether designs that reflect an individual's personality lead to stronger reactions such as:</p>"
+          }
+        },
+        "text_YjMirF": {
+          "type": "text",
+          "settings": {
+            "text": ""
+          }
+        },
+        "text_iag93k": {
+          "type": "text",
+          "settings": {
+            "text": ""
+          }
+        }
+      },
+      "block_order": [
+        "heading_UwF7wt",
+        "text_rBfBiz",
+        "text_YjMirF",
+        "text_iag93k"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "multicolumn_FG3Tp7": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_qfY6Bd": {
+          "type": "column",
+          "settings": {
+            "title": "<strong>Recognition</strong>",
+            "text": "<p>Do people feel a design reflects them?</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_TEP7KD": {
+          "type": "column",
+          "settings": {
+            "title": "<strong>Liking</strong>",
+            "text": "<p>Do people prefer designs matching their personality?</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_wtm4g4": {
+          "type": "column",
+          "settings": {
+            "title": "<strong>Ownership</strong>",
+            "text": "<p>Do people want to own the design?</p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_qfY6Bd",
+        "column_TEP7KD",
+        "column_wtm4g4"
+      ],
+      "name": "t:sections.multicolumn.presets.name",
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 3,
+        "column_alignment": "left",
+        "background_style": "primary",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "rich_text_peQNjB": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_XgiFnM": {
+          "type": "heading",
+          "settings": {
+            "heading": "",
+            "heading_size": "h1"
+          }
+        },
+        "text_rGR8m8": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Understanding these responses can help researchers and designers learn how personalization may shape visual communication and product design in the future.</p>"
+          }
+        },
+        "text_ACTiDp": {
+          "type": "text",
+          "settings": {
+            "text": ""
+          }
+        },
+        "text_yAwXX7": {
+          "type": "text",
+          "settings": {
+            "text": ""
+          }
+        }
+      },
+      "block_order": [
+        "heading_XgiFnM",
+        "text_rGR8m8",
+        "text_ACTiDp",
+        "text_yAwXX7"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 0,
+        "padding_bottom": 0
       }
     },
     "rich_text_tDNytV": {
@@ -294,6 +438,9 @@
     "rich_text_CqLBXc",
     "1773224213347c89ff",
     "rich_text_rQMAfm",
+    "rich_text_qznfn8",
+    "multicolumn_FG3Tp7",
+    "rich_text_peQNjB",
     "rich_text_tDNytV",
     "image_with_text_3dxYVU",
     "image_with_text_xibYHi",
