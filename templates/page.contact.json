@@ -54,52 +54,69 @@
         "padding_bottom": 52
       }
     },
-    "image_with_text_haAPGj": {
-      "type": "image-with-text",
+    "1773224213347c89ff": {
+      "type": "_blocks",
       "blocks": {
-        "heading_rdkFd4": {
+        "ai_gen_block_d42cee7_JJVPbQ": {
+          "type": "ai_gen_block_d42cee7",
+          "settings": {
+            "image": "shopify://shop_images/b4d3f462-10f8-4ea5-945b-20fd3e3a99e2.png",
+            "aspect_ratio": "auto",
+            "image_fit": "contain",
+            "border_radius": 6,
+            "desktop_width_percent": 50
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_d42cee7_JJVPbQ"
+      ],
+      "settings": {}
+    },
+    "rich_text_rQMAfm": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_RBB6Dg": {
           "type": "heading",
           "settings": {
             "heading": "",
             "heading_size": "h1"
           }
         },
-        "text_fLUCfw": {
+        "text_fWqx8x": {
           "type": "text",
           "settings": {
-            "text": "<p>We feed these dictionaries into Generative AI engines, to translate the results of the personality test into visual designs. Each design is created by combining several elements, including artistic style, visual themes, activities associated with personality traits, and symbolic characters. </p><p>To make the designs engaging and expressive, many of them are represented through animals. Animals provide a playful and symbolic way to depict personality characteristics while leaving room for interpretation. Rather than representing people directly, the animal characters act as visual metaphors for behaviors, moods, and activities associated with different personality profiles. </p>",
-            "text_style": "body"
+            "text": "<h2><strong>What We Learn From the Project<br/></strong></h2><p>The project allows us to study how people respond to personalized visual designs. We study examine whether designs that reflect an individual's personality lead to stronger reactions such as:</p>"
           }
         },
-        "button_bjdAkr": {
-          "type": "button",
+        "text_PCzXJC": {
+          "type": "text",
           "settings": {
-            "button_label": "",
-            "button_link": "",
-            "button_style_secondary": false
+            "text": ""
+          }
+        },
+        "text_VkzHYN": {
+          "type": "text",
+          "settings": {
+            "text": ""
           }
         }
       },
       "block_order": [
-        "heading_rdkFd4",
-        "text_fLUCfw",
-        "button_bjdAkr"
+        "heading_RBB6Dg",
+        "text_fWqx8x",
+        "text_PCzXJC",
+        "text_VkzHYN"
       ],
-      "name": "t:sections.image-with-text.presets.name",
+      "name": "t:sections.rich-text.presets.name",
       "settings": {
-        "image": "shopify://shop_images/b4d3f462-10f8-4ea5-945b-20fd3e3a99e2.png",
-        "height": "adapt",
-        "desktop_image_width": "medium",
-        "layout": "image_first",
-        "desktop_content_position": "top",
-        "desktop_content_alignment": "left",
-        "content_layout": "no-overlap",
-        "section_color_scheme": "",
+        "desktop_content_position": "center",
+        "content_alignment": "center",
         "color_scheme": "",
-        "image_behavior": "none",
-        "mobile_content_alignment": "left",
-        "padding_top": 36,
-        "padding_bottom": 36
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
       }
     },
     "rich_text_tDNytV": {
@@ -232,7 +249,8 @@
   },
   "order": [
     "rich_text_CqLBXc",
-    "image_with_text_haAPGj",
+    "1773224213347c89ff",
+    "rich_text_rQMAfm",
     "rich_text_tDNytV",
     "image_with_text_3dxYVU",
     "image_with_text_xibYHi",
