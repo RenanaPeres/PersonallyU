@@ -1,6 +1,338 @@
+{% doc %}
+  @prompt
+    Section containing two columns, each column can have an image at the top and heading ad text at the bottom
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-two-column-{{ ai_gen_id }} {
+    display: block;
+    width: {{ block.settings.desktop_width_percent }}%;
+    max-width: 100%;
+    padding: {{ block.settings.section_padding }}px 0;
+  }
+
+  .ai-two-column__container-{{ ai_gen_id }} {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: {{ block.settings.column_gap }}px;
+    width: 100%;
+  }
+
+  .ai-two-column__column-{{ ai_gen_id }} {
+    display: flex;
+    flex-direction: column;
+    gap: {{ block.settings.content_gap }}px;
+  }
+
+  .ai-two-column__image-wrapper-{{ ai_gen_id }} {
+    width: 100%;
+    overflow: hidden;
+    border-radius: {{ block.settings.image_border_radius }}px;
+  }
+
+  .ai-two-column__image-wrapper-{{ ai_gen_id }} img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+  }
+
+  .ai-two-column__image-placeholder-{{ ai_gen_id }} {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    background-color: #f4f4f4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: {{ block.settings.image_border_radius }}px;
+  }
+
+  .ai-two-column__image-placeholder-{{ ai_gen_id }} svg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .ai-two-column__content-{{ ai_gen_id }} {
+    display: flex;
+    flex-direction: column;
+    gap: {{ block.settings.text_gap }}px;
+    text-align: {{ block.settings.text_alignment }};
+  }
+
+  .ai-two-column__heading-{{ ai_gen_id }} {
+    margin: 0;
+    font-size: {{ block.settings.heading_size }}px;
+    color: {{ block.settings.heading_color }};
+    font-weight: 600;
+  }
+
+  .ai-two-column__text-{{ ai_gen_id }} {
+    margin: 0;
+    font-size: {{ block.settings.text_size }}px;
+    color: {{ block.settings.text_color }};
+    line-height: 1.6;
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-two-column__container-{{ ai_gen_id }} {
+      grid-template-columns: 1fr;
+      gap: {{ block.settings.mobile_column_gap }}px;
+    }
+
+    .ai-two-column-{{ ai_gen_id }} {
+      width: 100%;
+    }
+  }
+{% endstyle %}
+
+<div class="ai-two-column-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="ai-two-column__container-{{ ai_gen_id }}">
+    <div class="ai-two-column__column-{{ ai_gen_id }}">
+      <div class="ai-two-column__image-wrapper-{{ ai_gen_id }}">
+        {% if block.settings.column_1_image %}
+          <img
+            src="{{ block.settings.column_1_image | image_url: width: 800 }}"
+            alt="{{ block.settings.column_1_image.alt | escape }}"
+            loading="lazy"
+            width="{{ block.settings.column_1_image.width }}"
+            height="{{ block.settings.column_1_image.height }}"
+          >
+        {% else %}
+          <div class="ai-two-column__image-placeholder-{{ ai_gen_id }}">
+            {{ 'image' | placeholder_svg_tag }}
+          </div>
+        {% endif %}
+      </div>
+      <div class="ai-two-column__content-{{ ai_gen_id }}">
+        {% if block.settings.column_1_heading != blank %}
+          <h3 class="ai-two-column__heading-{{ ai_gen_id }}">
+            {{ block.settings.column_1_heading }}
+          </h3>
+        {% endif %}
+        {% if block.settings.column_1_text != blank %}
+          <div class="ai-two-column__text-{{ ai_gen_id }}">
+            {{ block.settings.column_1_text }}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+
+    <div class="ai-two-column__column-{{ ai_gen_id }}">
+      <div class="ai-two-column__image-wrapper-{{ ai_gen_id }}">
+        {% if block.settings.column_2_image %}
+          <img
+            src="{{ block.settings.column_2_image | image_url: width: 800 }}"
+            alt="{{ block.settings.column_2_image.alt | escape }}"
+            loading="lazy"
+            width="{{ block.settings.column_2_image.width }}"
+            height="{{ block.settings.column_2_image.height }}"
+          >
+        {% else %}
+          <div class="ai-two-column__image-placeholder-{{ ai_gen_id }}">
+            {{ 'image' | placeholder_svg_tag }}
+          </div>
+        {% endif %}
+      </div>
+      <div class="ai-two-column__content-{{ ai_gen_id }}">
+        {% if block.settings.column_2_heading != blank %}
+          <h3 class="ai-two-column__heading-{{ ai_gen_id }}">
+            {{ block.settings.column_2_heading }}
+          </h3>
+        {% endif %}
+        {% if block.settings.column_2_text != blank %}
+          <div class="ai-two-column__text-{{ ai_gen_id }}">
+            {{ block.settings.column_2_text }}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+
 {% schema %}
- {
-   "name": "AI_Block",
-   "tag": "shopify-ai-generated-block"
- }
+{
+  "name": "Two column content",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Column 1"
+    },
+    {
+      "type": "image_picker",
+      "id": "column_1_image",
+      "label": "Image"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "column_1_heading",
+      "label": "Heading",
+      "default": "Column one"
+    },
+    {
+      "type": "richtext",
+      "id": "column_1_text",
+      "label": "Text",
+      "default": "<p>Share information about your brand with your customers.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Column 2"
+    },
+    {
+      "type": "image_picker",
+      "id": "column_2_image",
+      "label": "Image"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "column_2_heading",
+      "label": "Heading",
+      "default": "Column two"
+    },
+    {
+      "type": "richtext",
+      "id": "column_2_text",
+      "label": "Text",
+      "default": "<p>Describe a product, share announcements, or welcome customers to your store.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "desktop_width_percent",
+      "label": "Desktop width",
+      "min": 50,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "column_gap",
+      "label": "Column gap",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "mobile_column_gap",
+      "label": "Mobile column gap",
+      "min": 0,
+      "max": 60,
+      "step": 5,
+      "unit": "px",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "content_gap",
+      "label": "Image to content gap",
+      "min": 0,
+      "max": 60,
+      "step": 5,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "text_gap",
+      "label": "Heading to text gap",
+      "min": 0,
+      "max": 40,
+      "step": 5,
+      "unit": "px",
+      "default": 10
+    },
+    {
+      "type": "range",
+      "id": "section_padding",
+      "label": "Section padding",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "header",
+      "content": "Style"
+    },
+    {
+      "type": "select",
+      "id": "text_alignment",
+      "label": "Text alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "label": "Heading size",
+      "min": 16,
+      "max": 48,
+      "step": 2,
+      "unit": "px",
+      "default": 24
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading color",
+      "default": "#1b1818"
+    },
+    {
+      "type": "range",
+      "id": "text_size",
+      "label": "Text size",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#1b1818"
+    },
+    {
+      "type": "range",
+      "id": "image_border_radius",
+      "label": "Image border radius",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 6
+    }
+  ],
+  "presets": [
+    {
+      "name": "Two column content"
+    }
+  ],
+  "tag": null
+}
 {% endschema %}
