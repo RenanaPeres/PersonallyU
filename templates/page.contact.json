@@ -261,7 +261,7 @@
             "column_2_image": "shopify://shop_images/DavidSchweidel.webp",
             "column_2_heading": "Prof. David A. Schweidel",
             "column_2_text": "<p><em>Professor of Marketing at Emory University’s Goizueta Business School. Holds a B.A. in mathematics, M.A. in statistics, and Ph.D. in marketing from the University of Pennsylvania. Author of Social Media Intelligence and Profiting from the Data Economy.</em></p><p><em><br/>Research focuses on customer relationship management, social media analytics, and the development of statistical models to understand customer behavior and support managerial decision-making. Work examines how technology and data shape interactions between consumers and firms. Publications appear in leading journals including Journal of Marketing, Journal of Marketing Research, Marketing Science, and Management Science, and have received multiple academic awards and recognitions.</em></p>",
-            "desktop_width_percent": 100,
+            "desktop_width_percent": 70,
             "column_gap": 55,
             "mobile_column_gap": 30,
             "content_gap": 15,
@@ -281,84 +281,6 @@
         "ai_gen_block_e311116_F6kf67"
       ],
       "settings": {}
-    },
-    "image_with_text_3dxYVU": {
-      "type": "image-with-text",
-      "blocks": {
-        "heading_pxwXGU": {
-          "type": "heading",
-          "settings": {
-            "heading": "Prof. Renana Peres",
-            "heading_size": "h1"
-          }
-        },
-        "text_DA7aWH": {
-          "type": "text",
-          "settings": {
-            "text": "<p><em>KMART Professor of Marketing and Head of the Marketing Department at the<br/>Hebrew University Business School, and Head of the MBA International Program.<br/>Holds a PhD in Marketing from Tel Aviv University, MSc and BSc in Physics from the Hebrew University of Jerusalem, and an MBA from Tel Aviv University. </em></p><p><em>Author of Innovation Diffusion and New Product Growth.<br/>Research focuses on the interplay between brands, consumer social interactions, and firm decisions, including how brand perceptions are formed, how word of mouth<br/>spreads, and how social interactions translate into sales. Work also examines<br/>consumer data ownership and monetization using methodologies such as<br/>blockchain, agent-based models, machine learning, content analysis, and diffusion<br/>models.<br/>Senior Editor of the International Journal of Research in Marketing, with publications across exact sciences, social sciences, and humanities.</em></p>",
-            "text_style": "body"
-          }
-        }
-      },
-      "block_order": [
-        "heading_pxwXGU",
-        "text_DA7aWH"
-      ],
-      "name": "t:sections.image-with-text.presets.name",
-      "settings": {
-        "image": "shopify://shop_images/renana_photo.jpg",
-        "height": "adapt",
-        "desktop_image_width": "small",
-        "layout": "text_first",
-        "desktop_content_position": "top",
-        "desktop_content_alignment": "left",
-        "content_layout": "no-overlap",
-        "section_color_scheme": "scheme-1",
-        "color_scheme": "",
-        "image_behavior": "none",
-        "mobile_content_alignment": "left",
-        "padding_top": 8,
-        "padding_bottom": 8
-      }
-    },
-    "image_with_text_xibYHi": {
-      "type": "image-with-text",
-      "blocks": {
-        "heading_aBWt9H": {
-          "type": "heading",
-          "settings": {
-            "heading": "Prof. David A. Schweidel",
-            "heading_size": "h1"
-          }
-        },
-        "text_HFqXYG": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Professor of Marketing at Emory University’s Goizueta Business School.<br/>Holds a B.A. in mathematics, M.A. in statistics, and Ph.D. in marketing from the University of Pennsylvania. Author of Social Media Intelligence and Profiting from the Data Economy.<br/>Research focuses on customer relationship management, social media analytics, and the development of statistical models to understand customer behavior and support<br/>managerial decision-making. Work examines how technology and data shape interactions between consumers and firms.<br/>Publications appear in leading journals including Journal of Marketing, Journal of Marketing Research, Marketing Science, and Management Science, and have received multiple academic awards and recognitions.</p>",
-            "text_style": "body"
-          }
-        }
-      },
-      "block_order": [
-        "heading_aBWt9H",
-        "text_HFqXYG"
-      ],
-      "name": "t:sections.image-with-text.presets.name",
-      "settings": {
-        "image": "shopify://shop_images/DavidSchweidel.jpg",
-        "height": "adapt",
-        "desktop_image_width": "small",
-        "layout": "image_first",
-        "desktop_content_position": "top",
-        "desktop_content_alignment": "left",
-        "content_layout": "no-overlap",
-        "section_color_scheme": "",
-        "color_scheme": "",
-        "image_behavior": "none",
-        "mobile_content_alignment": "left",
-        "padding_top": 8,
-        "padding_bottom": 8
-      }
     },
     "rich_text_ArBqpb": {
       "type": "rich-text",
@@ -430,8 +352,6 @@
     "rich_text_peQNjB",
     "rich_text_tDNytV",
     "177322654624c55ee8",
-    "image_with_text_3dxYVU",
-    "image_with_text_xibYHi",
     "rich_text_ArBqpb",
     "main",
     "form"
