@@ -74,51 +74,6 @@
       ],
       "settings": {}
     },
-    "rich_text_rQMAfm": {
-      "type": "rich-text",
-      "blocks": {
-        "heading_RBB6Dg": {
-          "type": "heading",
-          "settings": {
-            "heading": "",
-            "heading_size": "h1"
-          }
-        },
-        "text_fWqx8x": {
-          "type": "text",
-          "settings": {
-            "text": "<h2><strong>What We Learn From the Project<br/></strong></h2><p>The project allows us to study how people respond to personalized visual designs. We study examine whether designs that reflect an individual's personality lead to stronger reactions such as:</p><p>Understanding these responses can help researchers and designers learn how personalization may shape visual communication and product design in the future.</p>"
-          }
-        },
-        "text_PCzXJC": {
-          "type": "text",
-          "settings": {
-            "text": ""
-          }
-        },
-        "text_VkzHYN": {
-          "type": "text",
-          "settings": {
-            "text": ""
-          }
-        }
-      },
-      "block_order": [
-        "heading_RBB6Dg",
-        "text_fWqx8x",
-        "text_PCzXJC",
-        "text_VkzHYN"
-      ],
-      "name": "t:sections.rich-text.presets.name",
-      "settings": {
-        "desktop_content_position": "center",
-        "content_alignment": "center",
-        "color_scheme": "",
-        "full_width": true,
-        "padding_top": 0,
-        "padding_bottom": 52
-      }
-    },
     "rich_text_qznfn8": {
       "type": "rich-text",
       "blocks": {
@@ -437,7 +392,6 @@
   "order": [
     "rich_text_CqLBXc",
     "1773224213347c89ff",
-    "rich_text_rQMAfm",
     "rich_text_qznfn8",
     "multicolumn_FG3Tp7",
     "rich_text_peQNjB",
