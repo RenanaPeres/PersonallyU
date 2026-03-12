@@ -290,33 +290,6 @@
     },
     "1773341632f5b826ae": {
       "type": "_blocks",
-      "blocks": {
-        "ai_gen_block_ef3ab4f_g4grNJ": {
-          "type": "ai_gen_block_ef3ab4f",
-          "settings": {
-            "desktop_width_percent": 80,
-            "image_height": 310,
-            "grid_gap": 20,
-            "border_radius": 6,
-            "image_1": "shopify://shop_images/MS_Bear.png",
-            "text_1": "The Steady Bear",
-            "image_2": "shopify://shop_images/CR_Badger.png",
-            "text_2": "The Curious Badger",
-            "image_3": "shopify://shop_images/OM_002afb1d-db6a-4a45-a9cb-5ce4ff00fbe4.png",
-            "text_3": "The Bold  Armadillo",
-            "image_4": "shopify://shop_images/AMB_Badger.png",
-            "text_4": "The Ambivert Badger",
-            "text_size": 23,
-            "text_spacing": 32,
-            "text_alignment": "left",
-            "text_color": "#1b1818"
-          },
-          "blocks": {}
-        }
-      },
-      "block_order": [
-        "ai_gen_block_ef3ab4f_g4grNJ"
-      ],
       "settings": {}
     },
     "slideshow_ALWy3n": {
@@ -353,10 +326,10 @@
             "image_2": "shopify://shop_images/CR_Badger.png",
             "image_3": "shopify://shop_images/AMB_Badger.png",
             "image_4": "shopify://shop_images/OM_002afb1d-db6a-4a45-a9cb-5ce4ff00fbe4.png",
-            "text_1": "",
-            "text_2": "",
-            "text_3": "",
-            "text_4": "",
+            "text_1": "The Steady Bear",
+            "text_2": "The Curious Badger",
+            "text_3": "The Ambivert Badger",
+            "text_4": "The Bold  Armadillo",
             "text_gap": 12,
             "text_size": 14,
             "text_alignment": "center",
