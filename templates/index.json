@@ -312,25 +312,10 @@
             "text_color": "#1b1818"
           },
           "blocks": {}
-        },
-        "ai_gen_block_0d6c7db_j3Gwta": {
-          "type": "ai_gen_block_0d6c7db",
-          "settings": {
-            "desktop_width_percent": 80,
-            "max_width": 1200,
-            "columns_mobile": "2",
-            "aspect_ratio": "1/1",
-            "gap": 20,
-            "gap_mobile": 12,
-            "section_padding": 40,
-            "border_radius": 6
-          },
-          "blocks": {}
         }
       },
       "block_order": [
-        "ai_gen_block_ef3ab4f_g4grNJ",
-        "ai_gen_block_0d6c7db_j3Gwta"
+        "ai_gen_block_ef3ab4f_g4grNJ"
       ],
       "settings": {}
     },
@@ -350,6 +335,39 @@
     },
     "17733413449526572a": {
       "type": "_blocks",
+      "settings": {}
+    },
+    "177334283952b9c909": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_c8e3f0f_iarEky": {
+          "type": "ai_gen_block_c8e3f0f",
+          "settings": {
+            "desktop_width_percent": 60,
+            "max_width": 1000,
+            "grid_gap": 20,
+            "columns_mobile": "1",
+            "aspect_ratio": "1/1",
+            "image_border_radius": 6,
+            "image_1": "shopify://shop_images/MS_Bear.png",
+            "image_2": "shopify://shop_images/CR_Badger.png",
+            "image_3": "shopify://shop_images/AMB_Badger.png",
+            "image_4": "shopify://shop_images/OM_002afb1d-db6a-4a45-a9cb-5ce4ff00fbe4.png",
+            "text_1": "",
+            "text_2": "",
+            "text_3": "",
+            "text_4": "",
+            "text_gap": 12,
+            "text_size": 14,
+            "text_alignment": "center",
+            "text_color": "#1b1818"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_c8e3f0f_iarEky"
+      ],
       "settings": {}
     },
     "rich_text_fkw6iN": {
@@ -560,6 +578,7 @@
     "1773341632f5b826ae",
     "slideshow_ALWy3n",
     "17733413449526572a",
+    "177334283952b9c909",
     "rich_text_fkw6iN",
     "rich_text_NpDT34",
     "multirow_Qm46bk",
