@@ -347,6 +347,37 @@
         "padding_bottom": 36
       }
     },
+    "1773341632f5b826ae": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_ef3ab4f_g4grNJ": {
+          "type": "ai_gen_block_ef3ab4f",
+          "settings": {
+            "desktop_width_percent": 100,
+            "image_height": 480,
+            "grid_gap": 20,
+            "border_radius": 6,
+            "image_1": "shopify://shop_images/MS_Bear.png",
+            "text_1": "The Steady Bear",
+            "image_2": "shopify://shop_images/CR_Badger.png",
+            "text_2": "",
+            "image_3": "shopify://shop_images/OM_002afb1d-db6a-4a45-a9cb-5ce4ff00fbe4.png",
+            "text_3": "",
+            "image_4": "shopify://shop_images/AMB_Badger.png",
+            "text_4": "",
+            "text_size": 23,
+            "text_spacing": 32,
+            "text_alignment": "left",
+            "text_color": "#1b1818"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_ef3ab4f_g4grNJ"
+      ],
+      "settings": {}
+    },
     "slideshow_ALWy3n": {
       "type": "slideshow",
       "name": "t:sections.slideshow.presets.name",
@@ -360,6 +391,10 @@
         "show_text_below": true,
         "accessibility_info": "Slideshow about our brand"
       }
+    },
+    "17733413449526572a": {
+      "type": "_blocks",
+      "settings": {}
     },
     "rich_text_fkw6iN": {
       "type": "rich-text",
@@ -563,7 +598,9 @@
     "rich_text_bGTFhn",
     "17731629055b878474",
     "multirow_FMfGFe",
+    "1773341632f5b826ae",
     "slideshow_ALWy3n",
+    "17733413449526572a",
     "rich_text_fkw6iN",
     "rich_text_NpDT34",
     "multirow_Qm46bk",
