@@ -294,7 +294,7 @@
         "ai_gen_block_ef3ab4f_g4grNJ": {
           "type": "ai_gen_block_ef3ab4f",
           "settings": {
-            "desktop_width_percent": 50,
+            "desktop_width_percent": 100,
             "image_height": 480,
             "grid_gap": 20,
             "border_radius": 6,
