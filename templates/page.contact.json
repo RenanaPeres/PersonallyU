@@ -263,10 +263,10 @@
             "content_max_width": 900,
             "column_gap": 20,
             "mobile_row_gap": 40,
-            "section_padding": 10,
+            "section_padding": 0,
             "image_size": 260,
             "mobile_image_size": 160,
-            "image_background_color": "#F1EEE6",
+            "image_background_color": "#f1eee6",
             "image_text_spacing": 20,
             "text_size": 16,
             "text_color": "#1b1818"
