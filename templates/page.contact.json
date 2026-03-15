@@ -18,17 +18,10 @@
             "heading": "About us",
             "heading_size": "h1"
           }
-        },
-        "text_rbm9mm": {
-          "type": "text",
-          "settings": {
-            "text": "<h2><strong>The Science Behind Personality-Based Design</strong></h2><p>PersonallyU is a research project developed by researchers studying the relationship between personality and visual design. It explores how personality shapes visual preferences and how these insights can be used to generate personalized designs. </p><p>Visitors to the site receive designs generated from their personality profile and can print them on products that are produced and shipped to them. At the same time, their interaction with the system contributes to research on personalization and visual preferences. </p>"
-          }
         }
       },
       "block_order": [
-        "heading_qyWFiT",
-        "text_rbm9mm"
+        "heading_qyWFiT"
       ],
       "name": "t:sections.rich-text.presets.name",
       "settings": {
@@ -44,6 +37,30 @@
       "type": "_blocks",
       "blocks": {
         "ai_gen_block_7e2ac9e_LckJwT": {
+          "type": "ai_gen_block_7e2ac9e",
+          "settings": {
+            "heading": "<p>The Science Behind Personality-Based Design</p>",
+            "heading_font": "trirong_n3",
+            "heading_size": 36,
+            "heading_alignment": "center",
+            "heading_color": "#1b1818",
+            "heading_spacing": 0,
+            "paragraph": "<p>PersonallyU is a research project developed by researchers studying the relationship between personality and visual design. It explores how personality shapes visual preferences and how these insights can be used to generate personalized designs. Visitors to the site receive designs generated from their personality profile and can print them on products that are produced and shipped to them. At the same time, their interaction with the system contributes to research on personalization and visual preferences.</p>",
+            "paragraph_font": "quattrocento_sans_n4",
+            "paragraph_size": 16,
+            "paragraph_alignment": "left",
+            "paragraph_color": "#1b1818",
+            "line_height": 1.6,
+            "content_max_width": 800,
+            "desktop_width_percent": 100,
+            "background_color": "#F1EEE6",
+            "padding_top": 0,
+            "padding_bottom": 0,
+            "padding_horizontal": 24
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_7e2ac9e_Qbzdik": {
           "type": "ai_gen_block_7e2ac9e",
           "settings": {
             "heading": "<p>Turning Personality Into Design</p>",
@@ -129,6 +146,7 @@
       },
       "block_order": [
         "ai_gen_block_7e2ac9e_LckJwT",
+        "ai_gen_block_7e2ac9e_Qbzdik",
         "ai_gen_block_7e2ac9e_MjpK6r",
         "ai_gen_block_d42cee7_a4GNDP",
         "ai_gen_block_7e2ac9e_nD7cyM"
