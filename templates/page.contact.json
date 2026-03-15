@@ -30,19 +30,12 @@
           "settings": {
             "text": "<h2>Turning Personality Into Design<br/></h2><p>Personalization has transformed many areas of digital life. Online platforms recommend music, movies, and products based on individual preferences. Yet visual design, one of the most powerful elements in communication, is rarely personalized. </p><p>PersonallyU explores whether visual designs can be created specifically for an individual’s personality. You begin by completing a short personality questionnaire. Based on your personality profile, the system generates a set of designs tailored to you. </p><p>You can then select a design and print it on products such as T-shirts, hats, or water bottles. These products are produced and shipped to you, allowing you to enjoy a design created specifically for your personality. </p><p>At the same time, your interaction with the system contributes to research on how personality shapes visual preferences and product choices. </p>"
           }
-        },
-        "text_iY4rCT": {
-          "type": "text",
-          "settings": {
-            "text": "<h2>Mapping Personality to Visual Design</h2><p><br/>The designs in PersonallyU are not created randomly. They are based on a research process that connects personality traits to visual characteristics. </p><p>We scanned the psychological literature on personality, focusing on the well-established <a href=\"https://en.wikipedia.org/wiki/Big_Five_personality_traits\" title=\"https://en.wikipedia.org/wiki/Big_Five_personality_traits\"><strong>Big Five model</strong></a> [link to a wiki page]. This model describes personality using five broad dimensions: openness to experience, conscientiousness, extraversion, agreeableness, and emotional stability. Decades of research show that these traits influence how people behave, what activities they enjoy, what music they listen to, how they interact with others, and how they express themselves. </p><p>For example, different personality traits are associated with different levels of exploration, social activity, emotional expression, and aesthetic preferences. People who score high on openness may gravitate toward novelty and artistic expression, while more conscientious individuals often prefer structure, order, and clarity. </p><p>Using insights from this literature, we created detailed dictionaries which map personality traits into actions, behaviors, moods, environments, and activities.  </p>"
-          }
         }
       },
       "block_order": [
         "heading_qyWFiT",
         "text_rbm9mm",
-        "text_9eV7Gf",
-        "text_iY4rCT"
+        "text_9eV7Gf"
       ],
       "name": "t:sections.rich-text.presets.name",
       "settings": {
@@ -54,10 +47,34 @@
         "padding_bottom": 52
       }
     },
-    "1773224213347c89ff": {
+    "177357475113e2a8c4": {
       "type": "_blocks",
       "blocks": {
-        "ai_gen_block_d42cee7_JJVPbQ": {
+        "ai_gen_block_7e2ac9e_LckJwT": {
+          "type": "ai_gen_block_7e2ac9e",
+          "settings": {
+            "heading": "<p>Mapping Personality to Visual Design</p>",
+            "heading_font": "trirong_n3",
+            "heading_size": 36,
+            "heading_alignment": "center",
+            "heading_color": "#1b1818",
+            "heading_spacing": 24,
+            "paragraph": "<p>The designs in PersonallyU are not created randomly. They are based on a research process that connects personality traits to visual characteristics. We scanned the psychological literature on personality, focusing on the well-established Big Five model [link to a wiki page]. This model describes personality using five broad dimensions: openness to experience, conscientiousness, extraversion, agreeableness, and emotional stability. Decades of research show that these traits influence how people behave, what activities they enjoy, what music they listen to, how they interact with others, and how they express themselves. For example, different personality traits are associated with different levels of exploration, social activity, emotional expression, and aesthetic preferences. People who score high on openness may gravitate toward novelty and artistic expression, while more conscientious individuals often prefer structure, order, and clarity. Using insights from this literature, we created detailed dictionaries which map personality traits into actions, behaviors, moods, environments, and activities.</p>",
+            "paragraph_font": "quattrocento_sans_n4",
+            "paragraph_size": 16,
+            "paragraph_alignment": "left",
+            "paragraph_color": "#1b1818",
+            "line_height": 1.6,
+            "content_max_width": 800,
+            "desktop_width_percent": 100,
+            "background_color": "#F1EEE6",
+            "padding_top": 60,
+            "padding_bottom": 60,
+            "padding_horizontal": 20
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_d42cee7_a4GNDP": {
           "type": "ai_gen_block_d42cee7",
           "settings": {
             "image": "shopify://shop_images/b4d3f462-10f8-4ea5-945b-20fd3e3a99e2.png",
@@ -67,57 +84,47 @@
             "desktop_width_percent": 50
           },
           "blocks": {}
+        },
+        "ai_gen_block_7e2ac9e_nD7cyM": {
+          "type": "ai_gen_block_7e2ac9e",
+          "settings": {
+            "heading": "<p>What We Learn From The Project</p>",
+            "heading_font": "trirong_n3",
+            "heading_size": 36,
+            "heading_alignment": "center",
+            "heading_color": "#1b1818",
+            "heading_spacing": 8,
+            "paragraph": "<p>The project allows us to study how people respond to personalized visual designs. We study examine whether designs that reflect an individual's personality lead to stronger reactions such as:</p>",
+            "paragraph_font": "quattrocento_sans_n4",
+            "paragraph_size": 16,
+            "paragraph_alignment": "left",
+            "paragraph_color": "#1b1818",
+            "line_height": 1.6,
+            "content_max_width": 800,
+            "desktop_width_percent": 100,
+            "background_color": "#F1EEE6",
+            "padding_top": 0,
+            "padding_bottom": 0,
+            "padding_horizontal": 20
+          },
+          "blocks": {}
         }
       },
       "block_order": [
-        "ai_gen_block_d42cee7_JJVPbQ"
+        "ai_gen_block_7e2ac9e_LckJwT",
+        "ai_gen_block_d42cee7_a4GNDP",
+        "ai_gen_block_7e2ac9e_nD7cyM"
       ],
       "settings": {}
     },
-    "rich_text_qznfn8": {
-      "type": "rich-text",
-      "blocks": {
-        "heading_UwF7wt": {
-          "type": "heading",
-          "settings": {
-            "heading": "",
-            "heading_size": "h1"
-          }
-        },
-        "text_rBfBiz": {
-          "type": "text",
-          "settings": {
-            "text": "<h2><strong>What We Learn From the Project<br/></strong></h2><p>The project allows us to study how people respond to personalized visual designs. We study examine whether designs that reflect an individual's personality lead to stronger reactions such as:</p>"
-          }
-        },
-        "text_YjMirF": {
-          "type": "text",
-          "settings": {
-            "text": ""
-          }
-        },
-        "text_iag93k": {
-          "type": "text",
-          "settings": {
-            "text": ""
-          }
-        }
-      },
-      "block_order": [
-        "heading_UwF7wt",
-        "text_rBfBiz",
-        "text_YjMirF",
-        "text_iag93k"
-      ],
-      "name": "t:sections.rich-text.presets.name",
-      "settings": {
-        "desktop_content_position": "center",
-        "content_alignment": "center",
-        "color_scheme": "",
-        "full_width": true,
-        "padding_top": 0,
-        "padding_bottom": 0
-      }
+    "1773224213347c89ff": {
+      "type": "_blocks",
+      "settings": {}
+    },
+    "blocks_TbweXh": {
+      "type": "_blocks",
+      "name": "Content section",
+      "settings": {}
     },
     "multicolumn_FG3Tp7": {
       "type": "multicolumn",
@@ -352,8 +359,9 @@
   },
   "order": [
     "rich_text_CqLBXc",
+    "177357475113e2a8c4",
     "1773224213347c89ff",
-    "rich_text_qznfn8",
+    "blocks_TbweXh",
     "multicolumn_FG3Tp7",
     "rich_text_peQNjB",
     "rich_text_tDNytV",
