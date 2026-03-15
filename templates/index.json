@@ -206,7 +206,7 @@
           "type": "column",
           "settings": {
             "title": "1. Take the Personality Test",
-            "text": "<p>Answer a short scientifically validatedquestionnaire to reveal your personality profile.</p>",
+            "text": "<p>Answer a short scientifically validated questionnaire to reveal your personality profile.</p>",
             "link_label": "",
             "link": ""
           }
