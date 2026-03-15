@@ -16,11 +16,9 @@
       <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
     {%- endunless -%}
 
-<title>
-  Products
-  {%- if current_page != 1 %} &ndash; Page {{ current_page }}{% endif -%}
-  &ndash; {{ shop.name }}
-</title>
+  <title>
+    {{ page_title | split: ' – ' | first }} &ndash; {{ shop.name }}
+  </title>
 
     {% if page_description %}
       <meta name="description" content="{{ page_description | escape }}">
