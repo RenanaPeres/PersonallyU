@@ -385,10 +385,10 @@ function observeVariants() {
 
 document.addEventListener("DOMContentLoaded", ()   => {
   updateLabels(); 
-  observeVariants();      
+  observeVariants();    
+  initSearchTagInjection();
   removePredictiveSearchGroups();
   observeAndRemoveProductCount();
-  initSearchTagInjection();
 
 });
 
