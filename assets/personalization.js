@@ -196,6 +196,73 @@ const designedProductsURLsToPersonality = {
   
   // ------------------ Helpers ------------------
 
+  document.addEventListener("DOMContentLoaded", () => {
+  console.log("[Search Debug] Script loaded");
+
+  const form = document.querySelector('form[action="/search"]');
+
+  if (!form) {
+    console.warn("[Search Debug] Search form NOT found");
+    return;
+  }
+
+  console.log("[Search Debug] Search form found:", form);
+
+  form.addEventListener("submit", function (e) {
+    console.log("[Search Debug] Submit intercepted");
+
+    e.preventDefault(); // 🔥 force control
+
+    const input = form.querySelector('input[name="q"]');
+    if (!input) {
+      console.warn("[Search Debug] No input[name='q']");
+      return;
+    }
+
+    let query = input.value || "";
+    console.log("[Search Debug] Original query:", query);
+
+    const dataStr = localStorage.getItem("userQuizData");
+    console.log("[Search Debug] localStorage:", dataStr);
+
+    let personality = null;
+
+    if (dataStr) {
+      try {
+        const data = JSON.parse(dataStr);
+        personality = data?.personality;
+      } catch (err) {
+        console.error("[Search Debug] JSON parse error:", err);
+      }
+    }
+
+    console.log("[Search Debug] Personality:", personality);
+
+    // 🔥 build final query
+    let finalQuery = query;
+
+    if (personality && !query.includes(`tag:${personality}`)) {
+      finalQuery = query
+        ? `${query.trim()} tag:${personality.trim()}`
+        : `tag:${personality.trim()}`;
+    }
+
+    console.log("[Search Debug] Final query:", finalQuery);
+
+    // 🔥 preserve hidden inputs like options[prefix]
+    const formData = new FormData(form);
+    formData.set("q", finalQuery);
+
+    const params = new URLSearchParams(formData);
+
+    const finalUrl = `/search?${params.toString()}`;
+
+    console.log("[Search Debug] Redirecting to:", finalUrl);
+
+    window.location.href = finalUrl;
+  });
+});
+
 function getImageURLs() {
   
   const storedData = JSON.parse(localStorage.getItem("userQuizData") || "{}");
