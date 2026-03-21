@@ -257,55 +257,61 @@
   </div>
 
   <script>
-const form = document.querySelector('form[action="/search"]');
+const forms = document.querySelectorAll('form[action="/search"]');
 
-document.addEventListener("submit", (e) => {
-  e.preventDefault();
-  console.log("[Search Debug] Script loaded");
+console.log("[Search Debug] Found forms:", forms.length);
 
-  const url = new URL(window.location.href);
+forms.forEach((form, index) => {
+  console.log(`[Search Debug] Attaching to form #${index}`, form);
 
-  // Only run on /search
-  if (!url.pathname.includes("/search")) {
-    console.log("[Search Debug] Not a search page");
-    return;
-  }
+  form.addEventListener("submit", function (e) {
+    console.log("[Search Debug] Submit triggered");
 
-  const dataStr = localStorage.getItem("userQuizData");
-  console.log("[Search Debug] localStorage:", dataStr);
+    const input = form.querySelector('input[name="q"]');
 
-  if (!dataStr) return;
+    if (!input) {
+      console.warn("[Search Debug] No input[name='q'] found");
+      return;
+    }
 
-  let data;
-  try {
-    data = JSON.parse(dataStr);
-  } catch (e) {
-    console.error("[Search Debug] JSON parse error:", e);
-    return;
-  }
+    let query = input.value || "";
+    console.log("[Search Debug] Original query:", query);
 
-  const personality = data?.personality;
-  console.log("[Search Debug] Personality:", personality);
+    const dataStr = localStorage.getItem("userQuizData");
+    console.log("[Search Debug] localStorage:", dataStr);
 
-  if (!personality) return;
+    if (!dataStr) return;
 
-  let query = url.searchParams.get("q") || "";
-  console.log("[Search Debug] Original query:", query);
+    let data;
+    try {
+      data = JSON.parse(dataStr);
+    } catch (err) {
+      console.error("[Search Debug] JSON parse error:", err);
+      return;
+    }
 
-  // Prevent duplicate injection
-  if (query.includes(`tag:${personality}`)) {
-    console.log("[Search Debug] Tag already exists → skipping");
-    return;
-  }
+    const personality = data?.personality;
+    console.log("[Search Debug] Personality:", personality);
 
-  // 🔥 Inject tag
-  const newQuery = `${query} tag:${personality}`.trim();
-  url.searchParams.set("q", newQuery);
+    if (!personality) return;
 
-  console.log("[Search Debug] New query:", newQuery);
-  console.log("[Search Debug] Redirecting to:", url.toString());
+    // Prevent duplicate tag injection
+    if (query.includes(`tag:${personality}`)) {
+      console.log("[Search Debug] Tag already present → skipping");
+      return;
+    }
 
-  window.location.replace(url.toString()); // better than href (no history loop)
+    // 🔥 Inject tag directly into input value
+    const newQuery = query
+      ? `${query} tag:${personality}`
+      : `tag:${personality}`;
+
+    console.log("[Search Debug] New query:", newQuery);
+
+    input.value = newQuery;
+
+    // ✅ Let Shopify continue normally (no preventDefault)
+  });
 });
 
     window.handleRedirect = function () {
