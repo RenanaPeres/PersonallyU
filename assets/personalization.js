@@ -390,9 +390,10 @@ function observeVariants() {
 document.addEventListener("DOMContentLoaded", () => {
   updateLabels(); 
   observeVariants();      
-  initSearchTagInjection();
   observeAndRemoveSecondPredictiveGroup();
   observeAndRemoveProductCount();
+  initSearchTagInjection();
+
 });
 
 
