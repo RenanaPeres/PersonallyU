@@ -267,7 +267,6 @@ function observeAndRemoveProductCount() {
     childList: true,
     subtree: true
   });
-}
 
 function getImageURLs() {
   
