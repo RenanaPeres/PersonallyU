@@ -234,7 +234,7 @@ function initSearchTagInjection() {
     },
     true // 👈 CRITICAL: capture phase (runs BEFORE Shopify)
   );
-}}
+}
 
 function removePredictiveSearchGroups() {
   const groups = document.querySelectorAll(".predictive-search__result-group");
@@ -267,7 +267,6 @@ function observeAndRemoveProductCount() {
     childList: true,
     subtree: true
   });
-}
 
 function getImageURLs() {
   
