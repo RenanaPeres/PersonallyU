@@ -180,7 +180,10 @@
       </a>
     {%- endif -%}
 
-
+    <!-- "To Catalog" triggers popup -->
+    <a href="javascript:void(0);" onclick="handleRedirect()" class="link underlined-link">
+      {{ block.settings.button_label_2 | escape }}
+    </a>
   </div>
 
   <!-- POPUP HTML -->
@@ -279,28 +282,56 @@
       return false;
     }
 
-      // ✅ New function to redirect based on localStorage
     function handleRedirect() {
-      const dataStr = localStorage.getItem("userQuizData");
-      
-      try {
-        const data = JSON.parse(dataStr);
-        const catalogUrl = "https://personallyu.com/collections/customer/"; // ✅ Corrected base URL
-  
-        if (!data.personality || !data.responseId) {
-          {% comment %} showPopup(); // fallback if key data is missing {% endcomment %}
-          window.location.href = catalogUrl;
-          return;
-        }
-  
-        // ✅ Redirect to personalized product collection
-        window.location.href = `${catalogUrl}${data.personality}?response_id=${data.responseId}&set=${data.personality}`;
-      } catch (e) {
-        {% comment %} showPopup(); // fallback if data is invalid or not present {% endcomment %}
-        window.location.href = catalogUrl;
-        return;
+      console.log("🔵 handleRedirect triggered");
 
+      const catalogUrl = "https://personallyu.com/collections/customer/";
+      const raw = localStorage.getItem("userQuizData");
+
+      console.log("📦 Raw localStorage data:", raw);
+
+      if (!raw) {
+        console.warn("⚠️ No data found in localStorage → redirecting to default catalog");
+        return redirect(catalogUrl);
       }
+
+      try {
+        const parsed = JSON.parse(raw);
+        console.log("✅ Parsed data:", parsed);
+
+        const { personality, responseId } = parsed;
+
+        console.log("🧠 Extracted values:", {
+          personality,
+          responseId
+        });
+
+        if (!personality || !responseId) {
+          console.warn("⚠️ Missing required fields → redirecting to default catalog");
+          return redirect(catalogUrl);
+        }
+
+        const params = new URLSearchParams({
+          response_id: responseId,
+          set: personality
+        });
+
+        const finalUrl = `${catalogUrl}${personality}?${params.toString()}`;
+
+        console.log("🚀 Redirecting to:", finalUrl);
+
+        redirect(finalUrl);
+
+      } catch (error) {
+        console.error("❌ Failed to parse localStorage data:", error);
+        return redirect(catalogUrl);
+      }
+    }
+
+    function redirect(url) {
+      console.log("➡️ Navigating to:", url);
+      window.location.href = url;
+    }
     }
   </script>
 {%- endcase -%}
