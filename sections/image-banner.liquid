@@ -257,20 +257,20 @@
   </div>
 
   <script>
-const forms = document.querySelectorAll('form[action="/search"]');
+const form = document.querySelector('form[action="/search"]');
 
-console.log("[Search Debug] Found forms:", forms.length);
+if (!form) {
+  console.warn("[Search Debug] Search form not found");
+} else {
+  console.log("[Search Debug] Search form found:", form);
 
-forms.forEach((form, index) => {
-  console.log(`[Search Debug] Attaching to form #${index}`, form);
-
-  form.addEventListener("submit", function (e) {
+  form.addEventListener("submit", function () {
     console.log("[Search Debug] Submit triggered");
 
     const input = form.querySelector('input[name="q"]');
 
     if (!input) {
-      console.warn("[Search Debug] No input[name='q'] found");
+      console.warn("[Search Debug] No input[name='q']");
       return;
     }
 
@@ -295,13 +295,13 @@ forms.forEach((form, index) => {
 
     if (!personality) return;
 
-    // Prevent duplicate tag injection
+    // prevent duplicate injection
     if (query.includes(`tag:${personality}`)) {
       console.log("[Search Debug] Tag already present → skipping");
       return;
     }
 
-    // 🔥 Inject tag directly into input value
+    // 🔥 inject tag
     const newQuery = query
       ? `${query} tag:${personality}`
       : `tag:${personality}`;
@@ -309,11 +309,8 @@ forms.forEach((form, index) => {
     console.log("[Search Debug] New query:", newQuery);
 
     input.value = newQuery;
-
-    // ✅ Let Shopify continue normally (no preventDefault)
   });
-});
-
+}
     window.handleRedirect = function () {
     console.log("🔵 handleRedirect triggered");
 
