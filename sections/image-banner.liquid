@@ -257,67 +257,9 @@
   </div>
 
   <script>
-document.addEventListener("DOMContentLoaded", () => {
-  console.log("[Search Debug] Script loaded");
-
-  const form = document.querySelector('form[action="/search"]');
-
-  if (!form) {
-    console.warn("[Search Debug] Search form NOT found");
-    return;
-  }
-
-  console.log("[Search Debug] Search form found:", form);
-
-  form.addEventListener("submit", function () {
-    console.log("[Search Debug] Form submitted");
-
-    const input = form.querySelector('input[name="q"]');
-    if (!input) {
-      console.warn("[Search Debug] No input[name='q']");
-      return;
-    }
-
-    let query = input.value || "";
-    console.log("[Search Debug] Original query:", query);
-
-    const dataStr = localStorage.getItem("userQuizData");
-    console.log("[Search Debug] localStorage:", dataStr);
-
-    if (!dataStr) return;
-
-    let data;
-    try {
-      data = JSON.parse(dataStr);
-      console.log("[Search Debug] Parsed data:", data);
-    } catch (err) {
-      console.error("[Search Debug] JSON parse error:", err);
-      return;
-    }
-
-    const personality = data?.personality;
-    console.log("[Search Debug] Personality:", personality);
-
-    if (!personality) return;
-
-    // 🔥 IMPORTANT: avoid duplicates
-    if (query.includes(`tag:${personality}`)) {
-      console.log("[Search Debug] Tag already present → skipping");
-      return;
-    }
-
-    // 🔥 inject EXACTLY like your working URL
-    const newQuery = `${query.trim()} tag:${personality.trim()}`;
-
-    console.log("[Search Debug] New query:", newQuery);
-
-    // ✅ THIS is the key line
-    input.value = newQuery;
-
-    // ❗ DO NOT preventDefault
-    // Shopify will submit normally and keep all URL params
-  });
-});
+    console.log("[Search Debug] Trying to find form...");
+const form = document.querySelector('form[action="/search"]');
+console.log("[Search Debug] Form:", form);
     window.handleRedirect = function () {
     console.log("🔵 handleRedirect triggered");
 
