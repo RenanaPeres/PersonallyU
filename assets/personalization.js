@@ -255,6 +255,24 @@ function observeAndRemoveSecondPredictiveGroup() {
   });
 }
 
+function observeAndRemoveProductCount() {
+  const observer = new MutationObserver(() => {
+    const el = document.getElementById("ProductCountDesktop");
+
+    if (el) {
+      console.log("[Observer] Removing ProductCountDesktop");
+      el.remove();
+
+      observer.disconnect(); // 👈 stop after removing once
+    }
+  });
+
+  observer.observe(document.body, {
+    childList: true,
+    subtree: true
+  });
+}
+
 function getImageURLs() {
   
   const storedData = JSON.parse(localStorage.getItem("userQuizData") || "{}");
@@ -374,6 +392,7 @@ document.addEventListener("DOMContentLoaded", () => {
   observeVariants();      
   initSearchTagInjection();
   observeAndRemoveSecondPredictiveGroup();
+  observeAndRemoveProductCount();
 });
 
 
