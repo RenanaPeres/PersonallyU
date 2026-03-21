@@ -249,6 +249,7 @@ function removePredictiveSearchGroups() {
     childList: true,
     subtree: true
   });
+}
 
 function observeAndRemoveProductCount() {
   const observer = new MutationObserver(() => {
@@ -266,6 +267,7 @@ function observeAndRemoveProductCount() {
     childList: true,
     subtree: true
   });
+}
 
 function getImageURLs() {
   
