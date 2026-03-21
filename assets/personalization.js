@@ -195,62 +195,47 @@ const designedProductsURLsToPersonality = {
 
   
   // ------------------ Helpers ------------------
-
 function initSearchTagInjection() {
-  console.log("[Search Debug] Script loaded");
+  document.addEventListener(
+    "submit",
+    function (e) {
+      const form = e.target;
 
-  const form = document.querySelector('form[action="/search"]');
+      if (!form.matches('form[action="/search"]')) return;
 
-  if (!form) {
-    console.warn("[Search Debug] Search form NOT found");
-    return;
-  }
+      console.log("[Search Debug] Intercepted submit BEFORE Shopify");
 
-  console.log("[Search Debug] Search form found:", form);
+      const input = form.querySelector('input[name="q"]');
+      if (!input) return;
 
-  form.addEventListener("submit", function () {
-    console.log("[Search Debug] Form submitted");
+      let query = input.value || "";
 
-    const input = form.querySelector('input[name="q"]');
-    if (!input) {
-      console.warn("[Search Debug] No input[name='q']");
-      return;
-    }
+      const dataStr = localStorage.getItem("userQuizData");
+      if (!dataStr) return;
 
-    let query = input.value || "";
-    console.log("[Search Debug] Original query:", query);
+      let data;
+      try {
+        data = JSON.parse(dataStr);
+      } catch {
+        return;
+      }
 
-    const dataStr = localStorage.getItem("userQuizData");
-    console.log("[Search Debug] localStorage:", dataStr);
+      const personality = data?.personality;
+      if (!personality) return;
 
-    if (!dataStr) return;
+      if (query.includes(`tag:${personality}`)) return;
 
-    let data;
-    try {
-      data = JSON.parse(dataStr);
-      console.log("[Search Debug] Parsed data:", data);
-    } catch (err) {
-      console.error("[Search Debug] JSON parse error:", err);
-      return;
-    }
+      const newQuery = `${query.trim()} tag:${personality.trim()}`;
+      console.log("[Search Debug] Final query:", newQuery);
 
-    const personality = data?.personality;
-    console.log("[Search Debug] Personality:", personality);
+      input.value = newQuery;
 
-    if (!personality) return;
-
-    // Avoid duplicates
-    if (query.includes(`tag:${personality}`)) {
-      console.log("[Search Debug] Tag already present → skipping");
-      return;
-    }
-
-    const newQuery = `${query.trim()} tag:${personality.trim()}`;
-    console.log("[Search Debug] New query:", newQuery);
-
-    input.value = newQuery;
-  });
+      // ❗ DO NOT preventDefault
+    },
+    true // 👈 CRITICAL: capture phase (runs BEFORE Shopify)
+  );
 }
+
 function getImageURLs() {
   
   const storedData = JSON.parse(localStorage.getItem("userQuizData") || "{}");
