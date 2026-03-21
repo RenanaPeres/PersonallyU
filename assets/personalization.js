@@ -196,7 +196,7 @@ const designedProductsURLsToPersonality = {
   
   // ------------------ Helpers ------------------
 
-  document.addEventListener("DOMContentLoaded", () => {
+function initSearchTagInjection() {
   console.log("[Search Debug] Script loaded");
 
   const form = document.querySelector('form[action="/search"]');
@@ -208,10 +208,8 @@ const designedProductsURLsToPersonality = {
 
   console.log("[Search Debug] Search form found:", form);
 
-  form.addEventListener("submit", function (e) {
-    console.log("[Search Debug] Submit intercepted");
-
-    e.preventDefault(); // 🔥 force control
+  form.addEventListener("submit", function () {
+    console.log("[Search Debug] Form submitted");
 
     const input = form.querySelector('input[name="q"]');
     if (!input) {
@@ -225,44 +223,34 @@ const designedProductsURLsToPersonality = {
     const dataStr = localStorage.getItem("userQuizData");
     console.log("[Search Debug] localStorage:", dataStr);
 
-    let personality = null;
+    if (!dataStr) return;
 
-    if (dataStr) {
-      try {
-        const data = JSON.parse(dataStr);
-        personality = data?.personality;
-      } catch (err) {
-        console.error("[Search Debug] JSON parse error:", err);
-      }
+    let data;
+    try {
+      data = JSON.parse(dataStr);
+      console.log("[Search Debug] Parsed data:", data);
+    } catch (err) {
+      console.error("[Search Debug] JSON parse error:", err);
+      return;
     }
 
+    const personality = data?.personality;
     console.log("[Search Debug] Personality:", personality);
 
-    // 🔥 build final query
-    let finalQuery = query;
+    if (!personality) return;
 
-    if (personality && !query.includes(`tag:${personality}`)) {
-      finalQuery = query
-        ? `${query.trim()} tag:${personality.trim()}`
-        : `tag:${personality.trim()}`;
+    // Avoid duplicates
+    if (query.includes(`tag:${personality}`)) {
+      console.log("[Search Debug] Tag already present → skipping");
+      return;
     }
 
-    console.log("[Search Debug] Final query:", finalQuery);
+    const newQuery = `${query.trim()} tag:${personality.trim()}`;
+    console.log("[Search Debug] New query:", newQuery);
 
-    // 🔥 preserve hidden inputs like options[prefix]
-    const formData = new FormData(form);
-    formData.set("q", finalQuery);
-
-    const params = new URLSearchParams(formData);
-
-    const finalUrl = `/search?${params.toString()}`;
-
-    console.log("[Search Debug] Redirecting to:", finalUrl);
-
-    window.location.href = finalUrl;
+    input.value = newQuery;
   });
-});
-
+}
 function getImageURLs() {
   
   const storedData = JSON.parse(localStorage.getItem("userQuizData") || "{}");
@@ -379,7 +367,8 @@ function observeVariants() {
 
 document.addEventListener("DOMContentLoaded", () => {
   updateLabels(); 
-  observeVariants();         // Catch Shopify’s variant replacement
+  observeVariants();      
+  initSearchTagInjection();
 });
 
 
