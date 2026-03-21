@@ -236,14 +236,15 @@ function initSearchTagInjection() {
   );
 }
 
-function removePredictiveSearchGroups() {
-  const groups = document.querySelectorAll(".predictive-search__result-group");
+function observeAndRemovePredictiveGroups() {
+  const observer = new MutationObserver(() => {
+    const groups = document.querySelectorAll(".predictive-search__result-group");
 
-  groups.forEach(group => {
-    console.log("[Search Debug] Removing predictive group:", group);
-    group.remove();
+    groups.forEach(group => {
+      console.log("[Search Debug] Removing predictive group");
+      group.remove();
+    });
   });
-}
 
   observer.observe(document.body, {
     childList: true,
@@ -387,7 +388,7 @@ document.addEventListener("DOMContentLoaded", ()   => {
   updateLabels(); 
   observeVariants();    
   initSearchTagInjection();
-  removePredictiveSearchGroups();
+  observeAndRemovePredictiveGroups();
   observeAndRemoveProductCount();
 
 });
