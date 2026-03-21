@@ -249,7 +249,6 @@ function removePredictiveSearchGroups() {
     childList: true,
     subtree: true
   });
-}
 
 function observeAndRemoveProductCount() {
   const observer = new MutationObserver(() => {
