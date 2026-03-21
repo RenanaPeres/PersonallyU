@@ -269,7 +269,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   console.log("[Search Debug] Search form found:", form);
 
-  form.addEventListener("submit", function (e) {
+  form.addEventListener("submit", function () {
     console.log("[Search Debug] Form submitted");
 
     const input = form.querySelector('input[name="q"]');
@@ -279,15 +279,12 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     let query = input.value || "";
-    console.log("[Search Debug] Query:", query);
+    console.log("[Search Debug] Original query:", query);
 
     const dataStr = localStorage.getItem("userQuizData");
-    console.log("[Search Debug] Raw localStorage:", dataStr);
+    console.log("[Search Debug] localStorage:", dataStr);
 
-    if (!dataStr) {
-      console.warn("[Search Debug] No userQuizData → fallback to default search");
-      return; // ✅ allow normal submit
-    }
+    if (!dataStr) return;
 
     let data;
     try {
@@ -295,35 +292,30 @@ document.addEventListener("DOMContentLoaded", () => {
       console.log("[Search Debug] Parsed data:", data);
     } catch (err) {
       console.error("[Search Debug] JSON parse error:", err);
-      return; // ✅ allow normal submit
+      return;
     }
 
     const personality = data?.personality;
     console.log("[Search Debug] Personality:", personality);
 
-    if (!personality) {
-      console.warn("[Search Debug] No personality → fallback");
-      return; // ✅ allow normal submit
-    }
+    if (!personality) return;
 
-    // 🔥 Prevent duplicate injection
+    // 🔥 IMPORTANT: avoid duplicates
     if (query.includes(`tag:${personality}`)) {
-      console.log("[Search Debug] Tag already exists → skipping");
+      console.log("[Search Debug] Tag already present → skipping");
       return;
     }
 
-    // 🔥 Inject tag into query
-    const newQuery = query
-      ? `${query} tag:${personality}`
-      : `tag:${personality}`;
+    // 🔥 inject EXACTLY like your working URL
+    const newQuery = `${query.trim()} tag:${personality.trim()}`;
 
     console.log("[Search Debug] New query:", newQuery);
 
+    // ✅ THIS is the key line
     input.value = newQuery;
 
-    // ✅ DO NOT preventDefault
-    // Shopify will now go to:
-    // /search?q=updated_query
+    // ❗ DO NOT preventDefault
+    // Shopify will submit normally and keep all URL params
   });
 });
     window.handleRedirect = function () {
