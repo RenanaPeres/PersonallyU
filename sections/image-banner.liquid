@@ -257,30 +257,6 @@
   </div>
 
   <script>
-    function showPopup() {
-      document.getElementById("popupOverlay").style.display = "block";
-      document.getElementById("popupBox").style.display = "block";
-    }
-
-    function closePopup() {
-      document.getElementById("popupOverlay").style.display = "none";
-      document.getElementById("popupBox").style.display = "none";
-    }
-
-    function markClicked(el) {
-      // Remove 'clicked' from all popup links
-      document.querySelectorAll('.popup-box a').forEach(btn => btn.classList.remove('clicked'));
-
-      // Add 'clicked' to the one clicked
-      el.classList.add("clicked");
-
-      setTimeout(function () {
-        closePopup();
-        window.location.href = el.href;
-      }, 100);
-
-      return false;
-    }
 
     function handleRedirect() {
       console.log("🔵 handleRedirect triggered");
@@ -333,6 +309,33 @@
       window.location.href = url;
     }
     }
+    
+    function showPopup() {
+      document.getElementById("popupOverlay").style.display = "block";
+      document.getElementById("popupBox").style.display = "block";
+    }
+
+    function closePopup() {
+      document.getElementById("popupOverlay").style.display = "none";
+      document.getElementById("popupBox").style.display = "none";
+    }
+
+    function markClicked(el) {
+      // Remove 'clicked' from all popup links
+      document.querySelectorAll('.popup-box a').forEach(btn => btn.classList.remove('clicked'));
+
+      // Add 'clicked' to the one clicked
+      el.classList.add("clicked");
+
+      setTimeout(function () {
+        closePopup();
+        window.location.href = el.href;
+      }, 100);
+
+      return false;
+    }
+
+    
   </script>
 {%- endcase -%}
        <!-- end of Popup mai added this -->
