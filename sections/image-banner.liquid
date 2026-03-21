@@ -257,51 +257,62 @@
   </div>
 
   <script>
-const form = document.querySelector('form[action="/search"]');
+document.addEventListener("DOMContentLoaded", () => {
+  console.log("[Search Debug] Script loaded");
 
-if (!form) {
-  console.warn("[Search Debug] Search form not found");
-} else {
+  const form = document.querySelector('form[action="/search"]');
+
+  if (!form) {
+    console.warn("[Search Debug] Search form NOT found");
+    return;
+  }
+
   console.log("[Search Debug] Search form found:", form);
 
-  form.addEventListener("submit", function () {
-    console.log("[Search Debug] Submit triggered");
+  form.addEventListener("submit", function (e) {
+    console.log("[Search Debug] Form submitted");
 
     const input = form.querySelector('input[name="q"]');
-
     if (!input) {
       console.warn("[Search Debug] No input[name='q']");
       return;
     }
 
     let query = input.value || "";
-    console.log("[Search Debug] Original query:", query);
+    console.log("[Search Debug] Query:", query);
 
     const dataStr = localStorage.getItem("userQuizData");
-    console.log("[Search Debug] localStorage:", dataStr);
+    console.log("[Search Debug] Raw localStorage:", dataStr);
 
-    if (!dataStr) return;
+    if (!dataStr) {
+      console.warn("[Search Debug] No userQuizData → fallback to default search");
+      return; // ✅ allow normal submit
+    }
 
     let data;
     try {
       data = JSON.parse(dataStr);
+      console.log("[Search Debug] Parsed data:", data);
     } catch (err) {
       console.error("[Search Debug] JSON parse error:", err);
-      return;
+      return; // ✅ allow normal submit
     }
 
     const personality = data?.personality;
     console.log("[Search Debug] Personality:", personality);
 
-    if (!personality) return;
+    if (!personality) {
+      console.warn("[Search Debug] No personality → fallback");
+      return; // ✅ allow normal submit
+    }
 
-    // prevent duplicate injection
+    // 🔥 Prevent duplicate injection
     if (query.includes(`tag:${personality}`)) {
-      console.log("[Search Debug] Tag already present → skipping");
+      console.log("[Search Debug] Tag already exists → skipping");
       return;
     }
 
-    // 🔥 inject tag
+    // 🔥 Inject tag into query
     const newQuery = query
       ? `${query} tag:${personality}`
       : `tag:${personality}`;
@@ -309,8 +320,12 @@ if (!form) {
     console.log("[Search Debug] New query:", newQuery);
 
     input.value = newQuery;
+
+    // ✅ DO NOT preventDefault
+    // Shopify will now go to:
+    // /search?q=updated_query
   });
-}
+});
     window.handleRedirect = function () {
     console.log("🔵 handleRedirect triggered");
 
