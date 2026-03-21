@@ -257,48 +257,63 @@
   </div>
 
   <script>
-document.addEventListener("DOMContentLoaded", () => {
+    document.addEventListener("DOMContentLoaded", () => {
   console.log("[Search Debug] Script loaded");
 
-  const input = document.querySelector('input[name="q"]');
+  const form = document.querySelector('form[action="/search"]');
 
-  if (!input) {
-    console.warn("[Search Debug] Search input not found");
+  if (!form) {
+    console.warn("[Search Debug] Search form NOT found");
     return;
   }
 
-  console.log("[Search Debug] Input found:", input);
+  console.log("[Search Debug] Search form found:", form);
 
-  input.addEventListener("input", function () {
-    let query = input.value || "";
+  form.addEventListener("submit", function (e) {
+    console.log("[Search Debug] Form submitted");
+
+    e.preventDefault();
+
+    const input = form.querySelector('input[name="q"]');
+    const query = input?.value || "";
+
+    console.log("[Search Debug] Query:", query);
 
     const dataStr = localStorage.getItem("userQuizData");
-    if (!dataStr) return;
+    console.log("[Search Debug] Raw localStorage:", dataStr);
+
+    if (!dataStr) {
+      console.warn("[Search Debug] No userQuizData → fallback to default search");
+      form.submit();
+      return;
+    }
 
     let data;
     try {
       data = JSON.parse(dataStr);
-    } catch {
+      console.log("[Search Debug] Parsed data:", data);
+    } catch (err) {
+      console.error("[Search Debug] JSON parse error:", err);
+      form.submit();
       return;
     }
 
     const personality = data?.personality;
-    if (!personality) return;
+    console.log("[Search Debug] Personality:", personality);
 
-    // prevent duplicate injection
-    if (query.includes(`tag:${personality}`)) return;
+    if (!personality) {
+      console.warn("[Search Debug] No personality → fallback to default search");
+      form.submit();
+      return;
+    }
 
-    // 🔥 inject tag LIVE
-    const newQuery = query
-      ? `${query.trim()} tag:${personality}`
-      : `tag:${personality}`;
+    const targetUrl = `/collections/products/${personality}?q=${encodeURIComponent(query)}`;
 
-    console.log("[Search Debug] Injecting:", newQuery);
+    console.log("[Search Debug] Redirecting to:", targetUrl);
 
-    input.value = newQuery;
+    window.location.href = targetUrl;
   });
 });
-
     window.handleRedirect = function () {
     console.log("🔵 handleRedirect triggered");
 
