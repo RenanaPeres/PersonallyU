@@ -370,7 +370,7 @@ document.addEventListener("DOMContentLoaded", () => {
   updateLabels(); 
   observeVariants();      
   initSearchTagInjection();
-  observeAndRemovePredictiveGroups();
+  // observeAndRemovePredictiveGroups();
 });
 
 
