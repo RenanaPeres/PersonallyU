@@ -383,7 +383,7 @@ function observeVariants() {
   });
 }
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", ()   => {
   updateLabels(); 
   observeVariants();      
   removePredictiveSearchGroups();
