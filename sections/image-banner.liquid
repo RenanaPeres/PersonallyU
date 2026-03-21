@@ -258,33 +258,63 @@
 
   <script>
 
-  document.querySelector('form[action="/search"]').addEventListener("submit", function(e) {
+document.addEventListener("DOMContentLoaded", () => {
+  console.log("[Search Debug] Script loaded");
+
+  const form = document.querySelector('form[action="/search"]');
+
+  if (!form) {
+    console.warn("[Search Debug] Search form NOT found");
+    return;
+  }
+
+  console.log("[Search Debug] Search form found:", form);
+
+  form.addEventListener("submit", function (e) {
+    console.log("[Search Debug] Form submitted");
+
     e.preventDefault();
 
-    const query = this.querySelector('input[name="q"]').value;
+    const input = form.querySelector('input[name="q"]');
+    const query = input?.value || "";
 
-    const data = JSON.parse(localStorage.getItem("userQuizData"));
-    const personality = data?.personality;
+    console.log("[Search Debug] Query:", query);
 
-    if (personality) {
-      window.location.href = `/collections/products/${personality}?q=${query}`;
-    } else {
-      this.submit();
+    const dataStr = localStorage.getItem("userQuizData");
+    console.log("[Search Debug] Raw localStorage:", dataStr);
+
+    if (!dataStr) {
+      console.warn("[Search Debug] No userQuizData → fallback to default search");
+      form.submit();
+      return;
     }
-  });document.querySelector('form[action="/search"]').addEventListener("submit", function(e) {
-    e.preventDefault();
 
-    const query = this.querySelector('input[name="q"]').value;
-
-    const data = JSON.parse(localStorage.getItem("userQuizData"));
-    const personality = data?.personality;
-
-    if (personality) {
-      window.location.href = `/collections/products/${personality}?q=${query}`;
-    } else {
-      this.submit();
+    let data;
+    try {
+      data = JSON.parse(dataStr);
+      console.log("[Search Debug] Parsed data:", data);
+    } catch (err) {
+      console.error("[Search Debug] JSON parse error:", err);
+      form.submit();
+      return;
     }
+
+    const personality = data?.personality;
+    console.log("[Search Debug] Personality:", personality);
+
+    if (!personality) {
+      console.warn("[Search Debug] No personality → fallback to default search");
+      form.submit();
+      return;
+    }
+
+    const targetUrl = `/collections/products/${personality}?q=${encodeURIComponent(query)}`;
+
+    console.log("[Search Debug] Redirecting to:", targetUrl);
+
+    window.location.href = targetUrl;
   });
+});
 
     window.handleRedirect = function () {
     console.log("🔵 handleRedirect triggered");
