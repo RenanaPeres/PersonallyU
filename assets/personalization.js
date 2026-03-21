@@ -236,18 +236,14 @@ function initSearchTagInjection() {
   );
 }
 
-function observeAndRemoveSecondPredictiveGroup() {
-  const observer = new MutationObserver(() => {
-    const wrapper = document.getElementById("predictive-search-results-groups-wrapper");
-    if (!wrapper) return;
+function removePredictiveSearchGroups() {
+  const groups = document.querySelectorAll(".predictive-search__result-group");
 
-    const groups = wrapper.querySelectorAll(".predictive-search__result-group");
-
-    if (groups.length >= 2) {
-      console.log("[Search Debug] Removing second group");
-      groups[1].remove();
-    }
+  groups.forEach(group => {
+    console.log("[Search Debug] Removing predictive group:", group);
+    group.remove();
   });
+}
 
   observer.observe(document.body, {
     childList: true,
@@ -390,7 +386,7 @@ function observeVariants() {
 document.addEventListener("DOMContentLoaded", () => {
   updateLabels(); 
   observeVariants();      
-  observeAndRemoveSecondPredictiveGroup();
+  removePredictiveSearchGroups();
   observeAndRemoveProductCount();
   initSearchTagInjection();
 
