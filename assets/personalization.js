@@ -236,14 +236,14 @@ function initSearchTagInjection() {
   );
 }
 
-function observeAndRemoveSecondPredictiveGroup() {
+function observeAndRemovePredictiveGroups() {
   const observer = new MutationObserver(() => {
     const groups = document.querySelectorAll(".predictive-search__result-group");
 
-    if (groups.length >= 2) {
-      console.log("[Search Debug] Removing second predictive group");
-      groups[1].remove();
-    }
+    groups.forEach(group => {
+      console.log("[Search Debug] Removing predictive group");
+      group.remove();
+    });
   });
 
   observer.observe(document.body, {
@@ -370,7 +370,7 @@ document.addEventListener("DOMContentLoaded", () => {
   updateLabels(); 
   observeVariants();      
   initSearchTagInjection();
-  observeAndRemoveSecondPredictiveGroup();
+  observeAndRemovePredictiveGroups();
 });
 
 
