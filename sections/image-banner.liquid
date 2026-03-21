@@ -257,9 +257,48 @@
   </div>
 
   <script>
-    console.log("[Search Debug] Trying to find form...");
-const form = document.querySelector('form[action="/search"]');
-console.log("[Search Debug] Form:", form);
+document.addEventListener("DOMContentLoaded", () => {
+  console.log("[Search Debug] Script loaded");
+
+  const input = document.querySelector('input[name="q"]');
+
+  if (!input) {
+    console.warn("[Search Debug] Search input not found");
+    return;
+  }
+
+  console.log("[Search Debug] Input found:", input);
+
+  input.addEventListener("input", function () {
+    let query = input.value || "";
+
+    const dataStr = localStorage.getItem("userQuizData");
+    if (!dataStr) return;
+
+    let data;
+    try {
+      data = JSON.parse(dataStr);
+    } catch {
+      return;
+    }
+
+    const personality = data?.personality;
+    if (!personality) return;
+
+    // prevent duplicate injection
+    if (query.includes(`tag:${personality}`)) return;
+
+    // 🔥 inject tag LIVE
+    const newQuery = query
+      ? `${query.trim()} tag:${personality}`
+      : `tag:${personality}`;
+
+    console.log("[Search Debug] Injecting:", newQuery);
+
+    input.value = newQuery;
+  });
+});
+
     window.handleRedirect = function () {
     console.log("🔵 handleRedirect triggered");
 
