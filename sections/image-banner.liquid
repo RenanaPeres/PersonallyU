@@ -258,57 +258,55 @@
 
   <script>
 
-    function handleRedirect() {
-      console.log("🔵 handleRedirect triggered");
+    window.handleRedirect = function () {
+    console.log("🔵 handleRedirect triggered");
 
-      const catalogUrl = "https://personallyu.com/collections/customer/";
-      const raw = localStorage.getItem("userQuizData");
+    const defaultUrl = "https://personallyu.com/collections/customer/";
+    const productsUrl = "https://personallyu.com/collections/products/";
+    const raw = localStorage.getItem("userQuizData");
 
-      console.log("📦 Raw localStorage data:", raw);
+    console.log("📦 Raw localStorage data:", raw);
 
-      if (!raw) {
-        console.warn("⚠️ No data found in localStorage → redirecting to default catalog");
-        return redirect(catalogUrl);
-      }
-
-      try {
-        const parsed = JSON.parse(raw);
-        console.log("✅ Parsed data:", parsed);
-
-        const { personality, responseId } = parsed;
-
-        console.log("🧠 Extracted values:", {
-          personality,
-          responseId
-        });
-
-        if (!personality || !responseId) {
-          console.warn("⚠️ Missing required fields → redirecting to default catalog");
-          return redirect(catalogUrl);
-        }
-
-        const params = new URLSearchParams({
-          response_id: responseId,
-          set: personality
-        });
-
-        const finalUrl = `${catalogUrl}${personality}?${params.toString()}`;
-
-        console.log("🚀 Redirecting to:", finalUrl);
-
-        redirect(finalUrl);
-
-      } catch (error) {
-        console.error("❌ Failed to parse localStorage data:", error);
-        return redirect(catalogUrl);
-      }
+    // ❌ Case 1: no data → customer catalog
+    if (!raw) {
+      console.warn("⚠️ No data → redirecting to CUSTOMER catalog");
+      return redirect(defaultUrl);
     }
 
-    function redirect(url) {
-      console.log("➡️ Navigating to:", url);
-      window.location.href = url;
-    }
+    try {
+      const parsed = JSON.parse(raw);
+      console.log("✅ Parsed data:", parsed);
 
+      const { personality, responseId } = parsed;
+
+      // ❌ Case 1: missing fields → customer catalog
+      if (!personality || !responseId) {
+        console.warn("⚠️ Missing fields → redirecting to CUSTOMER catalog");
+        return redirect(defaultUrl);
+      }
+
+      // ✅ Case 2: valid data → PRODUCTS catalog
+      const params = new URLSearchParams({
+        response_id: responseId,
+        set: personality
+      });
+
+      const finalUrl = `${productsUrl}${personality}?${params.toString()}`;
+
+      console.log("🚀 Redirecting to PRODUCTS catalog:", finalUrl);
+
+      redirect(finalUrl);
+
+    } catch (error) {
+      console.error("❌ JSON parse error → redirecting to CUSTOMER catalog:", error);
+      return redirect(defaultUrl);
+    }
+  };
+
+  function redirect(url) {
+    console.log("➡️ Navigating to:", url);
+    window.location.href = url;
+  }
     
     function showPopup() {
       document.getElementById("popupOverlay").style.display = "block";
