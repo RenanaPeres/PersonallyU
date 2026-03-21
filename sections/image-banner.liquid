@@ -258,6 +258,34 @@
 
   <script>
 
+  document.querySelector('form[action="/search"]').addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const query = this.querySelector('input[name="q"]').value;
+
+    const data = JSON.parse(localStorage.getItem("userQuizData"));
+    const personality = data?.personality;
+
+    if (personality) {
+      window.location.href = `/collections/products/${personality}?q=${query}`;
+    } else {
+      this.submit();
+    }
+  });document.querySelector('form[action="/search"]').addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const query = this.querySelector('input[name="q"]').value;
+
+    const data = JSON.parse(localStorage.getItem("userQuizData"));
+    const personality = data?.personality;
+
+    if (personality) {
+      window.location.href = `/collections/products/${personality}?q=${query}`;
+    } else {
+      this.submit();
+    }
+  });
+
     window.handleRedirect = function () {
     console.log("🔵 handleRedirect triggered");
 
