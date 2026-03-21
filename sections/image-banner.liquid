@@ -258,33 +258,50 @@
 
   <script>
 
-    document.querySelector('form[action="/search"]').addEventListener("submit", function(e) {
-  e.preventDefault();
+  document.addEventListener("DOMContentLoaded", () => {
+    console.log("[Search Debug] Script loaded");
 
-  const query = this.querySelector('input[name="q"]').value;
+    const url = new URL(window.location.href);
 
-  const data = JSON.parse(localStorage.getItem("userQuizData"));
-  const personality = data?.personality;
+    // Only run on search page
+    if (!url.pathname.includes("/search")) return;
 
-  if (personality) {
-    window.location.href = `/collections/products/${personality}?q=${query}`;
-  } else {
-    this.submit();
-  }
-});document.querySelector('form[action="/search"]').addEventListener("submit", function(e) {
-  e.preventDefault();
+    const dataStr = localStorage.getItem("userQuizData");
+    console.log("[Search Debug] localStorage:", dataStr);
 
-  const query = this.querySelector('input[name="q"]').value;
+    if (!dataStr) return;
 
-  const data = JSON.parse(localStorage.getItem("userQuizData"));
-  const personality = data?.personality;
+    let data;
+    try {
+      data = JSON.parse(dataStr);
+    } catch (e) {
+      console.error("[Search Debug] JSON error:", e);
+      return;
+    }
 
-  if (personality) {
-    window.location.href = `/collections/products/${personality}?q=${query}`;
-  } else {
-    this.submit();
-  }
-});
+    const personality = data?.personality;
+    console.log("[Search Debug] Personality:", personality);
+
+    if (!personality) return;
+
+    const query = url.searchParams.get("q");
+    console.log("[Search Debug] Original query:", query);
+
+    // Prevent infinite loop
+    if (query && query.includes(`tag:${personality}`)) {
+      console.log("[Search Debug] Tag already injected → skipping");
+      return;
+    }
+
+    // Inject tag
+    const newQuery = `${query} tag:${personality}`;
+    url.searchParams.set("q", newQuery);
+
+    console.log("[Search Debug] New query:", newQuery);
+    console.log("[Search Debug] Redirecting to:", url.toString());
+
+    window.location.href = url.toString();
+  });
 
     window.handleRedirect = function () {
     console.log("🔵 handleRedirect triggered");
