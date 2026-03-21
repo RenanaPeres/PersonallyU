@@ -258,50 +258,53 @@
 
   <script>
 
-  document.addEventListener("DOMContentLoaded", () => {
-    console.log("[Search Debug] Script loaded");
+document.addEventListener("DOMContentLoaded", () => {
+  console.log("[Search Debug] Script loaded");
 
-    const url = new URL(window.location.href);
+  const url = new URL(window.location.href);
 
-    // Only run on search page
-    if (!url.pathname.includes("/search")) return;
+  // Only run on /search
+  if (!url.pathname.includes("/search")) {
+    console.log("[Search Debug] Not a search page");
+    return;
+  }
 
-    const dataStr = localStorage.getItem("userQuizData");
-    console.log("[Search Debug] localStorage:", dataStr);
+  const dataStr = localStorage.getItem("userQuizData");
+  console.log("[Search Debug] localStorage:", dataStr);
 
-    if (!dataStr) return;
+  if (!dataStr) return;
 
-    let data;
-    try {
-      data = JSON.parse(dataStr);
-    } catch (e) {
-      console.error("[Search Debug] JSON error:", e);
-      return;
-    }
+  let data;
+  try {
+    data = JSON.parse(dataStr);
+  } catch (e) {
+    console.error("[Search Debug] JSON parse error:", e);
+    return;
+  }
 
-    const personality = data?.personality;
-    console.log("[Search Debug] Personality:", personality);
+  const personality = data?.personality;
+  console.log("[Search Debug] Personality:", personality);
 
-    if (!personality) return;
+  if (!personality) return;
 
-    const query = url.searchParams.get("q");
-    console.log("[Search Debug] Original query:", query);
+  let query = url.searchParams.get("q") || "";
+  console.log("[Search Debug] Original query:", query);
 
-    // Prevent infinite loop
-    if (query && query.includes(`tag:${personality}`)) {
-      console.log("[Search Debug] Tag already injected → skipping");
-      return;
-    }
+  // Prevent duplicate injection
+  if (query.includes(`tag:${personality}`)) {
+    console.log("[Search Debug] Tag already exists → skipping");
+    return;
+  }
 
-    // Inject tag
-    const newQuery = `${query} tag:${personality}`;
-    url.searchParams.set("q", newQuery);
+  // 🔥 Inject tag
+  const newQuery = `${query} tag:${personality}`.trim();
+  url.searchParams.set("q", newQuery);
 
-    console.log("[Search Debug] New query:", newQuery);
-    console.log("[Search Debug] Redirecting to:", url.toString());
+  console.log("[Search Debug] New query:", newQuery);
+  console.log("[Search Debug] Redirecting to:", url.toString());
 
-    window.location.href = url.toString();
-  });
+  window.location.replace(url.toString()); // better than href (no history loop)
+});
 
     window.handleRedirect = function () {
     console.log("🔵 handleRedirect triggered");
