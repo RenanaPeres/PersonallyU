@@ -257,8 +257,10 @@
   </div>
 
   <script>
+const form = document.querySelector('form[action="/search"]');
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("submit", (e) => {
+  e.preventDefault();
   console.log("[Search Debug] Script loaded");
 
   const url = new URL(window.location.href);
