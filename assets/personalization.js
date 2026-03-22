@@ -270,6 +270,22 @@ function observeAndRemoveProductCount() {
   }); 
 }
 
+function cleanInput(input) {
+  if (!input.value) return;
+
+  const original = input.value;
+
+  // Remove everything from "tag:" onward
+  const cleaned = original.split(/tag:/i)[0].trim();
+
+  if (original !== cleaned) {
+    console.log("[Search Clean] Before:", original);
+    console.log("[Search Clean] After:", cleaned);
+
+    input.value = cleaned;
+  }
+}
+
 function observeAndCleanSearchInput() {
   const observer = new MutationObserver(() => {
     const input = document.querySelector(
@@ -278,14 +294,14 @@ function observeAndCleanSearchInput() {
 
     if (!input) return;
 
-      observer.disconnect(); // 👈 stop after removing once
+    cleanInput(input);
   });
 
   observer.observe(document.body, {
     childList: true,
     subtree: true
   });
-}
+} 
 
 function getImageURLs() {
   
