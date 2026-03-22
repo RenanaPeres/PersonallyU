@@ -278,13 +278,14 @@ function observeAndCleanSearchInput() {
 
     if (!input) return;
 
-    cleanInput(input);
+      observer.disconnect(); // 👈 stop after removing once
   });
 
   observer.observe(document.body, {
     childList: true,
     subtree: true
   });
+}
 
 function getImageURLs() {
   
