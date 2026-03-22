@@ -195,46 +195,50 @@ const designedProductsURLsToPersonality = {
 
   
   // ------------------ Helpers ------------------
-function initSearchTagInjection() {
-  document.addEventListener(
-    "submit",
-    function (e) {
-      const form = e.target;
+document.addEventListener(
+  "submit",
+  function (e) {
+    const form = e.target;
 
-      if (!form.matches('form[action="/search"]')) return;
+    if (!form.matches('form[action="/search"]')) return;
 
-      console.log("[Search Debug] Intercepted submit BEFORE Shopify");
+    const input = form.querySelector('input[name="q"]');
+    if (!input) return;
 
-      const input = form.querySelector('input[name="q"]');
-      if (!input) return;
+    let query = input.value || "";
 
-      let query = input.value || "";
+    const dataStr = localStorage.getItem("userQuizData");
+    if (!dataStr) return;
 
-      const dataStr = localStorage.getItem("userQuizData");
-      if (!dataStr) return;
+    let data;
+    try {
+      data = JSON.parse(dataStr);
+    } catch {
+      return;
+    }
 
-      let data;
-      try {
-        data = JSON.parse(dataStr);
-      } catch {
-        return;
-      }
+    const personality = data?.personality;
+    if (!personality) return;
 
-      const personality = data?.personality;
-      if (!personality) return;
+    // 👇 IMPORTANT: do NOT modify visible input
+    const cleanQuery = query.split(/tag:/i)[0].trim();
 
-      if (query.includes(`tag:${personality}`)) return;
+    // 👇 build hidden query
+    const finalQuery = `${cleanQuery} tag:${personality}`;
 
-      const newQuery = `${query.trim()} tag:${personality.trim()}`;
-      console.log("[Search Debug] Final query:", newQuery);
+    console.log("[Search Debug] Final query (hidden):", finalQuery);
 
-      input.value = newQuery;
+    // 👇 temporarily override WITHOUT showing it
+    input.value = finalQuery;
 
-      // ❗ DO NOT preventDefault
-    },
-    true // 👈 CRITICAL: capture phase (runs BEFORE Shopify)
-  );
-}
+    // 👇 immediately restore clean UI (prevents flicker)
+    requestAnimationFrame(() => {
+      input.value = cleanQuery;
+    });
+
+  },
+  true
+);
 
 function observeAndRemovePredictiveGroups() {
   const observer = new MutationObserver(() => {
