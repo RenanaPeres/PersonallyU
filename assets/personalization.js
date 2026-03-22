@@ -195,7 +195,8 @@ const designedProductsURLsToPersonality = {
 
   
   // ------------------ Helpers ------------------
-document.addEventListener(
+function initSearchTagInjection() {
+  document.addEventListener(
   "submit",
   function (e) {
     const form = e.target;
@@ -239,6 +240,7 @@ document.addEventListener(
   },
   true
 );
+}
 
 function observeAndRemovePredictiveGroups() {
   const observer = new MutationObserver(() => {
