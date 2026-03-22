@@ -270,6 +270,22 @@ function observeAndRemoveProductCount() {
   }); 
 }
 
+function observeAndCleanSearchInput() {
+  const observer = new MutationObserver(() => {
+    const input = document.querySelector(
+      ".template-search__search input.search__input.field__input"
+    );
+
+    if (!input) return;
+
+    cleanInput(input);
+  });
+
+  observer.observe(document.body, {
+    childList: true,
+    subtree: true
+  });
+
 function getImageURLs() {
   
   const storedData = JSON.parse(localStorage.getItem("userQuizData") || "{}");
@@ -390,6 +406,7 @@ document.addEventListener("DOMContentLoaded", ()   => {
   initSearchTagInjection();
   observeAndRemovePredictiveGroups();
   observeAndRemoveProductCount();
+  observeAndCleanSearchInput();
 
 });
 
