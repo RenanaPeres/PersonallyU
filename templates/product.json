@@ -1,1 +1,155 @@
-{"sections":{"main":{"type":"main-product","blocks":{"text":{"type":"text","disabled":true,"settings":{"text":"Personally U","text_style":"body"}},"title":{"type":"title","settings":{}},"price":{"type":"price","settings":{}},"variant_picker":{"type":"variant_picker","settings":{"picker_type":"button","swatch_shape":"circle"}},"quantity_selector":{"type":"quantity_selector","settings":{}},"buy_buttons":{"type":"buy_buttons","settings":{"show_dynamic_checkout":false,"show_gift_card_recipient":true}},"custom_liquid_qg4MHJ":{"type":"custom_liquid","settings":{"custom_liquid":"<button id=\"checkoutNow\" class=\"button button--primary\" style=\"width: 100%; margin-top: 12px;\">\n  Checkout Now\n<\/button>\n\n<script>\n  document.getElementById('checkoutNow').addEventListener('click', function () {\n    var variantInput = document.querySelector('form[action^=\"\/cart\/add\"] [name=\"id\"]');\n    if (!variantInput || !variantInput.value) {\n      alert(\"Please select a product variant.\");\n      return;\n    }\n\n    var variantId = variantInput.value;\n\n    fetch('\/cart\/add.js', {\n      method: 'POST',\n      headers: { 'Content-Type': 'application\/json' },\n      body: JSON.stringify({ id: variantId, quantity: 1 })\n    })\n    .then(response => {\n      if (!response.ok) throw new Error(\"Add to cart failed\");\n      return response.json();\n    })\n    .then(() => {\n      window.location.href = '\/checkout';\n    })\n    .catch(error => {\n      console.error(error);\n      alert(\"Something went wrong. Please try again.\");\n    });\n  });\n<\/script>"}},"custom_liquid_xGnpxf":{"type":"custom_liquid","settings":{"custom_liquid":"<a href=\"\/collections\/customer\" style=\"\n  display: block;\n  width: 100%;\n  font-size: 15px;\n  padding: 11px 0;\n  background-color: #000000;\n  color: #ffffff;\n  border-radius: 17px;\n  text-align: center;\n  text-decoration: none;\n  margin-top: 16px;\n  white-space: nowrap;\n\">\n  ←  Continue Shopping\n<\/a>"}},"custom_liquid_VRzerY":{"type":"custom_liquid","settings":{"custom_liquid":"<div id='product-component-1739285053418'><\/div>\n<script type=\"text\/javascript\">\n\/*<![CDATA[*\/\n(function () {\n  var scriptURL = 'https:\/\/sdks.shopifycdn.com\/buy-button\/latest\/buy-button-storefront.min.js';\n  if (window.ShopifyBuy) {\n    if (window.ShopifyBuy.UI) {\n      ShopifyBuyInit();\n    } else {\n      loadScript();\n    }\n  } else {\n    loadScript();\n  }\n  function loadScript() {\n    var script = document.createElement('script');\n    script.async = true;\n    script.src = scriptURL;\n    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(script);\n    script.onload = ShopifyBuyInit;\n  }\n  function ShopifyBuyInit() {\n    var client = ShopifyBuy.buildClient({\n      domain: 'eqddp1-qt.myshopify.com',\n      storefrontAccessToken: '682da77f71c2df1fdac0a79c2fab886a',\n    });\n    ShopifyBuy.UI.onReady(client).then(function (ui) {\n      ui.createComponent('product', {\n        id: '8149477589174',\n        node: document.getElementById('product-component-1739285053418'),\n        moneyFormat: '%24%7B%7Bamount%7D%7D',\n        options: {\n  \"product\": {\n    \"styles\": {\n      \"product\": {\n        \"@media (min-width: 601px)\": {\n          \"max-width\": \"calc(25% - 20px)\",\n          \"margin-left\": \"20px\",\n          \"margin-bottom\": \"50px\"\n        }\n      },\n      \"button\": {\n        \"font-size\": \"16px\",\n        \"padding-top\": \"16px\",\n        \"padding-bottom\": \"16px\",\n        \":hover\": {\n          \"background-color\": \"#000000\"\n        },\n        \"background-color\": \"#000000\",\n        \":focus\": {\n          \"background-color\": \"#000000\"\n        },\n        \"border-radius\": \"40px\",\n        \"padding-left\": \"100px\",\n        \"padding-right\": \"100px\"\n      },\n      \"quantityInput\": {\n        \"font-size\": \"16px\",\n        \"padding-top\": \"16px\",\n        \"padding-bottom\": \"16px\"\n      }\n    },\n    \"buttonDestination\": \"checkout\",\n    \"contents\": {\n      \"img\": false,\n      \"title\": false,\n      \"price\": false\n    },\n    \"text\": {\n      \"button\": \"Buy now\"\n    }\n  },\n  \"productSet\": {\n    \"styles\": {\n      \"products\": {\n        \"@media (min-width: 601px)\": {\n          \"margin-left\": \"-20px\"\n        }\n      }\n    }\n  },\n  \"modalProduct\": {\n    \"contents\": {\n      \"img\": false,\n      \"imgWithCarousel\": true,\n      \"button\": false,\n      \"buttonWithQuantity\": true\n    },\n    \"styles\": {\n      \"product\": {\n        \"@media (min-width: 601px)\": {\n          \"max-width\": \"100%\",\n          \"margin-left\": \"0px\",\n          \"margin-bottom\": \"0px\"\n        }\n      },\n      \"button\": {\n        \"font-size\": \"16px\",\n        \"padding-top\": \"16px\",\n        \"padding-bottom\": \"16px\",\n        \":hover\": {\n          \"background-color\": \"#000000\"\n        },\n        \"background-color\": \"#000000\",\n        \":focus\": {\n          \"background-color\": \"#000000\"\n        },\n        \"border-radius\": \"40px\",\n        \"padding-left\": \"100px\",\n        \"padding-right\": \"100px\"\n      },\n      \"quantityInput\": {\n        \"font-size\": \"16px\",\n        \"padding-top\": \"16px\",\n        \"padding-bottom\": \"16px\"\n      }\n    },\n    \"text\": {\n      \"button\": \"Add to cart\"\n    }\n  },\n  \"option\": {},\n  \"cart\": {\n    \"styles\": {\n      \"button\": {\n        \"font-size\": \"16px\",\n        \"padding-top\": \"16px\",\n        \"padding-bottom\": \"16px\",\n        \":hover\": {\n          \"background-color\": \"#000000\"\n        },\n        \"background-color\": \"#000000\",\n        \":focus\": {\n          \"background-color\": \"#000000\"\n        },\n        \"border-radius\": \"40px\"\n      }\n    },\n    \"text\": {\n      \"total\": \"Subtotal\",\n      \"button\": \"Checkout\"\n    }\n  },\n  \"toggle\": {\n    \"styles\": {\n      \"toggle\": {\n        \"background-color\": \"#000000\",\n        \":hover\": {\n          \"background-color\": \"#000000\"\n        },\n        \":focus\": {\n          \"background-color\": \"#000000\"\n        }\n      },\n      \"count\": {\n        \"font-size\": \"16px\"\n      }\n    }\n  }\n},\n      });\n    });\n  }\n})();\n\/*]]>*\/\n<\/script>"}},"description":{"type":"description","settings":{}},"share":{"type":"share","settings":{"share_label":"Share"}}},"block_order":["text","title","price","variant_picker","quantity_selector","buy_buttons","custom_liquid_qg4MHJ","custom_liquid_xGnpxf","custom_liquid_VRzerY","description","share"],"custom_css":[".thumbnail {display: none;}"],"settings":{"enable_sticky_info":false,"color_scheme":"scheme-1","media_size":"medium","constrain_to_viewport":true,"media_fit":"contain","gallery_layout":"thumbnail","media_position":"left","image_zoom":"lightbox","mobile_thumbnails":"show","hide_variants":true,"enable_video_looping":false,"padding_top":36,"padding_bottom":44}},"related-products":{"type":"related-products","disabled":true,"settings":{"heading":"You may also like","heading_size":"h2","products_to_show":4,"columns_desktop":4,"color_scheme":"scheme-1","image_ratio":"square","image_shape":"default","show_secondary_image":false,"show_vendor":false,"show_rating":false,"columns_mobile":"2","padding_top":36,"padding_bottom":68}}},"order":["main","related-products"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "text": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": "Personally U",
+            "text_style": "body"
+          }
+        },
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
+        "price": {
+          "type": "price",
+          "settings": {}
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "swatch_shape": "circle"
+          }
+        },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": false,
+            "show_gift_card_recipient": true
+          }
+        },
+        "custom_liquid_qg4MHJ": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "<button id=\"checkoutNow\" class=\"button button--primary\" style=\"width: 100%; margin-top: 12px;\">\n  Checkout Now\n</button>\n\n<script>\n  document.getElementById('checkoutNow').addEventListener('click', function () {\n    var variantInput = document.querySelector('form[action^=\"/cart/add\"] [name=\"id\"]');\n    if (!variantInput || !variantInput.value) {\n      alert(\"Please select a product variant.\");\n      return;\n    }\n\n    var variantId = variantInput.value;\n\n    fetch('/cart/add.js', {\n      method: 'POST',\n      headers: { 'Content-Type': 'application/json' },\n      body: JSON.stringify({ id: variantId, quantity: 1 })\n    })\n    .then(response => {\n      if (!response.ok) throw new Error(\"Add to cart failed\");\n      return response.json();\n    })\n    .then(() => {\n      window.location.href = '/checkout';\n    })\n    .catch(error => {\n      console.error(error);\n      alert(\"Something went wrong. Please try again.\");\n    });\n  });\n</script>"
+          }
+        },
+        "custom_liquid_xGnpxf": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "<a href=\"/collections/customer\" style=\"\n  display: block;\n  width: 100%;\n  font-size: 15px;\n  padding: 11px 0;\n  background-color: #000000;\n  color: #ffffff;\n  border-radius: 17px;\n  text-align: center;\n  text-decoration: none;\n  margin-top: 16px;\n  white-space: nowrap;\n\">\n  ←  Continue Shopping\n</a>"
+          }
+        },
+        "custom_liquid_VRzerY": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "<div id='product-component-1739285053418'></div>\n<script type=\"text/javascript\">\n/*<![CDATA[*/\n(function () {\n  var scriptURL = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';\n  if (window.ShopifyBuy) {\n    if (window.ShopifyBuy.UI) {\n      ShopifyBuyInit();\n    } else {\n      loadScript();\n    }\n  } else {\n    loadScript();\n  }\n  function loadScript() {\n    var script = document.createElement('script');\n    script.async = true;\n    script.src = scriptURL;\n    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(script);\n    script.onload = ShopifyBuyInit;\n  }\n  function ShopifyBuyInit() {\n    var client = ShopifyBuy.buildClient({\n      domain: 'eqddp1-qt.myshopify.com',\n      storefrontAccessToken: '682da77f71c2df1fdac0a79c2fab886a',\n    });\n    ShopifyBuy.UI.onReady(client).then(function (ui) {\n      ui.createComponent('product', {\n        id: '8149477589174',\n        node: document.getElementById('product-component-1739285053418'),\n        moneyFormat: '%24%7B%7Bamount%7D%7D',\n        options: {\n  \"product\": {\n    \"styles\": {\n      \"product\": {\n        \"@media (min-width: 601px)\": {\n          \"max-width\": \"calc(25% - 20px)\",\n          \"margin-left\": \"20px\",\n          \"margin-bottom\": \"50px\"\n        }\n      },\n      \"button\": {\n        \"font-size\": \"16px\",\n        \"padding-top\": \"16px\",\n        \"padding-bottom\": \"16px\",\n        \":hover\": {\n          \"background-color\": \"#000000\"\n        },\n        \"background-color\": \"#000000\",\n        \":focus\": {\n          \"background-color\": \"#000000\"\n        },\n        \"border-radius\": \"40px\",\n        \"padding-left\": \"100px\",\n        \"padding-right\": \"100px\"\n      },\n      \"quantityInput\": {\n        \"font-size\": \"16px\",\n        \"padding-top\": \"16px\",\n        \"padding-bottom\": \"16px\"\n      }\n    },\n    \"buttonDestination\": \"checkout\",\n    \"contents\": {\n      \"img\": false,\n      \"title\": false,\n      \"price\": false\n    },\n    \"text\": {\n      \"button\": \"Buy now\"\n    }\n  },\n  \"productSet\": {\n    \"styles\": {\n      \"products\": {\n        \"@media (min-width: 601px)\": {\n          \"margin-left\": \"-20px\"\n        }\n      }\n    }\n  },\n  \"modalProduct\": {\n    \"contents\": {\n      \"img\": false,\n      \"imgWithCarousel\": true,\n      \"button\": false,\n      \"buttonWithQuantity\": true\n    },\n    \"styles\": {\n      \"product\": {\n        \"@media (min-width: 601px)\": {\n          \"max-width\": \"100%\",\n          \"margin-left\": \"0px\",\n          \"margin-bottom\": \"0px\"\n        }\n      },\n      \"button\": {\n        \"font-size\": \"16px\",\n        \"padding-top\": \"16px\",\n        \"padding-bottom\": \"16px\",\n        \":hover\": {\n          \"background-color\": \"#000000\"\n        },\n        \"background-color\": \"#000000\",\n        \":focus\": {\n          \"background-color\": \"#000000\"\n        },\n        \"border-radius\": \"40px\",\n        \"padding-left\": \"100px\",\n        \"padding-right\": \"100px\"\n      },\n      \"quantityInput\": {\n        \"font-size\": \"16px\",\n        \"padding-top\": \"16px\",\n        \"padding-bottom\": \"16px\"\n      }\n    },\n    \"text\": {\n      \"button\": \"Add to cart\"\n    }\n  },\n  \"option\": {},\n  \"cart\": {\n    \"styles\": {\n      \"button\": {\n        \"font-size\": \"16px\",\n        \"padding-top\": \"16px\",\n        \"padding-bottom\": \"16px\",\n        \":hover\": {\n          \"background-color\": \"#000000\"\n        },\n        \"background-color\": \"#000000\",\n        \":focus\": {\n          \"background-color\": \"#000000\"\n        },\n        \"border-radius\": \"40px\"\n      }\n    },\n    \"text\": {\n      \"total\": \"Subtotal\",\n      \"button\": \"Checkout\"\n    }\n  },\n  \"toggle\": {\n    \"styles\": {\n      \"toggle\": {\n        \"background-color\": \"#000000\",\n        \":hover\": {\n          \"background-color\": \"#000000\"\n        },\n        \":focus\": {\n          \"background-color\": \"#000000\"\n        }\n      },\n      \"count\": {\n        \"font-size\": \"16px\"\n      }\n    }\n  }\n},\n      });\n    });\n  }\n})();\n/*]]>*/\n</script>"
+          }
+        },
+        "description": {
+          "type": "description",
+          "settings": {}
+        },
+        "share": {
+          "type": "share",
+          "settings": {
+            "share_label": "Share"
+          }
+        }
+      },
+      "block_order": [
+        "text",
+        "title",
+        "price",
+        "variant_picker",
+        "quantity_selector",
+        "buy_buttons",
+        "custom_liquid_qg4MHJ",
+        "custom_liquid_xGnpxf",
+        "custom_liquid_VRzerY",
+        "description",
+        "share"
+      ],
+      "custom_css": [
+        ".thumbnail {display: none;}"
+      ],
+      "settings": {
+        "enable_sticky_info": false,
+        "color_scheme": "scheme-1",
+        "media_size": "medium",
+        "constrain_to_viewport": true,
+        "media_fit": "contain",
+        "gallery_layout": "thumbnail",
+        "media_position": "left",
+        "image_zoom": "lightbox",
+        "mobile_thumbnails": "show",
+        "hide_variants": true,
+        "enable_video_looping": false,
+        "padding_top": 36,
+        "padding_bottom": 44
+      }
+    },
+    "related-products": {
+      "type": "related-products",
+      "disabled": true,
+      "settings": {
+        "heading": "You may also like",
+        "heading_size": "h2",
+        "products_to_show": 4,
+        "columns_desktop": 4,
+        "color_scheme": "scheme-1",
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "columns_mobile": "2",
+        "padding_top": 36,
+        "padding_bottom": 68
+      }
+    },
+    "17757543524c426089": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_review_widget_LrLcxj": {
+          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "review_data": "sample_data",
+            "max_width": 1200,
+            "show_shop_reviews": false,
+            "empty_state": "empty_widget"
+          }
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_review_widget_LrLcxj"
+      ],
+      "settings": {
+        "include_margins": true
+      }
+    }
+  },
+  "order": [
+    "main",
+    "related-products",
+    "17757543524c426089"
+  ]
+}
