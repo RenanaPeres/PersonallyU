@@ -181,7 +181,7 @@
     {%- endif -%}
 
     <!-- "To Catalog" triggers popup -->
-    <a href="javascript:void(0);" onclick="handleRedirect()" class="button button--secondary">
+    <a href="javascript:void(0);" onclick="handleRedirect()" class="link underlined-link">
       {{ block.settings.button_label_2 | escape }}
     </a>
   </div>
@@ -257,6 +257,58 @@
   </div>
 
   <script>
+
+  
+    window.handleRedirect = function () {
+    console.log("🔵 handleRedirect triggered");
+
+    const defaultUrl = "https://personallyu.com/collections/customer/";
+    const productsUrl = "https://personallyu.com/collections/products/";
+    const raw = localStorage.getItem("userQuizData");
+
+    console.log("📦 Raw localStorage data:", raw);
+
+    // ❌ Case 1: no data → customer catalog
+    if (!raw) {
+      console.warn("⚠️ No data → redirecting to CUSTOMER catalog");
+      return redirect(defaultUrl);
+    }
+
+    try {
+      const parsed = JSON.parse(raw);
+      console.log("✅ Parsed data:", parsed);
+
+      const { personality, responseId } = parsed;
+
+      // ❌ Case 1: missing fields → customer catalog
+      if (!personality || !responseId) {
+        console.warn("⚠️ Missing fields → redirecting to CUSTOMER catalog");
+        return redirect(defaultUrl);
+      }
+
+      // ✅ Case 2: valid data → PRODUCTS catalog
+      const params = new URLSearchParams({
+        response_id: responseId,
+        set: personality
+      });
+
+      const finalUrl = `${productsUrl}${personality}?${params.toString()}`;
+
+      console.log("🚀 Redirecting to PRODUCTS catalog:", finalUrl);
+
+      redirect(finalUrl);
+
+    } catch (error) {
+      console.error("❌ JSON parse error → redirecting to CUSTOMER catalog:", error);
+      return redirect(defaultUrl);
+    }
+  };
+
+  function redirect(url) {
+    console.log("➡️ Navigating to:", url);
+    window.location.href = url;
+  }
+    
     function showPopup() {
       document.getElementById("popupOverlay").style.display = "block";
       document.getElementById("popupBox").style.display = "block";
@@ -282,25 +334,7 @@
       return false;
     }
 
-      // ✅ New function to redirect based on localStorage
-    function handleRedirect() {
-      const dataStr = localStorage.getItem("userQuizData");
-      
-      try {
-        const data = JSON.parse(dataStr);
-        const catalogUrl = "https://personallyu.com/collections/products/"; // ✅ Corrected base URL
-  
-        if (!data.personality || !data.responseId) {
-          showPopup(); // fallback if key data is missing
-          return;
-        }
-  
-        // ✅ Redirect to personalized product collection
-        window.location.href = `${catalogUrl}${data.personality}?response_id=${data.responseId}&set=${data.personality}`;
-      } catch (e) {
-        showPopup(); // fallback if data is invalid or not present
-      }
-    }
+    
   </script>
 {%- endcase -%}
        <!-- end of Popup mai added this -->

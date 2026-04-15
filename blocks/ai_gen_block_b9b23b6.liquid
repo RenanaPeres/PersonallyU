@@ -1,0 +1,335 @@
+{% doc %}
+  @prompt
+    I want to generate a collage of two images only where dexription is placed below each image.  Create custom CSS code to center an image collage block horizontally on the page. The CSS should target the image collage container and apply margin auto or flexbox centering to ensure the 4-image collage is centered within its section. Also, make sure the image can have circular size and that both images can be cropped to have the same height and width regardless of the original size.
+    
+    
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-image-collage-{{ ai_gen_id }} {
+    display: block;
+    width: 100%;
+    padding: 20px;
+  }
+
+  .ai-image-collage-container-{{ ai_gen_id }} {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: {{ block.settings.gap }}px;
+    width: {{ block.settings.desktop_width_percent }}%;
+    margin: 0 auto;
+    flex-wrap: wrap;
+  }
+
+  .ai-image-collage-item-{{ ai_gen_id }} {
+    flex: 0 1 calc(50% - {{ block.settings.gap | divided_by: 2 }}px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: {{ block.settings.description_gap }}px;
+  }
+
+  .ai-image-collage-image-wrapper-{{ ai_gen_id }} {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    {% if block.settings.image_shape == 'circle' %}
+      border-radius: 50%;
+      aspect-ratio: 1 / 1;
+    {% else %}
+      border-radius: {{ block.settings.border_radius }}px;
+    {% endif %}
+  }
+
+  .ai-image-collage-image-{{ ai_gen_id }} {
+    width: {{ block.settings.image_size }}px;
+    height: {{ block.settings.image_size }}px;
+    object-fit: cover;
+    display: block;
+  }
+
+  .ai-image-collage-placeholder-{{ ai_gen_id }} {
+    width: {{ block.settings.image_size }}px;
+    height: {{ block.settings.image_size }}px;
+    background-color: #f4f4f4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    {% if block.settings.image_shape == 'circle' %}
+      border-radius: 50%;
+    {% else %}
+      border-radius: {{ block.settings.border_radius }}px;
+    {% endif %}
+  }
+
+  .ai-image-collage-placeholder-{{ ai_gen_id }} svg {
+    width: 100%;
+    height: 100%;
+    {% if block.settings.image_shape == 'circle' %}
+      border-radius: 50%;
+    {% else %}
+      border-radius: {{ block.settings.border_radius }}px;
+    {% endif %}
+  }
+
+  .ai-image-collage-description-{{ ai_gen_id }} {
+    text-align: {{ block.settings.text_alignment }};
+    color: {{ block.settings.text_color }};
+    font-size: {{ block.settings.text_size }}px;
+    width: 100%;
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-image-collage-container-{{ ai_gen_id }} {
+      width: 100%;
+      {% if block.settings.mobile_layout == 'column' %}
+        flex-direction: column;
+      {% endif %}
+    }
+
+    .ai-image-collage-item-{{ ai_gen_id }} {
+      {% if block.settings.mobile_layout == 'column' %}
+        flex: 0 1 100%;
+      {% else %}
+        flex: 0 1 calc(50% - {{ block.settings.gap | divided_by: 2 }}px);
+      {% endif %}
+    }
+
+    .ai-image-collage-image-{{ ai_gen_id }} {
+      width: {{ block.settings.image_size | times: 0.8 }}px;
+      height: {{ block.settings.image_size | times: 0.8 }}px;
+    }
+
+    .ai-image-collage-placeholder-{{ ai_gen_id }} {
+      width: {{ block.settings.image_size | times: 0.8 }}px;
+      height: {{ block.settings.image_size | times: 0.8 }}px;
+    }
+  }
+{% endstyle %}
+
+<image-collage-{{ ai_gen_id }} class="ai-image-collage-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="ai-image-collage-container-{{ ai_gen_id }}">
+    <div class="ai-image-collage-item-{{ ai_gen_id }}">
+      <div class="ai-image-collage-image-wrapper-{{ ai_gen_id }}">
+        {% if block.settings.image_1 %}
+          <img
+            src="{{ block.settings.image_1 | image_url: width: 1000 }}"
+            alt="{{ block.settings.image_1.alt | escape }}"
+            class="ai-image-collage-image-{{ ai_gen_id }}"
+            loading="lazy"
+            width="{{ block.settings.image_size }}"
+            height="{{ block.settings.image_size }}"
+          >
+        {% else %}
+          <div class="ai-image-collage-placeholder-{{ ai_gen_id }}">
+            {{ 'image' | placeholder_svg_tag }}
+          </div>
+        {% endif %}
+      </div>
+      {% if block.settings.description_1 != blank %}
+        <div class="ai-image-collage-description-{{ ai_gen_id }}">
+          {{ block.settings.description_1 }}
+        </div>
+      {% endif %}
+    </div>
+
+    <div class="ai-image-collage-item-{{ ai_gen_id }}">
+      <div class="ai-image-collage-image-wrapper-{{ ai_gen_id }}">
+        {% if block.settings.image_2 %}
+          <img
+            src="{{ block.settings.image_2 | image_url: width: 1000 }}"
+            alt="{{ block.settings.image_2.alt | escape }}"
+            class="ai-image-collage-image-{{ ai_gen_id }}"
+            loading="lazy"
+            width="{{ block.settings.image_size }}"
+            height="{{ block.settings.image_size }}"
+          >
+        {% else %}
+          <div class="ai-image-collage-placeholder-{{ ai_gen_id }}">
+            {{ 'image' | placeholder_svg_tag }}
+          </div>
+        {% endif %}
+      </div>
+      {% if block.settings.description_2 != blank %}
+        <div class="ai-image-collage-description-{{ ai_gen_id }}">
+          {{ block.settings.description_2 }}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</image-collage-{{ ai_gen_id }}>
+
+{% schema %}
+{
+  "name": "Image collage",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "desktop_width_percent",
+      "label": "Desktop width",
+      "min": 50,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 100
+    },
+    {
+      "type": "select",
+      "id": "mobile_layout",
+      "label": "Mobile layout",
+      "options": [
+        {
+          "value": "row",
+          "label": "2 columns"
+        },
+        {
+          "value": "column",
+          "label": "1 column"
+        }
+      ],
+      "default": "row"
+    },
+    {
+      "type": "range",
+      "id": "gap",
+      "label": "Gap between images",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "description_gap",
+      "label": "Gap below image",
+      "min": 0,
+      "max": 50,
+      "step": 5,
+      "unit": "px",
+      "default": 15
+    },
+    {
+      "type": "header",
+      "content": "Image 1"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_1",
+      "label": "Image"
+    },
+    {
+      "type": "richtext",
+      "id": "description_1",
+      "label": "Description",
+      "default": "<p>Add a description for this image</p>"
+    },
+    {
+      "type": "header",
+      "content": "Image 2"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_2",
+      "label": "Image"
+    },
+    {
+      "type": "richtext",
+      "id": "description_2",
+      "label": "Description",
+      "default": "<p>Add a description for this image</p>"
+    },
+    {
+      "type": "header",
+      "content": "Image style"
+    },
+    {
+      "type": "select",
+      "id": "image_shape",
+      "label": "Image shape",
+      "options": [
+        {
+          "value": "square",
+          "label": "Square"
+        },
+        {
+          "value": "circle",
+          "label": "Circle"
+        }
+      ],
+      "default": "square"
+    },
+    {
+      "type": "range",
+      "id": "image_size",
+      "label": "Image size",
+      "min": 100,
+      "max": 500,
+      "step": 10,
+      "unit": "px",
+      "default": 300
+    },
+    {
+      "type": "range",
+      "id": "border_radius",
+      "label": "Border radius",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 6
+    },
+    {
+      "type": "header",
+      "content": "Text style"
+    },
+    {
+      "type": "select",
+      "id": "text_alignment",
+      "label": "Text alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "range",
+      "id": "text_size",
+      "label": "Text size",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#1b1818"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Image collage"
+    }
+  ]
+}
+{% endschema %}

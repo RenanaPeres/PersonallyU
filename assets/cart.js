@@ -16,33 +16,33 @@ customElements.define("cart-remove-button", CartRemoveButton);
 function buildAndStoreProductVariantMap(parsedCartState) {
   if (!parsedCartState || !parsedCartState.items) return;
 
-  // ♻️ Restore personality if missing
+  // 1. ♻️ Restore or Create Personality
   let currentClickedPersonality =
     localStorage.getItem("currentClickedPersonality") || null;
 
   if (!currentClickedPersonality) {
     try {
-      // Try to fallback to quiz data
       const quizData = JSON.parse(localStorage.getItem("userQuizData") || "{}");
       if (quizData.personality) {
         currentClickedPersonality = quizData.personality;
       }
     } catch (err) {
-      console.warn("⚠️ Could not restore personality from quiz data:", err);
+      console.warn("⚠️ Could not restore personality:", err);
     }
-
-    // Default fallback if still missing
-    currentClickedPersonality =
-      currentClickedPersonality || "unknownPersonality";
-    localStorage.setItem(
-      "currentClickedPersonality",
-      currentClickedPersonality
-    );
+    currentClickedPersonality = currentClickedPersonality || "unknownPersonality";
+    localStorage.setItem("currentClickedPersonality", currentClickedPersonality);
   }
 
-  const productVariantMap = {};
+  // 2. 🆔 GENERATE ACADEMIC ID (The Fix)
+  // This creates a permanent, random ID for your research
+  let academicId = localStorage.getItem("academic_participant_id");
+  if (!academicId) {
+    academicId = "part_" + Math.random().toString(36).substr(2, 9);
+    localStorage.setItem("academic_participant_id", academicId);
+  }
 
-  // 🗺️ Map each design to its animal and personality
+  // 3. 🗺️ Map Logic
+  const productVariantMap = {};
   const designMap = {
     "design 2": { animal: "armadilo", personality: "ownPersonality" },
     "design 3": { animal: "armadilo", personality: "antiPersonality" },
@@ -65,12 +65,7 @@ function buildAndStoreProductVariantMap(parsedCartState) {
     const price = item.final_price / 100 || 0;
     const linePrice = item.line_price / 100 || 0;
 
-    // 🧩 Extract design part + number
     const [designPart] = variantTitle.split(" / ");
-    const designNumberMatch = designPart.match(/design\s*(\d+)/i);
-    const designNumber = designNumberMatch ? designNumberMatch[1] : "NA";
-
-    // 🦊 Match animal/personality from designMap
     const match = Object.entries(designMap).find(([key]) =>
       designPart.includes(key)
     );
@@ -78,125 +73,90 @@ function buildAndStoreProductVariantMap(parsedCartState) {
       ? match[1]
       : {};
 
-    // 🧠 Create detailed item object
+    const designNumberMatch = designPart.match(/design\s*(\d+)/i);
+    const designNumber = designNumberMatch ? designNumberMatch[1] : "NA";
+
     const detailedItem = {
-      productName,
-      productId,
-      variantId,
-      variantTitle,
-      size,
-      quantity,
-      price,
-      linePrice,
-      animal,
-      personality,
-      currentClickedPersonality,
-      designNumber,
+      productName, productId, variantId, variantTitle, size, quantity, price, linePrice, animal, personality, currentClickedPersonality, designNumber,
     };
 
-    // 🏗️ Build nested object by product → animal → personality
     if (!productVariantMap[productName]) productVariantMap[productName] = {};
-    if (!productVariantMap[productName][animal])
-      productVariantMap[productName][animal] = {};
-    if (!productVariantMap[productName][animal][personality])
-      productVariantMap[productName][animal][personality] = [];
-
+    if (!productVariantMap[productName][animal]) productVariantMap[productName][animal] = {};
+    if (!productVariantMap[productName][animal][personality]) productVariantMap[productName][animal][personality] = [];
     productVariantMap[productName][animal][personality].push(detailedItem);
   });
 
-  console.log("✅ Enriched + Persistent productVariantMap:", productVariantMap);
-
-  // 💾 Store results (including personality)
+  // 4. 💾 Store & Send
   localStorage.setItem("parsedCartState", JSON.stringify(parsedCartState));
   localStorage.setItem("productVariantMap", JSON.stringify(productVariantMap));
-  localStorage.setItem("currentClickedPersonality", currentClickedPersonality);
 
-  console.log("💾 Saved enriched productVariantMap:", productVariantMap);
-
-  // 📊 Push GA event (with flattened array)
-
-  // 📊 Push GA events using GA4-native eCommerce structure
   setTimeout(() => {
     const data = localStorage.getItem("productVariantMap");
-    if (!data) {
-      console.warn("⏳ No productVariantMap in localStorage yet");
-      return;
-    }
+    if (!data) return;
 
     const parsedMap = JSON.parse(data);
     const flattened = [];
+    const minifiedList = [];
 
-    // Flatten nested map → array of detailed items
     Object.values(parsedMap).forEach((animalObj) => {
       Object.values(animalObj).forEach((personalityObj) => {
         Object.values(personalityObj).forEach((itemsArray) => {
           flattened.push(...itemsArray);
+          itemsArray.forEach((i) => {
+            minifiedList.push({
+              a: i.animal,
+              p: i.personality === "ownPersonality" ? "Own" : i.personality === "antiPersonality" ? "Anti" : "Neu",
+              d: i.designNumber,
+              s: i.size,
+              q: i.quantity
+            });
+          });
         });
       });
     });
 
-    const currentClickedPersonality =
-      localStorage.getItem("currentClickedPersonality") || "unknownPersonality";
-
-    // ✅ Build GA4-native items array
     const gaItems = flattened.map((item, index) => ({
       item_name: item.productName,
       item_id: item.productId,
       item_variant: item.variantTitle,
-      item_brand: "PersonallyU", // customize your brand name
+      item_brand: "PersonallyU",
       price: item.price,
       quantity: item.quantity,
-      item_category: item.animal, // 🐾 animal
-      item_category2: item.personality, // 🧠 product personality
-      item_category3: item.designNumber, // 🎨 design number
-      item_category4: currentClickedPersonality, // 💫 user's personality
+      item_category: item.animal,
+      item_category2: item.personality,
+      item_category3: item.size,
+      item_category4: item.designNumber,
       index: index + 1,
     }));
 
     const totalValue = flattened.reduce((sum, i) => sum + i.linePrice, 0);
 
-    window.dataLayer = window.dataLayer || [];
+    const cartSummaryString = flattened
+      .map(i => {
+         const shortName = i.productName.replace(/Your Personalized /i, "").trim();
+         return `${shortName}:${i.animal}(${i.personality.substring(0, 3)}/${i.size})x${i.quantity}`;
+      })
+      .join(" | ");
 
-    // 🧩 1. Always push the base event
+    window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({
       event: "productVariantMap_ready",
       personality: currentClickedPersonality,
       cart_value: totalValue,
       cart_timestamp: new Date().toISOString(),
       items: gaItems,
+      // 🚀 SLIM DATA
+      productVariantMap: JSON.stringify(minifiedList),
+      user_properties: {
+        cart_status_receipt: cartSummaryString,
+        current_cart_animal: flattened[0]?.animal || "empty",
+        participant_id: academicId  // <--- YOUR NEW ACADEMIC ID
+      },
     });
 
-    console.log("📈 GA push (GA4-native items):", gaItems);
+    console.log("🎓 Academic ID:", academicId);
+    console.log("🧾 Receipt:", cartSummaryString);
 
-    // 🧩 2. Fire 'view_cart' automatically on cart page
-    if (window.location.pathname.includes("/cart")) {
-      window.dataLayer.push({
-        event: "view_cart",
-        currency: "USD",
-        value: totalValue,
-        items: gaItems,
-        personality: currentClickedPersonality,
-      });
-      console.log("🛒 Sent view_cart event to GA");
-    }
-
-    // 🧩 3. Attach begin_checkout when checkout button is clicked
-    const checkoutBtn = document.querySelector(
-      '[name="checkout"], .checkout, #checkout'
-    );
-    if (checkoutBtn && !checkoutBtn.hasGAListener) {
-      checkoutBtn.hasGAListener = true;
-      checkoutBtn.addEventListener("click", () => {
-        window.dataLayer.push({
-          event: "begin_checkout",
-          currency: "USD",
-          value: totalValue,
-          items: gaItems,
-          personality: currentClickedPersonality,
-        });
-        console.log("🚀 Sent begin_checkout event to GA");
-      });
-    }
   }, 800);
 }
 

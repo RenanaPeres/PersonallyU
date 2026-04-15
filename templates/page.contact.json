@@ -1,7 +1,376 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
+    "rich_text_CqLBXc": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_qyWFiT": {
+          "type": "heading",
+          "settings": {
+            "heading": "About us",
+            "heading_size": "h1"
+          }
+        }
+      },
+      "block_order": [
+        "heading_qyWFiT"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "177357475113e2a8c4": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_7e2ac9e_LckJwT": {
+          "type": "ai_gen_block_7e2ac9e",
+          "settings": {
+            "heading": "<p>The Science Behind Personality-Based Design</p>",
+            "heading_font": "trirong_n3",
+            "heading_size": 36,
+            "heading_alignment": "center",
+            "heading_color": "#1b1818",
+            "heading_spacing": 0,
+            "paragraph": "<p>PersonallyU is a research project developed by researchers studying the relationship between personality and visual design. It explores how personality shapes visual preferences and how these insights can be used to generate personalized designs. Visitors to the site receive designs generated from their personality profile and can print them on products that are produced and shipped to them. At the same time, their interaction with the system contributes to research on personalization and visual preferences.</p>",
+            "paragraph_font": "quattrocento_sans_n4",
+            "paragraph_size": 16,
+            "paragraph_alignment": "left",
+            "paragraph_color": "#1b1818",
+            "line_height": 1.6,
+            "content_max_width": 800,
+            "desktop_width_percent": 100,
+            "background_color": "#f1eee6",
+            "padding_top": 0,
+            "padding_bottom": 0,
+            "padding_horizontal": 24
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_7e2ac9e_Qbzdik": {
+          "type": "ai_gen_block_7e2ac9e",
+          "settings": {
+            "heading": "<p>Turning Personality Into Design</p>",
+            "heading_font": "trirong_n3",
+            "heading_size": 36,
+            "heading_alignment": "center",
+            "heading_color": "#1b1818",
+            "heading_spacing": 0,
+            "paragraph": "<p>Personalization has transformed many areas of digital life. Online platforms recommend music, movies, and products based on individual preferences. Yet visual design, one of the most powerful elements in communication, is rarely personalized. PersonallyU explores whether visual designs can be created specifically for an individual’s personality. You begin by completing a short personality questionnaire. Based on your personality profile, the system generates a set of designs tailored to you. You can then select a design and print it on products such as T-shirts, hats, or water bottles. These products are produced and shipped to you, allowing you to enjoy a design created specifically for your personality. At the same time, your interaction with the system contributes to research on how personality shapes visual preferences and product choices.</p>",
+            "paragraph_font": "quattrocento_sans_n4",
+            "paragraph_size": 16,
+            "paragraph_alignment": "left",
+            "paragraph_color": "#1b1818",
+            "line_height": 1.6,
+            "content_max_width": 800,
+            "desktop_width_percent": 100,
+            "background_color": "#f1eee6",
+            "padding_top": 0,
+            "padding_bottom": 0,
+            "padding_horizontal": 20
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_7e2ac9e_MjpK6r": {
+          "type": "ai_gen_block_7e2ac9e",
+          "settings": {
+            "heading": "<p>Mapping Personality to Visual Design</p>",
+            "heading_font": "trirong_n3",
+            "heading_size": 36,
+            "heading_alignment": "center",
+            "heading_color": "#1b1818",
+            "heading_spacing": 0,
+            "paragraph": "<p>The designs in PersonallyU are not created randomly. They are based on a research process that connects personality traits to visual characteristics. We scanned the psychological literature on personality, focusing on the well-established <a href=\"https://en.wikipedia.org/wiki/Big_Five_personality_traits\" title=\"https://en.wikipedia.org/wiki/Big_Five_personality_traits\">Big Five model</a>. This model describes personality using five broad dimensions: openness to experience, conscientiousness, extraversion, agreeableness, and emotional stability. Decades of research show that these traits influence how people behave, what activities they enjoy, what music they listen to, how they interact with others, and how they express themselves. For example, different personality traits are associated with different levels of exploration, social activity, emotional expression, and aesthetic preferences. People who score high on openness may gravitate toward novelty and artistic expression, while more conscientious individuals often prefer structure, order, and clarity. Using insights from this literature, we created detailed dictionaries which map personality traits into actions, behaviors, moods, environments, and activities.</p>",
+            "paragraph_font": "quattrocento_sans_n4",
+            "paragraph_size": 16,
+            "paragraph_alignment": "left",
+            "paragraph_color": "#1b1818",
+            "line_height": 1.6,
+            "content_max_width": 800,
+            "desktop_width_percent": 100,
+            "background_color": "#f1eee6",
+            "padding_top": 0,
+            "padding_bottom": 0,
+            "padding_horizontal": 20
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_d42cee7_a4GNDP": {
+          "type": "ai_gen_block_d42cee7",
+          "settings": {
+            "image": "shopify://shop_images/b4d3f462-10f8-4ea5-945b-20fd3e3a99e2.png",
+            "aspect_ratio": "4/3",
+            "image_fit": "contain",
+            "border_radius": 6,
+            "desktop_width_percent": 50
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_7e2ac9e_nD7cyM": {
+          "type": "ai_gen_block_7e2ac9e",
+          "settings": {
+            "heading": "<p>What We Learn From The Project</p>",
+            "heading_font": "trirong_n3",
+            "heading_size": 36,
+            "heading_alignment": "center",
+            "heading_color": "#1b1818",
+            "heading_spacing": 0,
+            "paragraph": "<p>The project allows us to study how people respond to personalized visual designs. We study examine whether designs that reflect an individual's personality lead to stronger reactions such as:</p>",
+            "paragraph_font": "quattrocento_sans_n4",
+            "paragraph_size": 16,
+            "paragraph_alignment": "left",
+            "paragraph_color": "#1b1818",
+            "line_height": 1.6,
+            "content_max_width": 800,
+            "desktop_width_percent": 100,
+            "background_color": "#f1eee6",
+            "padding_top": 0,
+            "padding_bottom": 0,
+            "padding_horizontal": 20
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_7e2ac9e_LckJwT",
+        "ai_gen_block_7e2ac9e_Qbzdik",
+        "ai_gen_block_7e2ac9e_MjpK6r",
+        "ai_gen_block_d42cee7_a4GNDP",
+        "ai_gen_block_7e2ac9e_nD7cyM"
+      ],
+      "settings": {}
+    },
+    "1773224213347c89ff": {
+      "type": "_blocks",
+      "settings": {}
+    },
+    "blocks_TbweXh": {
+      "type": "_blocks",
+      "name": "Content section",
+      "settings": {}
+    },
+    "blocks_qeQQYa": {
+      "type": "_blocks",
+      "name": "Content section",
+      "settings": {}
+    },
+    "multicolumn_FG3Tp7": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_qfY6Bd": {
+          "type": "column",
+          "settings": {
+            "title": "<strong>Recognition</strong>",
+            "text": "<p>Do people feel a design reflects them?</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_TEP7KD": {
+          "type": "column",
+          "settings": {
+            "title": "<strong>Liking</strong>",
+            "text": "<p>Do people prefer designs matching their personality?</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_wtm4g4": {
+          "type": "column",
+          "settings": {
+            "title": "<strong>Ownership</strong>",
+            "text": "<p>Do people want to own the design?</p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_qfY6Bd",
+        "column_TEP7KD",
+        "column_wtm4g4"
+      ],
+      "name": "t:sections.multicolumn.presets.name",
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 3,
+        "column_alignment": "left",
+        "background_style": "primary",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "blocks_Yi6ek6": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_7e2ac9e_QdQXjn": {
+          "type": "ai_gen_block_7e2ac9e",
+          "settings": {
+            "heading": "",
+            "heading_font": "trirong_n3",
+            "heading_size": 36,
+            "heading_alignment": "center",
+            "heading_color": "#1b1818",
+            "heading_spacing": 24,
+            "paragraph": "<p>Understanding these responses can help researchers and designers learn how personalization may shape visual communication and product design in the future.</p>",
+            "paragraph_font": "quattrocento_sans_n4",
+            "paragraph_size": 16,
+            "paragraph_alignment": "left",
+            "paragraph_color": "#1b1818",
+            "line_height": 1.6,
+            "content_max_width": 800,
+            "desktop_width_percent": 100,
+            "background_color": "#f1eee6",
+            "padding_top": 60,
+            "padding_bottom": 60,
+            "padding_horizontal": 20
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_7e2ac9e_QdQXjn"
+      ],
+      "name": "Content section",
+      "settings": {}
+    },
+    "rich_text_tDNytV": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_Bjnk6E": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>About the Researchers</strong>",
+            "heading_size": "h1"
+          }
+        },
+        "text_jimmYp": {
+          "type": "text",
+          "settings": {
+            "text": ""
+          }
+        }
+      },
+      "block_order": [
+        "heading_Bjnk6E",
+        "text_jimmYp"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-1",
+        "full_width": true,
+        "padding_top": 0,
+        "padding_bottom": 16
+      }
+    },
+    "1773406163d1ce8f7b": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_fef33d4_x4JmTj": {
+          "type": "ai_gen_block_fef33d4",
+          "settings": {
+            "image_1": "shopify://shop_images/renana_photo_939bb76b-04d5-4fbe-8b57-683077d96625.webp",
+            "heading_1": "Prof. Renana Peres",
+            "text_1": "<p><em>KMART Professor of Marketing and Head of the Marketing Department at the Hebrew University Business School, and Head of the MBA International Program. Holds a PhD in Marketing from Tel Aviv University, MSc and BSc in Physics from the Hebrew University of Jerusalem, and an MBA from Tel Aviv University. </em></p><p><em>Author of Innovation Diffusion and New Product Growth. Research focuses on the interplay between brands, consumer social interactions, and firm decisions, including how brand perceptions are formed, how word of mouth spreads, and how social interactions translate into sales. Work also examines consumer data ownership and monetization using methodologies such as blockchain, agent-based models, machine learning, content analysis, and diffusion models. Senior Editor of the International Journal of Research in Marketing, with publications across exact sciences, social sciences, and humanities</em></p>",
+            "image_2": "shopify://shop_images/schweidel_2.jpg",
+            "heading_2": "Prof. David A. Schweidel",
+            "text_2": "<p><em>Professor of Marketing at Emory University’s Goizueta Business School. Holds a B.A. in mathematics, M.A. in statistics, and Ph.D. in marketing from the University of Pennsylvania. Author of Social Media Intelligence and Profiting from the Data Economy.</em></p><p><em><br/>Research focuses on customer relationship management, social media analytics, and the development of statistical models to understand customer behavior and support managerial decision-making. Work examines how technology and data shape interactions between consumers and firms. Publications appear in leading journals including Journal of Marketing, Journal of Marketing Research, Marketing Science, and Management Science, and have received multiple academic awards and recognitions.</em></p>",
+            "desktop_width_percent": 100,
+            "content_max_width": 900,
+            "column_gap": 60,
+            "mobile_row_gap": 40,
+            "section_padding": 40,
+            "image_size": 200,
+            "image_background_color": "#f1eee6",
+            "image_text_gap": 25,
+            "text_max_width": 400,
+            "heading_size": 24,
+            "heading_color": "#1b1818",
+            "heading_spacing": 15,
+            "text_size": 16,
+            "text_color": "#1b1818"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_fef33d4_x4JmTj"
+      ],
+      "settings": {}
+    },
+    "177322654624c55ee8": {
+      "type": "_blocks",
+      "settings": {}
+    },
+    "rich_text_ArBqpb": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_WhQGnx": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>Curious to see your own design?</strong>",
+            "heading_size": "h1"
+          }
+        },
+        "text_3giPip": {
+          "type": "text",
+          "settings": {
+            "text": ""
+          }
+        },
+        "button_wjUBHM": {
+          "type": "button",
+          "settings": {
+            "button_label": "Start Personality Test ",
+            "button_link": "https://huji.questionpro.eu/t/AB3u4A6ZB3wYPw",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_WhQGnx",
+        "text_3giPip",
+        "button_wjUBHM"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
     "main": {
       "type": "main-page",
+      "disabled": true,
       "settings": {
         "padding_top": 36,
         "padding_bottom": 36
@@ -10,15 +379,26 @@
     "form": {
       "type": "contact-form",
       "settings": {
-        "heading": "",
+        "heading": "Contact Us",
         "heading_size": "h1",
         "color_scheme": "scheme-1",
-        "padding_top": 0,
-        "padding_bottom": 88
+        "padding_top": 28,
+        "padding_bottom": 20
       }
     }
   },
   "order": [
+    "rich_text_CqLBXc",
+    "177357475113e2a8c4",
+    "1773224213347c89ff",
+    "blocks_TbweXh",
+    "blocks_qeQQYa",
+    "multicolumn_FG3Tp7",
+    "blocks_Yi6ek6",
+    "rich_text_tDNytV",
+    "1773406163d1ce8f7b",
+    "177322654624c55ee8",
+    "rich_text_ArBqpb",
     "main",
     "form"
   ]

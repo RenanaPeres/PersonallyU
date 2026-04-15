@@ -195,6 +195,119 @@ const designedProductsURLsToPersonality = {
 
   
   // ------------------ Helpers ------------------
+function initSearchTagInjection() {
+  document.addEventListener(
+  "submit",
+  function (e) {
+    const form = e.target;
+
+    if (!form.matches('form[action="/search"]')) return;
+
+    const input = form.querySelector('input[name="q"]');
+    if (!input) return;
+
+    let query = input.value || "";
+
+    const dataStr = localStorage.getItem("userQuizData");
+    if (!dataStr) return;
+
+    let data;
+    try {
+      data = JSON.parse(dataStr);
+    } catch {
+      return;
+    }
+
+    const personality = data?.personality;
+    if (!personality) return;
+
+    // 👇 IMPORTANT: do NOT modify visible input
+    const cleanQuery = query.split(/tag:/i)[0].trim();
+
+    // 👇 build hidden query
+    const finalQuery = `${cleanQuery} tag:${personality}`;
+
+    console.log("[Search Debug] Final query (hidden):", finalQuery);
+
+    // 👇 temporarily override WITHOUT showing it
+    input.value = finalQuery;
+
+    // 👇 immediately restore clean UI (prevents flicker)
+    requestAnimationFrame(() => {
+      input.value = cleanQuery;
+    });
+
+  },
+  true
+);
+}
+
+function observeAndRemovePredictiveGroups() {
+  const observer = new MutationObserver(() => {
+    const groups = document.querySelectorAll(".predictive-search__result-group");
+
+    groups.forEach(group => {
+      console.log("[Search Debug] Removing predictive group");
+      group.remove();
+    });
+  });
+
+  observer.observe(document.body, {
+    childList: true,
+    subtree: true
+  });
+}
+
+function observeAndRemoveProductCount() {
+  const observer = new MutationObserver(() => {
+    const el = document.getElementById("ProductCountDesktop");
+
+    if (el) {
+      console.log("[Observer] Removing ProductCountDesktop");
+      el.remove();
+
+      observer.disconnect(); // 👈 stop after removing once
+    }
+  });
+
+  observer.observe(document.body, {
+    childList: true,
+    subtree: true
+  }); 
+}
+
+function cleanInput(input) {
+  if (!input.value) return;
+
+  const original = input.value;
+
+  // Remove everything from "tag:" onward
+  const cleaned = original.split(/tag:/i)[0].trim();
+
+  if (original !== cleaned) {
+    console.log("[Search Clean] Before:", original);
+    console.log("[Search Clean] After:", cleaned);
+
+    input.value = cleaned;
+  }
+}
+
+function observeAndCleanSearchInput() {
+  const observer = new MutationObserver(() => {
+    const input = document.querySelector(
+      ".template-search__search input.search__input.field__input"
+    );
+
+    if (!input) return;
+
+    cleanInput(input);
+  });
+
+  observer.observe(document.body, {
+    childList: true,
+    subtree: true
+  });
+} 
 
 function getImageURLs() {
   
@@ -310,9 +423,14 @@ function observeVariants() {
   });
 }
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", ()   => {
   updateLabels(); 
-  observeVariants();         // Catch Shopify’s variant replacement
+  observeVariants();    
+  initSearchTagInjection();
+  observeAndRemovePredictiveGroups();
+  observeAndRemoveProductCount();
+  observeAndCleanSearchInput();
+
 });
 
 
