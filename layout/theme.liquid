@@ -7,7 +7,22 @@
     <meta name="trustpilot-one-time-domain-verification-id" content="2cd18cfb-fa98-4afc-a488-40317c41be42"/>
     <meta name="theme-color" content="">
     <link rel="canonical" href="{{ canonical_url }}">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    {%- if request.page_type == 'index' -%}
+      {%- assign _hero = sections['image_banner_KiVDJH'].settings.image -%}
+      {%- if _hero != blank -%}
+        <link
+          rel="preload"
+          as="image"
+          href="{{ _hero | image_url: width: 1500 }}"
+          imagesrcset="{{ _hero | image_url: width: 750 }} 750w, {{ _hero | image_url: width: 1500 }} 1500w, {{ _hero | image_url: width: 3000 }} 3000w"
+          imagesizes="100vw"
+          fetchpriority="high"
+        >
+      {%- endif -%}
+    {%- endif -%}
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" defer></script>
 
     {%- if settings.favicon != blank -%}
       <link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 32, height: 32 }}">
@@ -18,7 +33,12 @@
     {%- endunless -%}
 
   <title>
-    {{ page_title | split: ' – ' | first }} &ndash; {{ shop.name }}
+    {%- assign title_base = page_title | split: ' – ' | first -%}
+    {%- if title_base == shop.name -%}
+      {{ shop.name }}
+    {%- else -%}
+      {{ title_base }} &ndash; {{ shop.name }}
+    {%- endif -%}
   </title>
 
     {% if page_description %}
@@ -33,6 +53,7 @@
     <script src="{{ 'details-disclosure.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'details-modal.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'search-form.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'personalization.js' | asset_url }}" defer="defer"></script>
 
     {%- if settings.animations_reveal_on_scroll -%}
       <script src="{{ 'animations.js' | asset_url }}" defer="defer"></script>
@@ -559,12 +580,6 @@
   </style>
 
   <!-- MODAL-X -->
-
-  <!-- PERSONALITY CHECKER -->
-
-  <script async src="{{ 'personalization.js' | asset_url }}"></script>
-
-  <!-- PERSONALITY CHECKER -->
 
   <body class="gradient{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}">
     <!-- Google Tag Manager (noscript) -->

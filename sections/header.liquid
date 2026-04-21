@@ -146,11 +146,12 @@
                   widths: widths,
                   height: logo_height,
                   width: settings.logo_width,
-                  alt: logo_alt,
+                  alt: '',
                   sizes: sizes,
                   preload: true
                 }}
               </div>
+              <span class="visually-hidden">{{ shop.name }}</span>
             {%- else -%}
               <span class="h2">{{ shop.name }}</span>
             {%- endif -%}
@@ -186,11 +187,12 @@
                   widths: widths,
                   height: logo_height,
                   width: settings.logo_width,
-                  alt: logo_alt,
+                  alt: '',
                   sizes: sizes,
                   preload: true
                 }}
               </div>
+              <span class="visually-hidden">{{ shop.name }}</span>
             {%- else -%}
               <span class="h2">{{ shop.name }}</span>
             {%- endif -%}

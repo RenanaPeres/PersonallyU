@@ -364,9 +364,10 @@ function getImageURLs() {
         const img = document.createElement("img");
         
         img.src = url;
-        img.about = designedProductsURLsToPersonality[url] ?? "noPersonality";
+        const imgPersonality = designedProductsURLsToPersonality[url] ?? "noPersonality";
+        img.about = imgPersonality;
         img.width = 118;
-        img.alt = "Design Image";
+        img.alt = imgPersonality !== "noPersonality" ? imgPersonality + " personality design" : "Product design";
         img.dataset.design = id;
         img.style.borderRadius = "25px";
         img.classList.add("label-image");
