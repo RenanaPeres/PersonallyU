@@ -1,7 +1,5 @@
-{%- comment -%}
-# Minimalist AI permissions for PersonallyU
-{%- endcomment -%}
-
+{%- layout none -%}
+# AI Bot Allowances
 User-agent: GPTBot
 Allow: /
 User-agent: ChatGPT-User
@@ -13,14 +11,13 @@ Allow: /
 User-agent: PerplexityBot
 Allow: /
 
+# Default Shopify Rules
 {% for group in robots.default_groups %}
   {{- group.user_agent -}}
-
   {% for rule in group.rules %}
     {{- rule -}}
   {% endfor %}
-
-  {%- if group.sitemap != blank -%}
+  {% if group.sitemap != blank %}
     {{ group.sitemap }}
-  {%- endif -%}
+  {% endif %}
 {% endfor %}
