@@ -1,7 +1,7 @@
 (function () {
   // ------------------ Constants ------------------
-  const CATALOG_BASE = "https://personallyu.com/collections/products/";
-  const QUIZ_URL = "https://huji.questionpro.eu/a/TakeSurvey?tt=P/VDme5CUhAD5ltxMh/wHg%3D%3D";
+  // const CATALOG_BASE = "https://personallyu.com/collections/products/";
+  // const QUIZ_URL = "https://huji.questionpro.eu/a/TakeSurvey?tt=P/VDme5CUhAD5ltxMh/wHg%3D%3D";
   const NUMBER_OF_VARIANTS = 9;
 
 
@@ -140,6 +140,32 @@ const designedProductsImageURLs = {
     OM : "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/OM_Badger.webp?v=1755864506",
     AMB: "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/amb_new_badger.png?v=1756968717"
   },
+  hedgehog : {
+        IN: "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/IN_5a75cd0c-6473-4a58-b938-8af21eb777c7.jpg?v=1777839844",
+        MS: "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/MS_eccdd0a1-a8e8-42df-9ca6-6062af529729.jpg?v=1777839845",
+        EX: "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/EX_f974c7d5-7124-4025-be76-03208374f08a.jpg?v=1777839844",
+        SY : "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/SY_4ed3b150-48fb-4ebe-9548-23c612e03441.jpg?v=1777839844",
+        CR : "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/CR_485d46a3-bd49-4831-823d-b9da41bc3402.jpg?v=1777839844",
+        AN : "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/AN_a351d136-39d3-4bec-80c5-58160ed61e61.jpg?v=1777839844",
+        SD : "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/SD_b98c8647-6f50-41e7-9e7f-9bd283474773.jpg?v=1777839844",
+        CL : "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/CL_cba2eea3-7ea3-4fda-8b8e-a70171414d9b.jpg?v=1777839844",
+        CM : "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/CM_d9cbb3ab-8b84-41fb-a95b-bf122b6946a5.jpg?v=1777839843",
+        OM : "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/OM_48802f92-0077-4cd5-99f9-09d0969c3533.jpg?v=1777839843",
+        AMB: "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/AMB_b68acd6f-196c-4212-87b2-05a7576fccc1.jpg?v=1777839844"
+    },
+    capybara : {
+        IN: "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/IN_1886255a-fe89-4529-927f-ea928b4a233b.jpg?v=1777840028",
+        MS: "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/MS_fa20a4fb-87d0-4a0b-8a05-57b35f423544.jpg?v=1777840028",
+        EX: "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/EX_683d1e37-4a93-4823-ae8c-24e7d8742962.jpg?v=1777840028",
+        SY : "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/SY_974f0ead-2b4c-4958-9f7e-441326728021.jpg?v=1777840028",
+        CR : "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/CR_c4f94e71-597a-4dfe-a610-c96531345dcb.jpg?v=1777840027",
+        AN : "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/AN_ecdc3c3e-a438-45d5-9c92-40231ffc096d.jpg?v=1777840029",
+        SD : "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/SD_e41a1013-03b3-4acd-9233-a1a6d5f9c661.jpg?v=1777840028",
+        CL : "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/CL_ea75b1e0-2e3b-496c-a57a-b059d1fa2efd.jpg?v=1777840028",
+        CM : "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/CM_8962ddd1-0fa6-4004-9b3d-4b4836a02cdb.jpg?v=1777840027",
+        OM : "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/OM_c965154a-d1a1-4683-94d2-ef8fef595af2.jpg?v=1777840027",
+        AMB: "https://cdn.shopify.com/s/files/1/0679/4585/7206/files/AMB_06e2e682-1ee4-4318-a22b-10f705e96226.jpg?v=1777840028"
+    },
 };
 
 // PERSONALITY FROM A PHOTO (OPPOSITE OF PREVIOUS MAP)
@@ -178,7 +204,7 @@ const designedProductsURLsToPersonality = {
     OM : "CM" // open_minded -> closed_minded
   };
   // LIST OF PERSONALITY DESIGNS TO SHOW FOR EACH PERSONALITY
-  const personalityToDesignImages = { // own personality, anti personality, mentaly stable
+  const personalityToDesignImages = { // own personality, anti personality, mentally stable
     IN:  ["IN", AntiPersonality["IN"], "AMB"],
     EX:  ["EX", AntiPersonality["EX"], "AMB"],
     MS:  ["MS", AntiPersonality["MS"], "AMB"],
@@ -330,18 +356,27 @@ function getImageURLs() {
   const designBearURLs = designKeys.map(
     key => designedProductsImageURLs["bear"][key] || null
   );
-    const designBadgerURLs = designKeys.map(
+  const designBadgerURLs = designKeys.map(
     key => designedProductsImageURLs["badger"][key] || null
   );
+  const designHedgehogURLs = designKeys.map(
+        key => designedProductsImageURLs["hedgehog"][key] || null
+  );
+  const designCapybaraURLs = designKeys.map(
+        key => designedProductsImageURLs["capybara"][key] || null
+    );
 
-  const designURLs = [...designArmadiloURLs, ...designBearURLs, ...designBadgerURLs];
-
-  return designURLs;
+  return [
+      ...designArmadiloURLs,
+      ...designBearURLs,
+      ...designBadgerURLs,
+      ...designHedgehogURLs,
+      ...designCapybaraURLs,
+  ];
 }
 
   function updateLabels() {
-    // console.log("🔄 Updating labels...");
-    const urls = getImageURLs(); 
+    const urls = getImageURLs();
     for (let i = 0; i < urls.length; i++) {
         if (!urls[i]) return;
     }  
@@ -350,8 +385,7 @@ function getImageURLs() {
       url
     }));
 
-    // console.log("🔄 Designs to update:", designs);
-  
+
     designs.forEach(({ for: id, url }) => {
       const label = document.querySelector(`label[for="${id}"]`);
       // console.log("🔄 Label found:", label);
@@ -435,13 +469,13 @@ document.addEventListener("DOMContentLoaded", ()   => {
 });
 
 
-  function getPersonalityType(chosedPersonality) {
+  function getPersonalityType(chosenPersonality) {
     const storedData = JSON.parse(localStorage.getItem("userQuizData")) || {};
     const personality = storedData.personality || "NO";
   
-    if (chosedPersonality === "noPersonality") return chosedPersonality;
-    if (chosedPersonality === personality) return "ownPersonality";
-    if (chosedPersonality === AntiPersonality[personality]) return "antiPersonality";
+    if (chosenPersonality === "noPersonality") return chosenPersonality;
+    if (chosenPersonality === personality) return "ownPersonality";
+    if (chosenPersonality === AntiPersonality[personality]) return "antiPersonality";
   
     return "neutral";
   }
@@ -573,14 +607,14 @@ if (window.location.href.includes("personallyu.com/collections/products")) {
   
     // If URL parameters are missing but stored data exists, use the stored data
     let responseId = urlResponseId || storedData.responseId;
-    let personality = urlPersonality || storedData.personality;
+    // let personality = urlPersonality || storedData.personality;
   
     // console.log("Response ID:", responseId);
     // console.log("Personality:", personality);
   
     // Define catalog URLs
     const catalogUrl = "https://personallyu.com/collections/products/";
-    const catalogUrl2 = "https://personallyu.com/collections/products";
+    // const catalogUrl2 = "https://personallyu.com/collections/products";
   
     // Redirect if the user has already completed the quiz
     const currentURL = window.location.href;
@@ -658,7 +692,7 @@ if (window.location.href.includes("personallyu.com/collections/products")) {
   })();
 
 
-  function handleRedirectClick(event) {
+  function handleRedirectClick() {
     // event.preventDefault();
     // event.stopImmediatePropagation(); // 🛑 Prevent Shopify’s handler too!
   const dataStr = localStorage.getItem("userQuizData");
@@ -729,7 +763,7 @@ document.addEventListener("DOMContentLoaded", function () {
     bannerBox.style.position = "absolute";
     bannerBox.style.top = "55%";
     // bannerBox.style.padding = "40px"; // Add internal spacing
-    const parent = bannerBox.parentElement;
+    // const parent = bannerBox.parentElement;
     // parent.style.display = "flex";
     bannerBox.style.transform = "translate(0%, -60%)";
     bannerBox.style.zIndex = "10"; // ensure it appears above the image
