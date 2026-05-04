@@ -400,6 +400,7 @@ function getImageURLs() {
         img.src = url;
         const imgPersonality = designedProductsURLsToPersonality[url] ?? "noPersonality";
         img.about = imgPersonality;
+        img.height = 118
         img.width = 118;
         img.alt = imgPersonality !== "noPersonality" ? imgPersonality + " personality design" : "Product design";
         img.dataset.design = id;
