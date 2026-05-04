@@ -394,6 +394,7 @@ function getImageURLs() {
         label.childNodes[0].textContent = '';
         label.style.padding = "3px";
         label.style.borderRadius = "25px";
+        label.color = "1B1818BF"
 
         const img = document.createElement("img");
         
