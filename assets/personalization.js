@@ -388,15 +388,14 @@ function getImageURLs() {
 
     designs.forEach(({ for: id, url }) => {
       const label = document.querySelector(`label[for="${id}"]`);
-        console.log(label);
       label.style.color = "#1B1818";
       if (label && !label.querySelector(`img[data-design="${id}"]`)) {
           label.style.color = "#1B1818";
           label.style.backgroundColor = "#F1EEE6";
           label.style.border = "1px solid rgba(27, 24, 24, 0.55)";
-        label.childNodes[0].textContent = '';
-        label.style.padding = "3px";
-        label.style.borderRadius = "25px";
+          label.childNodes[0].textContent = '';
+          label.style.padding = "3px";
+          label.style.borderRadius = "25px";
 
         const img = document.createElement("img");
         
@@ -514,7 +513,7 @@ $(document).on("click", "a", function (event) {
   try {
 
     const dataStr = localStorage.getItem("userQuizData");
-    console.log("📦 userQuizData from localStorage:", dataStr);
+    // console.log("📦 userQuizData from localStorage:", dataStr);
     const data = JSON.parse(dataStr);
     console.log("✅ Parsed data:", data);
 
