@@ -377,7 +377,6 @@ function getImageURLs() {
 
   function updateLabels() {
     const urls = getImageURLs();
-    console.log(urls);
     for (let i = 0; i < urls.length; i++) {
         if (!urls[i]) return;
     }  
@@ -390,12 +389,12 @@ function getImageURLs() {
     designs.forEach(({ for: id, url }) => {
       const label = document.querySelector(`label[for="${id}"]`);
       // console.log("🔄 Label found:", label);
+        label.color = "1B1818"
       if (label && !label.querySelector(`img[data-design="${id}"]`)) {
         console.log("🔄 Updating label with image:", url);
         label.childNodes[0].textContent = '';
         label.style.padding = "3px";
         label.style.borderRadius = "25px";
-        label.color = "1B1818"
 
         const img = document.createElement("img");
         
