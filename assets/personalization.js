@@ -377,6 +377,7 @@ function getImageURLs() {
 
   function updateLabels() {
     const urls = getImageURLs();
+    console.log(urls);
     for (let i = 0; i < urls.length; i++) {
         if (!urls[i]) return;
     }  
@@ -394,7 +395,7 @@ function getImageURLs() {
         label.childNodes[0].textContent = '';
         label.style.padding = "3px";
         label.style.borderRadius = "25px";
-        label.style.color = "1B1818"
+        label.color = "1B1818"
 
         const img = document.createElement("img");
         
