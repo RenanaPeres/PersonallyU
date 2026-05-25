@@ -391,6 +391,9 @@ function getImageURLs() {
         console.log(label);
       label.style.color = "#1B1818";
       if (label && !label.querySelector(`img[data-design="${id}"]`)) {
+          label.style.color = "#1B1818";
+          label.style.backgroundColor = "#F1EEE6";
+          label.style.border = "1px solid rgba(27, 24, 24, 0.55)";
         label.childNodes[0].textContent = '';
         label.style.padding = "3px";
         label.style.borderRadius = "25px";
