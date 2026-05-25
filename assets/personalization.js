@@ -388,10 +388,8 @@ function getImageURLs() {
 
     designs.forEach(({ for: id, url }) => {
       const label = document.querySelector(`label[for="${id}"]`);
-        console.log(id);
         console.log(label);
       label.style.color = "#1B1818";
-      console.log(label.style.color);
       if (label && !label.querySelector(`img[data-design="${id}"]`)) {
         label.childNodes[0].textContent = '';
         label.style.padding = "3px";
