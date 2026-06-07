@@ -390,7 +390,7 @@ function getImageURLs() {
 
     designs.forEach(({ for: id, url }) => {
       const label = document.querySelector(`label[for="${id}"]`);
-      label.style.color = "#1B1818";
+      // label.style.color = "#1B1818";
       if (label && !label.querySelector(`img[data-design="${id}"]`)) {
           label.style.color = "#1B1818";
           label.style.backgroundColor = "#F1EEE6";
