@@ -5,6 +5,8 @@
   const NUMBER_OF_VARIANTS = 9;
 
 
+
+
   // URLs TO PERSONALITY PAGE 
   const personalityUrls = {
     hat: {
@@ -596,6 +598,9 @@ if (window.location.href.includes("personallyu.com/collections/products")) {
     const urlParams = new URLSearchParams(window.location.search);
     const urlResponseId = urlParams.get("response_id");
     const urlPersonality = urlParams.get("set") || "AMB";
+      console.log("urlResponseId:", urlResponseId);
+      console.log("urlPersonality:", urlPersonality);
+      console.log("about to save userQuizData");
     window.personalityCartCounter = window.personalityCartCounter || {};
   
     // Retrieve stored data from localStorage, if any
