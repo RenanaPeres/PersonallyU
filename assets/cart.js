@@ -53,6 +53,12 @@ function buildAndStoreProductVariantMap(parsedCartState) {
     "design 8": { animal: "badger", personality: "ownPersonality" },
     "design 9": { animal: "badger", personality: "antiPersonality" },
     "design 10": { animal: "badger", personality: "Neutral" },
+      "design 11": { animal: "hedgehog", personality: "ownPersonality" },
+      "design 12": { animal: "hedgehog", personality: "antiPersonality" },
+      "design 13": { animal: "hedgehog", personality: "Neutral" },
+      "design 14": { animal: "capybara", personality: "ownPersonality" },
+      "design 15": { animal: "capybara", personality: "antiPersonality" },
+      "design 16": { animal: "capybara", personality: "Neutral" },
   };
 
   parsedCartState.items.forEach((item) => {
